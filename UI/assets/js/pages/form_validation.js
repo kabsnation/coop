@@ -113,7 +113,7 @@ $(function() {
         },
         validClass: "validation-valid-label",
         success: function(label) {
-            label.addClass("validation-valid-label").text("")
+            label.addClass("validation-valid-label")
         },
         rules: {
             password: {
@@ -176,7 +176,7 @@ $(function() {
         },
         messages: {
             custom: {
-                required: "",
+                required: "This is a custom error message",
             },
             agree: "Please accept our policy"
         }
