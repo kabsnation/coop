@@ -4,7 +4,7 @@ class Connect
 	private $db_host = 'localhost';
 	private $db_user ='root';
 	private $db_pass='1234';
-	private $db_database ='creotec';
+	private $db_database ='coop';
 	private $conn = '';
 
 	public function __construct(){
@@ -21,14 +21,6 @@ class Connect
 		return $result;
 	}
 	public function insertWithLastId($query){
-		if(mysqli_query($this->conn, $query)){
-			return mysqli_insert_id($this->conn);
-		}
-		else{
-			return "";
-		}
-	}
-	public function insertWithLastId1($query){
 		$result = mysqli_query($this->conn, $query);
 		return $result;
 	}
