@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head >
     <title>CCDO - Add Department Account</title>
 
     <link rel="icon" href="assets/images/CCDO Logo.png" />
@@ -43,7 +43,7 @@
     <!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1" runat="server" class="form-validate-jquery">
+    <form id="form1"  class="form-validate-jquery">
         <div>
             <!-- Main navbar -->
             <div class="navbar navbar-inverse">
@@ -75,7 +75,7 @@
                                 <a class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="icon-cog"></i>
                                     <span>
-                                        <label runat="server" ID="lblName" Text="Username"></label></span>
+                                        <label  ID="lblName" Text="Username"></label></span>
                                     <i class="caret"></i>
                                 </a>
 
@@ -111,7 +111,7 @@
                                         </div>
                                         <div class="media-body">
                                             <span class="media-heading text-semibold">
-                                                <label runat="server" ID="txtUser" Text="Username"></label></span>
+                                                <label  ID="txtUser" Text="Username"></label></span>
                                             <div class="text-size-mini text-muted">
                                                 <i class="icon-pin text-size-small"></i>&nbsp;Santa Rosa, Laguna
 								
