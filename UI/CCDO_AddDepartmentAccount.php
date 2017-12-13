@@ -139,8 +139,8 @@
                                         <li class="active">
                                             <a href="#"><i class="icon-profile"></i><span>Manage Accounts</span></a>
                                             <ul>
-                                                <li><a href="">Add Cooperative Account</a></li>
-                                                <li  class="active"><a href="Admin1_AddDepartmentAccount.php">Add Department Account</a></li>
+                                                <li><a href="CCDO_AddCooperativeAccount.php">Add Cooperative Account</a></li>
+                                                <li  class="active"><a href="CCDO_AddDepartmentAccount.php">Add Department Account</a></li>
                                                 <li><a href="">View Accounts</a></li>
                                             </ul>
                                         </li>
