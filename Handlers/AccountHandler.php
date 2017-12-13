@@ -12,6 +12,30 @@ class AccountHandler{
 
 		$query="";
 	}
+	public function getTypeOfCooperative(){
+		$con= new Connect();
+		$query="SELECT * FROM Type_of_Cooperative";
+		$result=$con->select($query);
+		return $result;
+	}
+	public function getMembership(){
+		$con= new Connect();
+		$query="SELECT * FROM CommonBond_of_Membership";
+		$result=$con->select($query);
+		return $result;
+	}
+	public function getAreaOfOperation(){
+		$con= new Connect();
+		$query="SELECT * FROM area_of_operation";
+		$result=$con->select($query);
+		return $result;
+	}
+	public function getMembershipComposition(){
+		$con= new Connect();
+		$query="SELECT * FROM Membership_composition";
+		$result=$con->select($query);
+		return $result;
+	}
 
 }
 ?>

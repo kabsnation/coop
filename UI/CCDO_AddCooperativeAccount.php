@@ -1,3 +1,13 @@
+<?php
+require("../Handlers/AccountHandler.php");
+$handler = new AccountHandler();
+$typeCooperative = $handler->getTypeOfCooperative();
+$membership = $handler->getMembership();
+$area = $handler->getAreaOfOperation();
+$composition = $handler->getMembershipComposition();
+?>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -308,19 +318,9 @@
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Type of Cooperative:</strong></label>
                                                                 <select  ID="ddlTypeOfCooperative" required="required" class="form-control">
-                                                                    <option Value="" Text=""></option>
-                                                                    <option Value="1" Text="Bank"></option>
-                                                                    <option Value="2" Text="Credit"></option>
-                                                                    <option Value="3" Text="Consumers"></option>
-                                                                    <option Value="4" Text="Federation"></option>
-                                                                    <option Value="5" Text="Laboratory"></option>
-                                                                    <option Value="6" Text="Marketing"></option>
-                                                                    <option Value="7" Text="Multi-Purpose (Agri)"></option>
-                                                                    <option Value="8" Text="Multi-Purpose (Non-Agri)"></option>
-                                                                    <option Value="9" Text="Producers"></option>
-                                                                    <option Value="10" Text="Service"></option>
-                                                                    <option Value="11" Text="Union"></option>
-                                                                    <option Value="12" Text="Others"></option>
+                                                                   <?php foreach($typeCooperative as $type){?>
+                                                                   <option value="<?php echo $type['idType'];?>"><?php echo $type['Cooperative_Type'];?></option>
+                                                                   <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -329,11 +329,9 @@
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Common Bond of Membership:</strong></label>
                                                                 <select  ID="ddlCommonBondOfMembership" required="required" class="form-control">
-                                                                    <option Value="" Text=""></option>
-                                                                    <option Value="1" Text="Associational"></option>
-                                                                    <option Value="2" Text="Institutional"></option>
-                                                                    <option Value="3" Text="Occupational"></option>
-                                                                    <option Value="4" Text="Residential"></option>
+                                                                    <?php foreach($membership as $member){?>
+                                                                   <option value="<?php echo $member['idCommonBond_of_Membership'];?>"><?php echo $member['Membership'];?></option>
+                                                                   <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -352,9 +350,9 @@
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Area of Operation:</strong></label>
                                                                 <select  ID="ddlAreaOfOperation" required="required" class="form-control">
-                                                                    <option Value="" Text=""></option>
-                                                                    <option Value="1" Text="Barangay"></option>
-                                                                    <option Value="2" Text="City"></option>
+                                                                	<?php foreach($area as $operation){?>
+                                                                   <option value="<?php echo $operation['idarea_of_operation'];?>"><?php echo $operation['area'];?></option>
+                                                                   <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -696,17 +694,9 @@
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Membership Composition:</strong></label>
                                                                 <select  ID="ddlMembershipComposition" required="required" class="form-control">
-                                                                    <option Value="" Text=""></option>
-                                                                    <option Value="1" Text="Drivers/ Operators"></option>
-                                                                    <option Value="2" Text="Farmers"></option>
-                                                                    <option Value="3" Text="Fisherfolks"></option>
-                                                                    <option Value="4" Text="Government Employees"></option>
-                                                                    <option Value="5" Text="Indigenous Community"></option>
-                                                                    <option Value="6" Text="Persons with Disability"></option>
-                                                                    <option Value="7" Text="Private Employees"></option>
-                                                                    <option Value="8" Text="Women"></option>
-                                                                    <option Value="9" Text="Youth"></option>
-                                                                    <option Value="10" Text="Others (Specify)"></option>
+                                                                    <?php foreach($composition as $comp){?>
+                                                                    <option value="<?php echo $comp['idMembership_composition'];?>"><?php echo $comp['Composition'];?></option>
+                                                                    <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>
