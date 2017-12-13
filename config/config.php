@@ -20,9 +20,13 @@ class Connect
 		$result = mysqli_query($this->conn, $query);
 		return $result;
 	}
-	public function insertWithLastId($query){
-		$result = mysqli_query($this->conn, $query);
-		return $result;
+	public function insertReturnLastId($query){
+		if(mysqli_query($this->conn, $query)){
+			return mysqli_insert_id($this->conn);
+		}
+		else{
+			return "";
+		}
 	}
 
 	public function select($query){
