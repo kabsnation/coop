@@ -226,14 +226,14 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label><span class="text-danger">* </span><strong>Phone Number:</strong></label>
-                                                                <input ID="txtPhone"  required="required" class="form-control"></input>
+                                                                <input ID="txtPhone" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input  ID="txtEmail" required="required" class="form-control" TextMode="Email"></input>
+                                                                <input  ID="txtEmail" required="required" class="form-control" type="email"></input>
                                                             </div>
                                                         </div>
 
@@ -268,14 +268,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Telephone/ Fax Number:</strong></label>
-                                                                <input  ID="txtTelephone" TextMode="Phone" required="required" class="form-control"></input>
+                                                                <input  ID="txtTelephone" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input  ID="txtEmail1" TextMode="Email" class="form-control" required="required"></input>
+                                                                <input  ID="txtEmail1" type="email" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -284,7 +284,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>CDA Registration Number:</strong></label>
-                                                                <input  ID="txtCDA" required="required" class="form-control" TextMode="Number"></input>
+                                                                <input  ID="txtCDA" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
 
@@ -298,7 +298,7 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>CIN:</strong></label>
-                                                                <input  ID="txtCIN" class="form-control" required="required" TextMode="Number"></input>
+                                                                <input  ID="txtCIN" class="form-control" required="required" type="number"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -370,14 +370,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Board of Directors:</strong></label>
-                                                                <input  ID="txtNumberOfBoardOfDirectors" required="required" class="form-control" TextMode="Number"></input>
+                                                                <input  ID="txtNumberOfBoardOfDirectors" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Employees:</strong></label>
-                                                                <input  ID="txtNumberOfEmployees" required="required" class="form-control" TextMode="Number"></input>
+                                                                <input  ID="txtNumberOfEmployees" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -522,14 +522,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Total Cooperative Asset:</strong></label>
-                                                                <input  ID="txtTotalCooperativeAsset" TextMode="Number" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalCooperativeAsset" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Total Paid-up Capital:</strong></label>
-                                                                <input  ID="txtTotalPaidUpCapital" TextMode="Number" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalPaidUpCapital" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -752,7 +752,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                                <input  ID="txtPassword" TextMode="Password" required="required" class="form-control" MinLength="6" MaxLength="40"></input>
+                                                                <input  ID="txtPassword" type="password" required="required" class="form-control" MinLength="6" MaxLength="40"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -767,7 +767,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Re-enter Password:</strong></label>
-                                                                <input  ID="txtPassword1" TextMode="Password" required="required" class="form-control" MinLength="6" MaxLength="40" equalsTo="txtPassword"></input>
+                                                                <input  ID="txtPassword1" type="password" required="required" class="form-control" MinLength="6" MaxLength="40" equalsTo="txtPassword"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -814,4 +814,56 @@
         </div>
     </form>
 </body>
+
+        <script type="text/javascript">
+            jQuery(function ($) {
+                $("#txtPhone").mask("(+63) 999-999-9999");
+            });
+
+            jQuery(function ($) {
+                $("#txtDateOfRegistration").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            });
+
+            jQuery(function ($) {
+                $("#txtBeginning").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            });
+
+            jQuery(function ($) {
+                $("#txtBeginning1").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            });
+
+            jQuery(function ($) {
+                $("#txtToDate").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            });
+
+            jQuery(function ($) {
+                $("#txtToDate1").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            });
+
+            jQuery(function ($) {
+                $("#txtDateofCommitteeMeeting").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            })
+
+            jQuery(function ($) {
+                $("#txtDateofRegularGeneralAssemblyMeeting").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            })
+
+            jQuery(function ($) {
+                $("#txtDateofMonthlyBoardMeeting").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+            })
+
+            function Validate(txt) {
+                txt.value = txt.value.replace(/[^A-Za-zñÑ ]+/, '');
+            }
+            function ValidateAddress(txt) {
+                txt.value = txt.value.replace(/[^A-Za-z0-9,. ]+/, '');
+            }
+            function ValidateNumber(txt) {
+                txt.value = txt.value.replace(/[^0-9 ]+/, '');
+            }
+            function ValidatePassword(txt) {
+                txt.value = txt.value.replace(/[^A-Za-z0-9 ]+/, '');
+            }
+        </script>
+        
 </html>

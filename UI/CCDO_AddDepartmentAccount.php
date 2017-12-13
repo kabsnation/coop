@@ -293,7 +293,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input ID="txtEmail" TextMode="Email" class="form-control" required="required"></input>
+                                                                <input ID="txtEmail" type="email" class="form-control" required="required"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-mention text-muted"></i>
                                                                 </div>
@@ -338,7 +338,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                                <input ID="txtPassword" class="form-control" placeholder="Password" TextMode="Password" required="required" MinLength="6"></input>
+                                                                <input ID="txtPassword" class="form-control" placeholder="Password" type="password" required="required" MinLength="6"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-lock text-muted"></i>
                                                                 </div>
@@ -348,7 +348,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Re-enter Password:</strong></label>
-                                                                <input ID="txtRepeatPassword" class="form-control" placeholder="Repeat Password" TextMode="Password" MinLength="6" required="required" equalTo="#txtPassword"></input>
+                                                                <input ID="txtRepeatPassword" class="form-control" placeholder="Repeat Password" type="password" MinLength="6" required="required" equalTo="#txtPassword"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class="icon-lock text-muted"></i>
                                                                 </div>
