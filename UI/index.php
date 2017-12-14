@@ -50,9 +50,11 @@
                             <div class="text-center">
                                 <div class="icon">
                                     <img class="image" src="../assets/images/CCDO Logo.png" style="height: 100px" /></div>
-                                <h5 class="content-group">Login to your account</h5>
-                                <div class="content-divider text-muted"><span><small class="display-block">Enter your credentials</small></span></div>
-                                <br />
+	                                <h5 class="content-group">Login to your account</h5>
+	                                <div class="content-divider text-muted">
+	                                	<span><small class="display-block">Enter your credentials</small></span>
+		                            </div>
+	                                <br />
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
