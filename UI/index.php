@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CCDO - Log in</title>
-    <link rel="icon" href="../assets/images/CCDO Logo.png" />
+    <link rel="icon" href="assets/images/CCDO Logo.png" />
 
     <!-- Global stylesheets -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css" />
@@ -49,12 +49,19 @@
                            
                             <div class="text-center">
                                 <div class="icon">
+<<<<<<< HEAD
                                     <img class="image" src="../assets/images/CCDO Logo.png" style="height: 100px" /></div>
 	                                <h5 class="content-group">Login to your account</h5>
 	                                <div class="content-divider text-muted">
 	                                	<span><small class="display-block">Enter your credentials</small></span>
 		                            </div>
 	                                <br />
+=======
+                                    <img class="image" src="assets/images/CCDO Logo.png" style="height: 100px" /></div>
+                                <h5 class="content-group">Login to your account</h5>
+                                <div class="content-divider text-muted"><span><small class="display-block">Enter your credentials</small></span></div>
+                                <br />
+>>>>>>> 7d3aa6313431fab57b89ca9aae869495000c970d
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
