@@ -53,7 +53,7 @@ $composition = $handler->getMembershipComposition();
     <!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1"  class="form-validate-jquery">
+    <form id="form1" method="POST" action="addCoopFunction.php"  class="form-validate-jquery">
         <div>
             <!-- Main navbar -->
             <div class="navbar navbar-inverse">
@@ -205,21 +205,21 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Last name:</strong></label>
-                                                                <input  ID="txtLastName" MaxLength="45" autofocus Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtLastName" name="txtLastName" MaxLength="45" autofocus Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>First name:</strong></label>
-                                                                <input  ID="txtFirstName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Juan" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtFirstName" name="txtFirstName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Juan" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Middle name:</strong></label>
-                                                                <input  ID="txtMiddleName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Dela Cruz" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtMiddleName" name="txtMiddleName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Dela Cruz" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -229,21 +229,21 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label><span class="text-danger">* </span><strong>Position:</strong></label>
-                                                                <input  ID="txtPosition" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtPosition" name="txtPosition" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label><span class="text-danger">* </span><strong>Phone Number:</strong></label>
-                                                                <input ID="txtPhone" type="number" required="required" class="form-control"></input>
+                                                                <input ID="txtPhone" type="phone" name="txtPhone" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input  ID="txtEmail" required="required" class="form-control" type="email"></input>
+                                                                <input  ID="txtEmail" name="txtEmail" required="required" class="form-control" type="email"></input>
                                                             </div>
                                                         </div>
 
@@ -260,7 +260,7 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Business/ Cooperative Name:</strong></label>
-                                                                <input  ID="txtCoopName" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtCoopName" name="txtCoopName" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)" onkeypress="changeCoopLbl(this.value)"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -269,7 +269,7 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Address:</strong></label>
-                                                                <input  ID="txtAddress" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtAddress" name="txtAddress" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -278,14 +278,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Telephone/ Fax Number:</strong></label>
-                                                                <input  ID="txtTelephone" type="number" required="required" class="form-control"></input>
+                                                                <input  ID="txtTelephone" name="txtTelephone" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input  ID="txtEmail1" type="email" class="form-control" required="required"></input>
+                                                                <input  ID="txtEmail1" name="txtEmail1" type="email" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -294,21 +294,21 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>CDA Registration Number:</strong></label>
-                                                                <input  ID="txtCDA" required="required" class="form-control" type="number"></input>
+                                                                <input  ID="txtCDA" name="txtCDA" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Date of Registration:</strong></label>
-                                                                <input  ID="txtDateOfRegistration" class="form-control" required="required" placeholder="mm/dd/yyyy"></input>
+                                                                <input  ID="txtDateOfRegistration" name="txtDateOfRegistration" class="form-control" required="required" placeholder="mm/dd/yyyy"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>CIN:</strong></label>
-                                                                <input  ID="txtCIN" class="form-control" required="required" type="number"></input>
+                                                                <input  ID="txtCIN" name="txtCIN" class="form-control" required="required" type="number"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -317,7 +317,7 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Type of Cooperative:</strong></label>
-                                                                <select  ID="ddlTypeOfCooperative" required="required" class="form-control">
+                                                                <select  ID="ddlTypeOfCooperative" name="ddlTypeOfCooperative" required="required" class="form-control">
                                                                    <?php foreach($typeCooperative as $type){?>
                                                                    <option value="<?php echo $type['idType'];?>"><?php echo $type['Cooperative_Type'];?></option>
                                                                    <?php }?>
@@ -328,7 +328,8 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Common Bond of Membership:</strong></label>
-                                                                <select  ID="ddlCommonBondOfMembership" required="required" class="form-control">
+                                                                <select  ID="ddlCommonBondOfMembership" 
+                                                                name="ddlCommonBondOfMembership" required="required" class="form-control">
                                                                     <?php foreach($membership as $member){?>
                                                                    <option value="<?php echo $member['idCommonBond_of_Membership'];?>"><?php echo $member['Membership'];?></option>
                                                                    <?php }?>
@@ -339,7 +340,7 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Affiliation:</strong></label>
-                                                                <input  ID="txtAffiliation" class="form-control" required="required" onkeyup="Validate(this)"></input>
+                                                                <input  ID="txtAffiliation" name="txtAffiliation" class="form-control" required="required" onkeyup="Validate(this)"></input>
                                                             </div>
                                                         </div>
 
@@ -349,7 +350,7 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Area of Operation:</strong></label>
-                                                                <select  ID="ddlAreaOfOperation" required="required" class="form-control">
+                                                                <select  ID="ddlAreaOfOperation" name="ddlAreaOfOperation" required="required" class="form-control">
                                                                 	<?php foreach($area as $operation){?>
                                                                    <option value="<?php echo $operation['idarea_of_operation'];?>"><?php echo $operation['area'];?></option>
                                                                    <?php }?>
@@ -368,14 +369,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Board of Directors:</strong></label>
-                                                                <input  ID="txtNumberOfBoardOfDirectors" required="required" class="form-control" type="number"></input>
+                                                                <input  ID="txtNumberOfBoardOfDirectors" 
+                                                                name="txtNumberOfBoardOfDirectors" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Employees:</strong></label>
-                                                                <input  ID="txtNumberOfEmployees" required="required" class="form-control" type="number"></input>
+                                                                <input  ID="txtNumberOfEmployees" name="txtNumberOfEmployees" required="required" class="form-control" type="number"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -384,14 +386,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>BOD Chairman:</strong></label>
-                                                                <input  ID="txtBODChairman" required="required" class="form-control"></input>
+                                                                <input  ID="txtBODChairman" name="txtBODChairman" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Manager:</strong></label>
-                                                                <input  ID="txtManager" required="required" class="form-control"></input>
+                                                                <input  ID="txtManager" name="txtManager" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -400,14 +402,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Educ.Com/ BOD Vice Chair:</strong></label>
-                                                                <input  ID="txtBODViceChair" required="required" class="form-control"></input>
+                                                                <input  ID="txtBODViceChair" name="txtBODViceChair" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Secretary:</strong></label>
-                                                                <input  ID="txtSecretary" required="required" class="form-control"></input>
+                                                                <input  ID="txtSecretary" name="txtSecretary" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -416,14 +418,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Audit Committee Chairman:</strong></label>
-                                                                <input  ID="txtAuditCommitteeChair" required="required" class="form-control"></input>
+                                                                <input  ID="txtAuditCommitteeChair" 
+                                                                name="txtAuditCommitteeChair" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Treasurer:</strong></label>
-                                                                <input  ID="txtTreasurer" required="required" class="form-control"></input>
+                                                                <input  ID="txtTreasurer" name="txtTreasurer" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -432,14 +435,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Election Committee Chairman:</strong></label>
-                                                                <input  ID="txtElectionCommitteeChairman" required="required" class="form-control"></input>
+                                                                <input  ID="txtElectionCommitteeChairman" name="txtElectionCommitteeChairman" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Credit Committee Chairman:</strong></label>
-                                                                <input  ID="txtCreditCommitteeChairman" required="required" class="form-control"></input>
+                                                                <input  ID="txtCreditCommitteeChairman" 
+                                                                name="txtCreditCommitteeChairman" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -448,14 +452,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Med. & Concilliation:</strong></label>
-                                                                <input  ID="txtMedAndConcilliation" required="required" class="form-control"></input>
+                                                                <input  ID="txtMedAndConcilliation" 
+                                                                name="txtMedAndConcilliation" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Other Committees:</strong></label>
-                                                                <input  ID="txtOtherCommittees" required="required" class="form-control"></input>
+                                                                <input  ID="txtOtherCommittees" name="txtOtherCommittees" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -464,21 +469,24 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Date of Regular General Assembly Meeting:</strong></label>
-                                                                <input  ID="txtDateofRegularGeneralAssemblyMeeting" required="required" class="form-control"></input>
+                                                                <input  ID="txtDateofRegularGeneralAssemblyMeeting" 
+                                                                name="txtDateofRegularGeneralAssemblyMeeting" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Date of Monthly Board Meeting:</strong></label>
-                                                                <input  ID="txtDateofMonthlyBoardMeeting" required="required" class="form-control"></input>
+                                                                <input  ID="txtDateofMonthlyBoardMeeting"
+                                                                 name="txtDateofMonthlyBoardMeeting" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Date of Committee Meeting:</strong></label>
-                                                                <input  ID="txtDateofCommitteeMeeting" required="required" class="form-control"></input>
+                                                                <input  ID="txtDateofCommitteeMeeting" 
+                                                                name="txtDateofCommitteeMeeting" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -494,14 +502,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Business Enagaged In:</strong></label>
-                                                                <input  ID="txtBusinessEnagagedIn" required="required" class="form-control"></input>
+                                                                <input  ID="txtBusinessEnagagedIn" 
+                                                                name="txtBusinessEnagagedIn" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Other Business:</strong></label>
-                                                                <input  ID="txtOtherBusiness" class="form-control"></input>
+                                                                <input  ID="txtOtherBusiness" name="txtOtherBusiness" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -511,7 +520,8 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Services/Benefits Offered to Members:</strong></label>
-                                                                <input  ID="txtServicesBenefitsOfferedtoMembers" required="required" class="form-control"></input>
+                                                                <input  ID="txtServicesBenefitsOfferedtoMembers" 
+                                                                name="txtServicesBenefitsOfferedtoMembers" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -520,14 +530,16 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Total Cooperative Asset:</strong></label>
-                                                                <input  ID="txtTotalCooperativeAsset" type="number" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalCooperativeAsset" 
+                                                                name="txtTotalCooperativeAsset" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Total Paid-up Capital:</strong></label>
-                                                                <input  ID="txtTotalPaidUpCapital" type="number" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalPaidUpCapital" 
+                                                                name="txtTotalPaidUpCapital" type="number" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -536,14 +548,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Beginning: </strong></label>
-                                                                <input  ID="txtBeginning" required="required" class="form-control"></input>
+                                                                <input  ID="txtBeginning" name="txtBeginning" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Beginning:</strong></label>
-                                                                <input  ID="txtBeginning1" required="required" class="form-control"></input>
+                                                                <input  ID="txtBeginning1" name="txtBeginning1" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -552,14 +564,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>To Date: </strong></label>
-                                                                <input  ID="txtToDate" required="required" class="form-control"></input>
+                                                                <input  ID="txtToDate" name="txtToDate" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>To Date:</strong></label>
-                                                                <input  ID="txtToDate1" required="required" class="form-control"></input>
+                                                                <input  ID="txtToDate1" name="txtToDate1" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -568,14 +580,16 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><strong>Assisting Financial Institution, if any:</strong></label>
-                                                                <input  ID="txtAssistingFinancialInstitution" class="form-control"></input>
+                                                                <input  ID="txtAssistingFinancialInstitution" 
+                                                                name="txtAssistingFinancialInstitution" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><strong>Total Volume of Sales based in Latest Financial Statement (with Members/Non-Members):</strong></label>
-                                                                <input  ID="txtTotalVolumeOfSales" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalVolumeOfSales" 
+                                                                name="txtTotalVolumeOfSales" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -591,14 +605,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Updated BIR Registration Number:</strong></label>
-                                                                <input  ID="txtUpdatedBIRNumber" required="required" class="form-control"></input>
+                                                                <input  ID="txtUpdatedBIRNumber" name="txtUpdatedBIRNumber" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Tax Identification Number (TIN):</strong></label>
-                                                                <input  ID="txtTIN" required="required" class="form-control"></input>
+                                                                <input  ID="txtTIN" name="txtTIN" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -609,14 +623,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Business Permit Number:</strong></label>
-                                                                <input  ID="txtBusinessPermitNumber" required="required" class="form-control"></input>
+                                                                <input  ID="txtBusinessPermitNumber" 
+                                                                name="txtBusinessPermitNumber" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>COC Number (CDA):</strong></label>
-                                                                <input  ID="txtCOCNumber" required="required" class="form-control"></input>
+                                                                <input  ID="txtCOCNumber" name="txtCOCNumber" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -627,14 +642,15 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Certificate of Tax Exemption Number:</strong></label>
-                                                                <input  ID="txtCertificateOfTaxExemptionNumber" required="required" class="form-control"></input>
+                                                                <input  ID="txtCertificateOfTaxExemptionNumber" 
+                                                                name="txtCertificateOfTaxExemptionNumber" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Date of Issue (COC):</strong></label>
-                                                                <input  ID="txtDateOfIssueCOC" required="required" class="form-control"></input>
+                                                                <input  ID="txtDateOfIssueCOC" name="txtDateOfIssueCOC" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -650,21 +666,22 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Total Number of Membership:</strong></label>
-                                                                <input  ID="txtTotalNumberOfMembership" required="required" class="form-control"></input>
+                                                                <input  ID="txtTotalNumberOfMembership" 
+                                                                name="txtTotalNumberOfMembership" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Male:</strong></label>
-                                                                <input  ID="txtMale" required="required" class="form-control"></input>
+                                                                <input  ID="txtMale" name="txtMale" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Female:</strong></label>
-                                                                <input  ID="txtFemale" required="required" class="form-control"></input>
+                                                                <input  ID="txtFemale" name="txtFemale" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -675,14 +692,16 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Regular Members:</strong></label>
-                                                                <input  ID="txtNumberOfRegularMembers" required="required" class="form-control"></input>
+                                                                <input  ID="txtNumberOfRegularMembers" 
+                                                                name="txtNumberOfRegularMembers" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Number of Associate Members:</strong></label>
-                                                                <input  ID="txtNumberOfAssociateMembers" required="required" class="form-control"></input>
+                                                                <input  ID="txtNumberOfAssociateMembers" 
+                                                                name="txtNumberOfAssociateMembers" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
@@ -693,7 +712,8 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Membership Composition:</strong></label>
-                                                                <select  ID="ddlMembershipComposition" required="required" class="form-control">
+                                                                <select  ID="ddlMembershipComposition" 
+                                                                name="ddlMembershipComposition" required="required" class="form-control">
                                                                     <?php foreach($composition as $comp){?>
                                                                     <option value="<?php echo $comp['idMembership_composition'];?>"><?php echo $comp['Composition'];?></option>
                                                                     <?php }?>
@@ -707,21 +727,24 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Members:</strong></label>
-                                                                <input  ID="txtBasicTrainingsAttendedByMembers" required="required" class="form-control"></input>
+                                                                <input  ID="txtBasicTrainingsAttendedByMembers" 
+                                                                name="txtBasicTrainingsAttendedByMembers" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Officers:</strong></label>
-                                                                <input  ID="txtBasicTrainingsAttendedByOfficers" required="required" class="form-control"></input>
+                                                                <input  ID="txtBasicTrainingsAttendedByOfficers" 
+                                                                name="txtBasicTrainingsAttendedByOfficers" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Management Staff:</strong></label>
-                                                                <input  ID="txtBasicTrainingsAttendedByManagementStaff" required="required" class="form-control"></input>
+                                                                <input  ID="txtBasicTrainingsAttendedByManagementStaff" 
+                                                                name= "txtBasicTrainingsAttendedByManagementStaff" required="required" class="form-control"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -735,14 +758,14 @@ $composition = $handler->getMembershipComposition();
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Username:</strong></label>
-                                                                <input  ID="txtUsername" required="required" class="form-control" MaxLength="40"></input>
+                                                                <input  ID="txtUsername" name="txtUsername" required="required" class="form-control" MaxLength="40" ></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                                <input  ID="txtPassword" type="password" required="required" class="form-control" MinLength="6" MaxLength="40"></input>
+                                                                <input  ID="txtPassword" name="txtPassword" type="password" required="required" class="form-control" MinLength="6" MaxLength="40"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -770,7 +793,7 @@ $composition = $handler->getMembershipComposition();
                                                             <div class="text-center">
                                                                 <p style="font-size: small">
                                                                     In behalf of
-                                                                    <asp:Label  class="label-default bg-info" ID="lblCoopName" Text="Coop Name"></asp:Label>
+                                                                    <asp:Label  class="label-default bg-info" ID="lblCoopName" Text="Coop Name" name="lblCoopName" Style="text-transform: uppercase" ></asp:Label>
                                                                     Cooperative, I hereby certify that the above information are correct and true with the best of my knowledge and belief.
                                                                 </p>
                                                             </div>
@@ -853,6 +876,9 @@ $composition = $handler->getMembershipComposition();
             }
             function ValidatePassword(txt) {
                 txt.value = txt.value.replace(/[^A-Za-z0-9 ]+/, '');
+            }
+            function changeCoopLbl(txt){
+                $('#lblCoopName').html(txt);
             }
         </script>
         
