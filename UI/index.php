@@ -32,7 +32,7 @@
 </head>
 
 <body class="login-container" style="background-color:#009688;">
-    <form id="form1" method="POST">
+    <form id="form1" action="loginFunction.php" method="POST">
         <!-- Page container -->
         <div class="page-container">
 
@@ -49,19 +49,12 @@
                            
                             <div class="text-center">
                                 <div class="icon">
-<<<<<<< HEAD
-                                    <img class="image" src="../assets/images/CCDO Logo.png" style="height: 100px" /></div>
+                                    <img class="image" src="assets/images/CCDO Logo.png" style="height: 100px" /></div>
 	                                <h5 class="content-group">Login to your account</h5>
 	                                <div class="content-divider text-muted">
 	                                	<span><small class="display-block">Enter your credentials</small></span>
 		                            </div>
 	                                <br />
-=======
-                                    <img class="image" src="assets/images/CCDO Logo.png" style="height: 100px" /></div>
-                                <h5 class="content-group">Login to your account</h5>
-                                <div class="content-divider text-muted"><span><small class="display-block">Enter your credentials</small></span></div>
-                                <br />
->>>>>>> 7d3aa6313431fab57b89ca9aae869495000c970d
                             </div>
 
                             <div class="form-group has-feedback has-feedback-left">
@@ -82,7 +75,7 @@
                             <br />
 
                             <div class="form-group">
-                            	<input type="submit"  class="btn bg-teal btn-block" Text="Log In" onclick="submitLogin(username.value,password.value)">
+                            	<input type="submit"  class="btn bg-teal btn-block" Text="Log In">
                             </div>
 
                         </div>
@@ -110,7 +103,6 @@
 			url: "loginFunction.php",
 			data:'password='+password+",username="+username,
 			success:function(data){
-				alert(data);
 			}
 		});
 	}

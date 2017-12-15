@@ -31,7 +31,11 @@ class Connect
 
 	public function select($query){
 		$result = mysqli_query($this->conn, $query);
-		return $result;
+		if(mysqli_num_rows($result)>0){
+			return $result;
+		}
+		else
+			return null;
 	}
 }
 ?>

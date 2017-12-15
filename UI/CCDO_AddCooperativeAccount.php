@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['idAccountAdmin'])){
+    echo "<script>window.location='index.php';</script>";
+}
 require("../Handlers/AccountHandler.php");
 $handler = new AccountHandler();
 $typeCooperative = $handler->getTypeOfCooperative();
