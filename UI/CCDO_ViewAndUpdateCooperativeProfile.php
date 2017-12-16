@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head >
     <title>CCDO - Update Cooperative Profile</title>
 
-    <link rel="icon" href="../assets/images/CCDO Logo.png" />
+    <link rel="icon" href="/assets/images/CCDO Logo.png" />
 
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="assets/js/sweetalert-dev.js"></script>
@@ -43,51 +43,32 @@
     <!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1" runat="server" class="form-validate-jquery">
+    <form id="form1"  class="form-validate-jquery">
 
             <!-- Main navbar -->
-            <asp:ScriptManager runat="server"></asp:ScriptManager>
             <div class="navbar navbar-inverse">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.html">
                         <img src="assets/images/CCDO Logo.png" alt="" style="background-color:#ffffff" /></a>
-
-                    <ul class="nav navbar-nav visible-xs-block">
-                        <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-more""></i></a></li>
-                        <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
-                    </ul>
                 </div>
 
                 <div class="navbar-collapse collapse" id="navbar-mobile">
-                    <ul class="nav navbar-nav">
-                        <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-                    </ul>
 
                     <div class="navbar-right">
                         <ul class="nav navbar-nav">
-                            <li>
-                                <a class="sidebar-control sidebar-opposite-fix hidden-xs" data-popup="tooltip" title="View Notification" data-placement="bottom" data-container="body">
-                                    <asp:UpdatePanel runat="server">
-                                        <ContentTemplate>
-                                            <i class="icon-earth" style="padding-right: 10px;"></i>
-                                            <asp:Label runat="server" ID="lblNotificationCounter" CssClass="badge badge-primary position-left" Visible="false"></asp:Label>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                </a>
-                            </li>
 
                             <li class="dropdown dropdown-user">
                                 <a class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="icon-cog"></i>
                                     <span>
-                                        <asp:Label runat="server" ID="lblName" Text="Username"></asp:Label></span>
+                                        <label  ID="lblName" Text="Username"></label></span>
                                     <i class="caret"></i>
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a href="EditAccount.aspx"><i class="icon-cog5"></i>Account settings</a></li>
                                     <li>
-                                        <asp:LinkButton runat="server" ID="btnLogout"><span style="margin-right:5px;">Log Out</span><i class="icon-switch2"></i></asp:LinkButton></li>
+                                        <a  ID="btnLogout"><span style="margin-right:5px;">Log Out</span><i class="icon-switch2"></i></a></li>
 
                                 </ul>
                             </li>
@@ -104,61 +85,6 @@
             <!-- Page content -->
             <div class="page-content">
 
-                <!-- Main sidebar -->
-                <div class="sidebar sidebar-main">
-                    <div class="sidebar-content">
-
-                        <!-- User menu -->
-                        <div class="sidebar-user">
-                            <div class="category-content">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="assets/images/CCDO Logo.png" class="img-circle img-sm" alt="" style="background-color: White" />
-                                    </div>
-                                    <div class="media-body">
-                                        <span class="media-heading text-semibold">
-                                            <asp:Label runat="server" ID="txtUser" Text="Username"></asp:Label></span>
-                                        <div class="text-size-mini text-muted">
-                                            <i class="icon-pin text-size-small"></i>&nbsp;Santa Rosa, Laguna
-								
-                                       
-                                        </div>
-                                    </div>
-
-                                    <div class="media-right media-middle">
-                                        <ul class="icons-list">
-                                            <li>
-                                                <a href="#"><i class="icon-cog3"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /user menu -->
-
-                            <!-- Main Navigation -->
-                            <div class="sidebar-category sidebar-category-visible">
-                                <div class="category-content no-padding">
-                                    <ul class="navigation navigation-main navigation-accordion">
-
-                                        <li>
-                                            <a href="#"><i class="icon-profile"></i><span>Cooperative Accounts</span></a>
-                                            <ul>
-                                                <li><a href="CoopManager_AddCooperative.aspx">Add Cooperative Account</a></li>
-                                                <li><a href="CoopManager_ViewCooperativeAccountList.aspx">View Cooperative Accounts</a></li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /Main Navigation -->
-
-                    </div>
-                </div>
-                <!--/ Main sidebar -->
-
                 <!-- Main Content -->
                 <div class="content-wrapper">
                     <div class="content">
@@ -166,16 +92,14 @@
                         <div class="panel panel-flat">
                             <div class="panel-heading">
                                 <div class="panel-title">
-                                    <h3 class="panel-title">Update Cooperative Profile</h3>
-                                    <br />
-                                    <div class="text-center">
-                                        <asp:Label runat="server" ID="lblCooperativeName" Text="Cooperative Name" Font-Size="Medium" Font-Bold="true"></asp:Label>
-                                    </div>
-                                    <hr />
+                                    <h3 class="panel-title">Cooperative Profile</h3>
                                 </div>
 
                                 <div class="heading-elements">
-                                    <div class="heading-btn-group">
+                                    <div class="heading-btn">
+                                        <input type="button" ID="Button1" class="btn btn-info" value="Edit"></input>
+                                        <input type="button" ID="Button1" class="btn btn-default" value="Cancel"></input>
+                                        <input type="button"  ID="btnSubmit" class="btn btn-primary" value="Save" />
                                     </div>
                                 </div>
                             </div>               
@@ -186,48 +110,48 @@
                                     <div class="col-lg-12">
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Last name:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtLastName" MaxLength="45" autofocus Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></asp:TextBox>
+                                                    <input  ID="txtLastName" MaxLength="45" autofocus Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label><span class="text-danger">* </span><strong>Position:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtPosition" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></asp:TextBox>
+                                            <div class="col-md-4">
+                                                <div class="form-group has-feedback">
+                                                    <label><span class="text-danger">* </span><strong>First name:</strong></label>
+                                                    <input  ID="txtFirstName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                 </div>
                                             </div>
-                                            <%--
-                                                <div class="col-md-4">
-                                                    <div class="form-group has-feedback">
-                                                        <label><span class="text-danger">* </span><strong>First name:</strong></label>
-                                                        <asp:TextBox runat="server" ID="txtFirstName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Juan" onkeyup="Validate(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>
 
-                                                <div class="col-md-4">
-                                                    <div class="form-group has-feedback">
-                                                        <label><span class="text-danger">* </span><strong>Middle name:</strong></label>
-                                                        <asp:TextBox runat="server" ID="txtMiddleName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" placeholder="Dela Cruz" onkeyup="Validate(this)"></asp:TextBox>
-                                                    </div>
-                                                </div>--%>
+                                            <div class="col-md-4">
+                                                <div class="form-group has-feedback">
+                                                    <label><span class="text-danger">* </span><strong>Middle name:</strong></label>
+                                                    <input  ID="txtMiddleName" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="row">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label><span class="text-danger">* </span><strong>Position:</strong></label>
+                                                    <input  ID="txtPosition" MaxLength="45" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
                                                     <label><span class="text-danger">* </span><strong>Phone Number:</strong></label>
-                                                    <asp:TextBox ID="txtPhone" runat="server" required="required" CssClass="form-control"></asp:TextBox>
+                                                    <input ID="txtPhone"  required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtEmail" required="required" class="form-control" TextMode="Email"></asp:TextBox>
+                                                    <input  ID="txtEmail" required="required" class="form-control" type="Email"></input>
                                                 </div>
                                             </div>
 
@@ -244,7 +168,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Business/ Cooperative Name:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCoopName" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></asp:TextBox>
+                                                    <input  ID="txtCoopName" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -253,7 +177,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Address:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtAddress" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></asp:TextBox>
+                                                    <input  ID="txtAddress" MaxLength="100" Style="text-transform: uppercase" required="required" class="form-control" onkeyup="Validate(this)"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -262,14 +186,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Telephone/ Fax Number:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTelephone" TextMode="Phone" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTelephone" type="Phone" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtEmail1" TextMode="Email" class="form-control" required="required"></asp:TextBox>
+                                                    <input  ID="txtEmail1" type="Email" class="form-control" required="required"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -278,21 +202,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>CDA Registration Number:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCDA" required="required" class="form-control" TextMode="Number"></asp:TextBox>
+                                                    <input  ID="txtCDA" required="required" class="form-control" type="Number"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Date of Registration:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtDateOfRegistration" class="form-control" required="required" placeholder="mm/dd/yyyy"></asp:TextBox>
+                                                    <input  ID="txtDateOfRegistration" class="form-control" required="required" placeholder="mm/dd/yyyy"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>CIN:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCIN" class="form-control" required="required" TextMode="Number"></asp:TextBox>
+                                                    <input  ID="txtCIN" class="form-control" required="required" type="Number"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -301,41 +225,41 @@
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Type of Cooperative:</strong></label>
-                                                    <asp:DropDownList runat="server" ID="ddlTypeOfCooperative" required="required" CssClass="form-control">
-                                                        <asp:ListItem Value="" Text=""></asp:ListItem>
-                                                        <asp:ListItem Value="1" Text="Bank"></asp:ListItem>
-                                                        <asp:ListItem Value="2" Text="Credit"></asp:ListItem>
-                                                        <asp:ListItem Value="3" Text="Consumers"></asp:ListItem>
-                                                        <asp:ListItem Value="4" Text="Federation"></asp:ListItem>
-                                                        <asp:ListItem Value="5" Text="Laboratory"></asp:ListItem>
-                                                        <asp:ListItem Value="6" Text="Marketing"></asp:ListItem>
-                                                        <asp:ListItem Value="7" Text="Multi-Purpose (Agri)"></asp:ListItem>
-                                                        <asp:ListItem Value="8" Text="Multi-Purpose (Non-Agri)"></asp:ListItem>
-                                                        <asp:ListItem Value="9" Text="Producers"></asp:ListItem>
-                                                        <asp:ListItem Value="10" Text="Service"></asp:ListItem>
-                                                        <asp:ListItem Value="11" Text="Union"></asp:ListItem>
-                                                        <asp:ListItem Value="12" Text="Others"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <select  ID="ddlTypeOfCooperative" required="required" class="form-control">
+                                                        <option Value="" Text=""></option>
+                                                        <option Value="1" Text="Bank"></option>
+                                                        <option Value="2" Text="Credit"></option>
+                                                        <option Value="3" Text="Consumers"></option>
+                                                        <option Value="4" Text="Federation"></option>
+                                                        <option Value="5" Text="Laboratory"></option>
+                                                        <option Value="6" Text="Marketing"></option>
+                                                        <option Value="7" Text="Multi-Purpose (Agri)"></option>
+                                                        <option Value="8" Text="Multi-Purpose (Non-Agri)"></option>
+                                                        <option Value="9" Text="Producers"></option>
+                                                        <option Value="10" Text="Service"></option>
+                                                        <option Value="11" Text="Union"></option>
+                                                        <option Value="12" Text="Others"></option>
+                                                    </select>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Common Bond of Membership:</strong></label>
-                                                    <asp:DropDownList runat="server" ID="ddlCommonBondOfMembership" required="required" CssClass="form-control">
-                                                        <asp:ListItem Value="" Text=""></asp:ListItem>
-                                                        <asp:ListItem Value="1" Text="Associational"></asp:ListItem>
-                                                        <asp:ListItem Value="2" Text="Institutional"></asp:ListItem>
-                                                        <asp:ListItem Value="3" Text="Occupational"></asp:ListItem>
-                                                        <asp:ListItem Value="4" Text="Residential"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <select  ID="ddlCommonBondOfMembership" required="required" class="form-control">
+                                                        <option Value="" Text=""></option>
+                                                        <option Value="1" Text="Associational"></option>
+                                                        <option Value="2" Text="Institutional"></option>
+                                                        <option Value="3" Text="Occupational"></option>
+                                                        <option Value="4" Text="Residential"></option>
+                                                    </select>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Affiliation:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtAffiliation" CssClass="form-control" required="required" onkeyup="Validate(this)"></asp:TextBox>
+                                                    <input  ID="txtAffiliation" class="form-control" required="required" onkeyup="Validate(this)"></input>
                                                 </div>
                                             </div>
 
@@ -345,11 +269,11 @@
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Area of Operation:</strong></label>
-                                                    <asp:DropDownList runat="server" ID="ddlAreaOfOperation" required="required" CssClass="form-control">
-                                                        <asp:ListItem Value="" Text=""></asp:ListItem>
-                                                        <asp:ListItem Value="1" Text="Barangay"></asp:ListItem>
-                                                        <asp:ListItem Value="2" Text="City"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <select  ID="ddlAreaOfOperation" required="required" class="form-control">
+                                                        <option Value="" Text=""></option>
+                                                        <option Value="1" Text="Barangay"></option>
+                                                        <option Value="2" Text="City"></option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -364,14 +288,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Number of Board of Directors:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtNumberOfBoardOfDirectors" required="required" class="form-control" TextMode="Number"></asp:TextBox>
+                                                    <input  ID="txtNumberOfBoardOfDirectors" required="required" class="form-control" type="Number"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Number of Employees:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtNumberOfEmployees" required="required" class="form-control" TextMode="Number"></asp:TextBox>
+                                                    <input  ID="txtNumberOfEmployees" required="required" class="form-control" type="Number"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -380,14 +304,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>BOD Chairman:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBODChairman" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBODChairman" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Manager:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtManager" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtManager" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -396,14 +320,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Educ.Com/ BOD Vice Chair:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBODViceChair" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBODViceChair" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Secretary:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtSecretary" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtSecretary" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -412,14 +336,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Audit Committee Chairman:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtAuditCommitteeChair" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtAuditCommitteeChair" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Treasurer:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTreasurer" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTreasurer" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -428,14 +352,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Election Committee Chairman:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtElectionCommitteeChairman" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtElectionCommitteeChairman" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Credit Committee Chairman:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCreditCommitteeChairman" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtCreditCommitteeChairman" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -444,14 +368,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Med. & Concilliation:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtMedAndConcilliation" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtMedAndConcilliation" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Other Committees:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtOtherCommittees" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtOtherCommittees" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -460,21 +384,21 @@
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Date of Regular General Assembly Meeting:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtDateofRegularGeneralAssemblyMeeting" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtDateofRegularGeneralAssemblyMeeting" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Date of Monthly Board Meeting:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtDateofMonthlyBoardMeeting" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtDateofMonthlyBoardMeeting" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Date of Committee Meeting:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtDateofCommitteeMeeting" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtDateofCommitteeMeeting" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -490,14 +414,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Business Enagaged In:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBusinessEnagagedIn" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBusinessEnagagedIn" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Other Business:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtOtherBusiness" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtOtherBusiness" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -507,7 +431,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Services/Benefits Offered to Members:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtServicesBenefitsOfferedtoMembers" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtServicesBenefitsOfferedtoMembers" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -516,14 +440,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Total Cooperative Asset:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTotalCooperativeAsset" TextMode="Number" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTotalCooperativeAsset" type="Number" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Total Paid-up Capital:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTotalPaidUpCapital" TextMode="Number" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTotalPaidUpCapital" type="Number" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -532,14 +456,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Beginning: </strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBeginning" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBeginning" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Beginning:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBeginning1" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBeginning1" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -548,14 +472,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>To Date: </strong></label>
-                                                    <asp:TextBox runat="server" ID="txtToDate" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtToDate" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>To Date:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtToDate1" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtToDate1" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -564,14 +488,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><strong>Assisting Financial Institution, if any:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtAssistingFinancialInstitution" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtAssistingFinancialInstitution" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><strong>Total Volume of Sales based in Latest Financial Statement (with Members/Non-Members):</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTotalVolumeOfSales" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTotalVolumeOfSales" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -587,14 +511,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Updated BIR Registration Number:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtUpdatedBIRNumber" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtUpdatedBIRNumber" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Tax Identification Number (TIN):</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTIN" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTIN" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -605,14 +529,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Business Permit Number:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBusinessPermitNumber" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBusinessPermitNumber" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>COC Number (CDA):</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCOCNumber" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtCOCNumber" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -623,14 +547,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Certificate of Tax Exemption Number:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtCertificateOfTaxExemptionNumber" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtCertificateOfTaxExemptionNumber" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Date of Issue (COC):</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtDateOfIssueCOC" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtDateOfIssueCOC" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -646,21 +570,21 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Total Number of Membership:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtTotalNumberOfMembership" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtTotalNumberOfMembership" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Male:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtMale" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtMale" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-3">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Female:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtFemale" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtFemale" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -671,14 +595,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Number of Regular Members:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtNumberOfRegularMembers" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtNumberOfRegularMembers" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Number of Associate Members:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtNumberOfAssociateMembers" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtNumberOfAssociateMembers" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
@@ -689,19 +613,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Membership Composition:</strong></label>
-                                                    <asp:DropDownList runat="server" ID="ddlMembershipComposition" required="required" CssClass="form-control">
-                                                        <asp:ListItem Value="" Text=""></asp:ListItem>
-                                                        <asp:ListItem Value="1" Text="Drivers/ Operators"></asp:ListItem>
-                                                        <asp:ListItem Value="2" Text="Farmers"></asp:ListItem>
-                                                        <asp:ListItem Value="3" Text="Fisherfolks"></asp:ListItem>
-                                                        <asp:ListItem Value="4" Text="Government Employees"></asp:ListItem>
-                                                        <asp:ListItem Value="5" Text="Indigenous Community"></asp:ListItem>
-                                                        <asp:ListItem Value="6" Text="Persons with Disability"></asp:ListItem>
-                                                        <asp:ListItem Value="7" Text="Private Employees"></asp:ListItem>
-                                                        <asp:ListItem Value="8" Text="Women"></asp:ListItem>
-                                                        <asp:ListItem Value="9" Text="Youth"></asp:ListItem>
-                                                        <asp:ListItem Value="10" Text="Others (Specify)"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                    <select  ID="ddlMembershipComposition" required="required" class="form-control">
+                                                        <option Value="" Text=""></option>
+                                                        <option Value="1" Text="Drivers/ Operators"></option>
+                                                        <option Value="2" Text="Farmers"></option>
+                                                        <option Value="3" Text="Fisherfolks"></option>
+                                                        <option Value="4" Text="Government Employees"></option>
+                                                        <option Value="5" Text="Indigenous Community"></option>
+                                                        <option Value="6" Text="Persons with Disability"></option>
+                                                        <option Value="7" Text="Private Employees"></option>
+                                                        <option Value="8" Text="Women"></option>
+                                                        <option Value="9" Text="Youth"></option>
+                                                        <option Value="10" Text="Others (Specify)"></option>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -711,21 +635,21 @@
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Members:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBasicTrainingsAttendedByMembers" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBasicTrainingsAttendedByMembers" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Officers:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBasicTrainingsAttendedByOfficers" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBasicTrainingsAttendedByOfficers" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-12">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Basic Trainings Attended by Management Staff:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtBasicTrainingsAttendedByManagementStaff" required="required" class="form-control"></asp:TextBox>
+                                                    <input  ID="txtBasicTrainingsAttendedByManagementStaff" required="required" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -739,14 +663,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Username:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtUsername" required="required" class="form-control" MaxLength="40"></asp:TextBox>
+                                                    <input  ID="txtUsername" required="required" class="form-control" MaxLength="40"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" required="required" class="form-control" MinLength="6" MaxLength="40"></asp:TextBox>
+                                                    <input  ID="txtPassword" type="Password" required="required" class="form-control" MinLength="6" MaxLength="40"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -761,33 +685,16 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label><span class="text-danger">* </span><strong>Re-enter Password:</strong></label>
-                                                    <asp:TextBox runat="server" ID="txtPassword1" TextMode="Password" required="required" class="form-control" MinLength="6" MaxLength="40" equalsTo="txtPassword"></asp:TextBox>
+                                                    <input  ID="txtPassword1" type="Password" required="required" class="form-control" MinLength="6" MaxLength="40" equalsTo="txtPassword"></input>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <br />
                                         <br />
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <p style="font-size: small">
-                                                        In behalf of
-                                                        <asp:Label runat="server" class="label-default bg-info" ID="lblCoopName" Text="Coop Name"></asp:Label>
-                                                        Cooperative, I hereby certify that the above information are correct and true with the best of my knowledge and belief.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                     </div>
                                 </fieldset>
-
-                                <div class="text-right">
-                                    <asp:Button runat="server" ID="Button1" CssClass="btn btn-danger" Text="Cancel" CausesValidation="false" UseSubmitBehavior="false" />
-                                    <asp:Button runat="server" ID="btnSubmit" CssClass="btn btn-primary" Text="Save" />
-                                </div>
 
                             </div>
 
