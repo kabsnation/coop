@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">    
+<html>
+<head >    
     <title>CCDO - Event List</title>
 
     <link rel="icon" href="../assets/images/CCDO Logo.png" />
@@ -37,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="pnotify.custom.min.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" >
         <div>
         <!-- Main navbar -->
         <div class="navbar navbar-inverse">
@@ -92,7 +90,7 @@
                                         </div>
                                         <div class="media-body">
                                             <span class="media-heading text-semibold">
-                                                <label runat="server" ID="txtUser" Text="Username"></label></span>
+                                                <label  ID="txtUser" Text="Username"></label></span>
                                             <div class="text-size-mini text-muted">
                                                 <i class="icon-pin text-size-small"></i>&nbsp;Santa Rosa, Laguna
 								
@@ -141,7 +139,7 @@
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <div class="panel panel-white">
+                                    <div class="panel panel-white" id="panelEventList">
 
                                         <div class="panel-heading">
                                             <div class="panel-title">
@@ -161,9 +159,8 @@
                                                     <table class="table datatable-html" id="tableCoopeartiveAccount">
                                                         <thead>
                                                             <tr>
-                                                                <th>Title</th>
+                                                                <th>Event Title</th>
                                                                 <th>Sent By</th>
-                                                                <th>Location</th>
                                                                 <th>Date</th>
                                                                 <th class="text-center">Actions</th>
                                                             </tr>
@@ -173,7 +170,6 @@
                                                             <tr>
                                                                 <td>Cooperative Awarding Ceremony</td>
                                                                 <td>Mark Dherp Cuevas</td>
-                                                                <td>City of Santa Rosa, Laguna</td>
                                                                 <td>January 2, 2018</td>
                                                                 <td class="text-center">
                                                                     <ul class="icons-list">
@@ -183,9 +179,7 @@
                                                                             </a>
 
                                                                             <ul class="dropdown-menu dropdown-menu-right">
-                                                                                <li><a href="#" onclick="viewCooperative()"><i class="icon-eye"></i> View</a></li>
-                                                                                <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
-                                                                                <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
+                                                                                <li><input type"button" class="btn btn-default" onclick="HideEventListPanel(this)"/></li>
                                                                             </ul>
                                                                         </li>
                                                                     </ul>
@@ -196,6 +190,93 @@
                                                     </table>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="panel panel-white" id="panelEventDetails" hidden="true">
+                                        <div class="panel-heading">
+                                            <div class="panel-title">
+                                                <h1 class="panel-title">Event Details</h1>
+                                            </div>
+
+
+                                            <div class="heading-elements">
+                                                <div class="heading-btn-group">
+                                                    <asp:UpdatePanel  Visible="true">
+                                                        <ContentTemplate>
+                                                            <input type"button" class="btn btn-link" value="Back" onclick="HideEventListPanel(this)"/>
+                                                            <input type="submit" ID="btnGoing" Text="Going" class="btn btn-info" Style="margin-right: 10px;" value="Going" />
+                                                            <input type="submit" ID="btnNotGoing" Text="Not Going" class="btn btn-danger" value="Not Going"/>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <p  ID="lblEventName" Font-Size="X-Large" style="font-size: 20px">Cooperative Awarding Ceremony</p>
+                                                </div>
+
+                                                <div class="row">
+                                                    <p  ID="lblLocation" Text=""  Style="color: darkgrey; font-size: 15px">4th Floor, Function Hall, City Government Office, Barangay Tagapo, City of Santa Rosa, Laguna</p>
+                                                </div>
+
+                                                </hr>
+
+                                                <div class="row">
+                                                    <strong style="margin-right: 10px;">Date and Time:</strong><p  ID="lblStartDateTime">December 1, 2017 1:00 PM</p>
+                                                </div>
+
+                                                <div class="row">
+                                                    <strong style="margin-right: 10px;">Other Event Details:</strong><p  ID="lblEventDetails" Text="">Other Event Details</p>
+                                                </div>
+
+                                                <div class="row">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="row">
+                                                    <div class="text-right">
+                                                        <p  ID="lblNumberOfGoing" Text=""  Style="color: darkgrey">Total Number of Going: 7</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="text-right">
+                                                        <p  ID="lblNumberOfInterested" Text=""  Style="color: darkgrey">Total Number of Interested: 2</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="text-right">
+                                                        <p  ID="lblNumberOfNotGoing" Text=""  Style="color: darkgrey">Total Number of Not Going: 3</p>
+                                                    </div>
+                                                </div>
+
+                                                <br />
+
+                                            </div>
+
+                                            <div class="col-lg-12" style="padding: 10px">
+                                                <div class="row">
+                                                    <table class="table datatable-html" id="tableInvited" style="width: 100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Cooperative Name</th>
+                                                                <th>Response</th>
+                                                                <th>Cooperative Name</th>
+                                                                <th>Response</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
+                                                </div>
+                                                
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -216,4 +297,17 @@
 
     </form>
 </body>
+<script>
+    function HideEventListPanel() {
+        var x = document.getElementById("panelEventList");
+        var y = document.getElementById("panelEventDetails");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }   
+</script>
 </html>
