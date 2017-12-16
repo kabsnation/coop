@@ -131,7 +131,7 @@
                             </div>
                             <!-- /user menu -->
 
-<!-- Main Navigation -->
+                            <!-- Main Navigation -->
                             <div class="sidebar-category sidebar-category-visible">
                                 <div class="category-content no-padding">
                                     <ul class="navigation navigation-main navigation-accordion">
