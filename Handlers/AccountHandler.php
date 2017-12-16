@@ -96,5 +96,14 @@ class AccountHandler{
 		$result = $con->insert($query);
 
 	}
+
+	public function checkUsername($userName){
+		$con = new Connect();
+		$query = "SELECT * FROM accounts where Username = '" .$userName."'";
+		$result = $con->select($query);
+
+		return $result;
+	}
+
 }
 ?>
