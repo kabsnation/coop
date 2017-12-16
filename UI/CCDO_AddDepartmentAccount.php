@@ -194,30 +194,29 @@
                                                 <div class="col-lg-12">
 
                                                     <div class="row">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Last Name:</strong></label>
                                                                 <input ID="txtLastname" name="txtLastname" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>First Name:</strong></label>
                                                                 <input ID="txtFirstName" name="txtFirstName" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="row">
-
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-4">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Middle Name:</strong></label>
                                                                 <input ID="txtMiddleName" name ="txtMiddleName" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
+                                                    </div>
 
+                                                    <div class="row">
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Suffix:</strong></label>
@@ -247,7 +246,7 @@
                                                 </div>
                                             </fieldset>
 
-                                            <fieldset class="content-group">
+                                            <!-- <fieldset class="content-group">
                                                 <legend>
                                                     <h5 class="text-bold"><i class=" icon-phone2" style="margin-right: 10px"></i>Contact Information</h5>
                                                 </legend>
@@ -313,7 +312,7 @@
                                                     </div>
 
                                                 </div>
-                                            </fieldset>
+                                            </fieldset> -->
 
                                             <fieldset class="content-group">
                                                 <legend>
@@ -322,7 +321,7 @@
                                                 <div class="col-lg-12">
 
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Username:</strong></label>
                                                                 <input ID="txtUsername" name="txtUsername" class="form-control" placeholder="Username" MinLength="6" required="required"></input>
@@ -332,9 +331,6 @@
                                                             </div>
                                                         </div>
 
-                                                    </div>
-
-                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
@@ -342,6 +338,19 @@
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-lock text-muted"></i>
                                                                 </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row">
+                                                        
+                                                        <div class="col-md-6">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Position:</strong></label>
+                                                                <select ID="ddlPosition" name="ddlPosition"class="form-control select" placeholder="Position" required="required">
+                                                                    <option Text="" Value=""></option>
+                                                                </select>
                                                             </div>
                                                         </div>
 
