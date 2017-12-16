@@ -154,7 +154,8 @@
 
 
                             <div class="col-md-12">
-                                <div class="panel panel-white">
+                                <!-- Panel Accounts -->
+                                <div class="panel panel-white" id="panelAccounts">
                                     <div class="panel-heading">
                                         <div class="panel-title">
                                             <h3 class="panel-title"><strong>Accounts List</strong></h3>
@@ -165,7 +166,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="panel-body">
                                         <div class="col-lg-12">
                                             <div class="tabbable">
@@ -180,10 +180,50 @@
                                                                 <table class="table datatable-html" id="tableCoopeartiveAccount">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>Name</th>
+                                                                            <th>Cooperative Name</th>
+                                                                            <th>Chairman</th>
                                                                             <th>Location</th>
+                                                                            <th class="text-center">Actions</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Laguna Bel-Air Transportation</td>
+                                                                            <td>Mark Dherp Cuevas</td>
+                                                                            <td>CCDO</td>
+                                                                            <td class="text-center">
+                                                                                <ul class="icons-list">
+                                                                                    <li class="dropdown">
+                                                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                                            <i class="icon-menu9"></i>
+                                                                                        </a>
+
+                                                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                                                            <li><a href="#" onclick="viewCooperative()"><i class="icon-eye"></i> View</a></li>
+                                                                                            <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
+                                                                                            <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+
+                                                                </table>
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="tab-pane animated fadeIn" id="deptAccounts">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <table class="table datatable-html" id="tableDepartmentAccount" style="width: 100%;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Name</th>
+                                                                            <th>Position</th>
                                                                             <th>Department</th>
-                                                                            <th>Actions</th>
+                                                                            <th class="text-center">Actions</th>
                                                                         </tr>
                                                                     </thead>
 
@@ -212,45 +252,8 @@
 
                                                                 </table>
                                                             </div>
-                                                    </div>
-
-                                                    <div class="tab-pane animated fadeIn" id="deptAccounts">
-                                                        <div class="col-lg-12">
-                                                            <table class="table datatable-html" id="tableDepartmentAccount">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Name</th>
-                                                                        <th>Position</th>
-                                                                        <th>Department</th>
-                                                                        <th>Actions</th>
-                                                                    </tr>
-                                                                </thead>
-
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>Tiger Nixon</td>
-                                                                        <td>Planning and Production Manager</td>
-                                                                        <td>CCDO</td>
-                                                                        <td class="text-center">
-                                                                            <ul class="icons-list">
-                                                                                <li class="dropdown">
-                                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                                                        <i class="icon-menu9"></i>
-                                                                                    </a>
-
-                                                                                    <ul class="dropdown-menu dropdown-menu-right">
-                                                                                        <li><a href="#"><i class="icon-eye"></i> View</a></li>
-                                                                                        <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
-                                                                                        <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
-                                                                                    </ul>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-
-                                                            </table>
                                                         </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,8 +261,8 @@
                                         </div>
 
                                     </div>
-
                                 </div>
+                                <!-- Panel Accounts-->
                             </div>
 
 
@@ -274,5 +277,4 @@
     </div>
 </form>
 </body>
-
 </html>
