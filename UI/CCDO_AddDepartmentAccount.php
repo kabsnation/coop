@@ -220,13 +220,13 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Suffix:</strong></label>
-                                                                <select ID="ddlNameSuffix" name="ddlNameSuffix"class="form-control" placeholder="Suffix">
-                                                                    <option Text="" Value=""></option>
-                                                                    <option Text="Jr."></option>
-                                                                    <option Text="Sr."></option>
-                                                                    <option Text="III"></option>
-                                                                    <option Text="IV"></option>
-                                                                    <option Text="V"></option>
+                                                                <select ID="ddlNameSuffix" name="ddlNameSuffix" class="form-control">
+                                                                    <option></option>
+                                                                    <option Value="Jr.">Jr.</option>
+                                                                    <option Value="Sr.">Sr.</option>
+                                                                    <option Value="III">III</option>
+                                                                    <option Value="IV">IV</option>
+                                                                    <option Value="V">V</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -234,10 +234,10 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Sex:</strong></label>
-                                                                <select ID="ddlSex" name="ddlSex"class="form-control" placeholder="Sex" required="required">
-                                                                    <option Text="" Value=""></option>
-                                                                    <option Text="Female" Value="1"></option>
-                                                                    <option Text="Male" Value="2"></option>
+                                                                <select ID="ddlSex" name="ddlSex"class="form-control" required="required" class="form-control">
+                                                                    <option></option>
+                                                                    <option Text="Female" Value="1">Female</option>
+                                                                    <option Text="Male" Value="2">Male</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -324,7 +324,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Username:</strong></label>
-                                                                <input ID="txtUsername" name="txtUsername" class="form-control" placeholder="Username" MinLength="6" required="required"></input>
+                                                                <input ID="txtUsername" name="txtUsername" class="form-control" MinLength="6" required="required"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-user text-muted"></i>
                                                                 </div>
@@ -334,7 +334,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                                <input ID="txtPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required="required" MinLength="6"></input>
+                                                                <input ID="txtPassword" name="txtPassword" class="form-control" type="password" required="required" MinLength="6"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-lock text-muted"></i>
                                                                 </div>
@@ -348,8 +348,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Position:</strong></label>
-                                                                <select ID="ddlPosition" name="ddlPosition"class="form-control select" placeholder="Position" required="required">
-                                                                    <option Text="" Value=""></option>
+                                                                <select ID="ddlPosition" name="ddlPosition" class="form-control" required="required">
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -357,7 +356,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Re-enter Password:</strong></label>
-                                                                <input ID="txtRepeatPassword" name="txtRepeatPassword" class="form-control" placeholder="Repeat Password" type="password" MinLength="6" required="required" equalTo="#txtPassword"></input>
+                                                                <input ID="txtRepeatPassword" name="txtRepeatPassword" class="form-control" type="password" MinLength="6" required="required" equalTo="#txtPassword"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class="icon-lock text-muted"></i>
                                                                 </div>
