@@ -13,6 +13,7 @@
 	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
 	<!-- /global stylesheets -->
 
 	<!-- Core JS files -->
@@ -167,8 +168,93 @@
 
                                     <div class="panel-body">
                                         <div class="col-lg-12">
-                                            <div class="row">
+                                            <div class="tabbable">
+                                                <ul class="nav nav-tabs nav-tabs-bottom">
+                                                    <li class="active"><a href="#coopAccounts" data-toggle="tab">Cooperative Accounts</a></li>
+                                                    <li><a href="#deptAccounts" data-toggle="tab">Department Accounts</a></li>
+                                                </ul>
+
+                                                <div class="tab-content">
+                                                    <div class="tab-pane animated fadeIn active" id="coopAccounts">
+                                                        <div class="col-lg-12">
+                                                                <table class="table datatable-html" id="tableCoopeartiveAccount">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Name</th>
+                                                                            <th>Location</th>
+                                                                            <th>Department</th>
+                                                                            <th>Actions</th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>Tiger Nixon</td>
+                                                                            <td>Planning and Production Manager</td>
+                                                                            <td>CCDO</td>
+                                                                            <td class="text-center">
+                                                                                <ul class="icons-list">
+                                                                                    <li class="dropdown">
+                                                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                                            <i class="icon-menu9"></i>
+                                                                                        </a>
+
+                                                                                        <ul class="dropdown-menu dropdown-menu-right">
+                                                                                            <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                                                                            <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
+                                                                                            <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+
+                                                                </table>
+                                                            </div>
+                                                    </div>
+
+                                                    <div class="tab-pane animated fadeIn" id="deptAccounts">
+                                                        <div class="col-lg-12">
+                                                            <table class="table datatable-html" id="tableDepartmentAccount">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Name</th>
+                                                                        <th>Position</th>
+                                                                        <th>Department</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Tiger Nixon</td>
+                                                                        <td>Planning and Production Manager</td>
+                                                                        <td>CCDO</td>
+                                                                        <td class="text-center">
+                                                                            <ul class="icons-list">
+                                                                                <li class="dropdown">
+                                                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                                        <i class="icon-menu9"></i>
+                                                                                    </a>
+
+                                                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                                                        <li><a href="#"><i class="icon-eye"></i> View</a></li>
+                                                                                        <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
+                                                                                        <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
+                                                                                    </ul>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            
                                         </div>
 
                                     </div>

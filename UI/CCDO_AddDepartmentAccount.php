@@ -346,11 +346,6 @@
                                                     <div class="row">
                                                         
                                                         <div class="col-md-6">
-                                                            <div class="form-group has-feedback">
-                                                                <label><span class="text-danger">* </span><strong>Position:</strong></label>
-                                                                <select ID="ddlPosition" name="ddlPosition" class="form-control" required="required">
-                                                                </select>
-                                                            </div>
                                                         </div>
 
                                                         <div class="col-md-6">

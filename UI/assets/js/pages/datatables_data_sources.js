@@ -17,15 +17,15 @@ $(function() {
 
     // Setting datatable defaults
     $.extend( $.fn.dataTable.defaults, {
-        autoWidth: false,
+        autoWidth: true,
         columnDefs: [{ 
             orderable: false,
             width: '100px',
-            targets: [ 5 ]
+            targets: [ 3 ]
         }],
         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
         language: {
-            search: '<span>Filter:</span> _INPUT_',
+            search: '<span">Search:</span> _INPUT_',
             lengthMenu: '<span>Show:</span> _MENU_',
             paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' }
         },
@@ -116,7 +116,7 @@ $(function() {
     // ------------------------------
 
     // Add placeholder to the datatable filter option
-    $('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+    $('.dataTables_filter input[type=search]').attr('placeholder','Type to search...');
 
 
     // Enable Select2 select for the length option
