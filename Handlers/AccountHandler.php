@@ -2,9 +2,9 @@
 require("../config/config.php");
 class AccountHandler{
 
-	public function getAccount($username,$password){
+	public function getAccount($userName,$password){
 		$con = new Connect();
-		$query = "SELECT * FROM Accounts WHERE username='".$username."' AND password ='" .$password."'";
+		$query = "SELECT * FROM Accounts WHERE userName='".$userName."' AND password ='" .$password."'";
 		$result = $con->select($query);
 		return $result;
 	}
@@ -83,5 +83,18 @@ class AccountHandler{
 		return $result;
 	}
 
+	public function addDepartmentAccountInfo($fisrtName,$lastName,$middleName,$nameSuffix,$cellnumber,$email,$position){
+		$con = new Connect();
+		$query = "INSERT INTO Account_Info (First_Name, Last_Name, Middle_Name,Name_Suffix,Cellphone_number,Email_Address,Position) VALUES ('" .$fisrtName."','".$lastName."','".$middleName."','".$nameSuffix."','".$cellnumber."','".$email."','".$position."')";
+		$lastId = $con->insertReturnLastId($query);
+		return $lastId;
+	}
+
+	public function addDepartmentAccount($userName,$password,$accountId,$departmentId,$accountType){
+		$con = new Connect();
+		$query = "INSERT INTO accounts (Username, Password, idAccount_Info, idDepartment, idaccount_type) VALUES ('" .$userName. "','" .$password. "'," .$accountId. "," .$departmentId. "," .$accountType. ")";
+		$result = $con->insert($query);
+
+	}
 }
 ?>

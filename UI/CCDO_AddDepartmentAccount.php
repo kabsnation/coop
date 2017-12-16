@@ -43,7 +43,7 @@
     <!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1"  class="form-validate-jquery">
+    <form id="form1"  class="form-validate-jquery" method="POST" action="addDepartmentAccountFunction.php">
         <div>
             <!-- Main navbar -->
             <div class="navbar navbar-inverse">
@@ -197,14 +197,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Last Name:</strong></label>
-                                                                <input ID="txtLastname" class="form-control" required="required"></input>
+                                                                <input ID="txtLastname" name="txtLastname" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>First Name:</strong></label>
-                                                                <input ID="txtFirstName" class="form-control" required="required"></input>
+                                                                <input ID="txtFirstName" name="txtFirstName" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -214,14 +214,14 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Middle Name:</strong></label>
-                                                                <input ID="txtMiddleName" class="form-control" required="required"></input>
+                                                                <input ID="txtMiddleName" name ="txtMiddleName" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Suffix:</strong></label>
-                                                                <select ID="ddlNameSuffix" class="form-control" placeholder="Suffix">
+                                                                <select ID="ddlNameSuffix" name="ddlNameSuffix"class="form-control" placeholder="Suffix">
                                                                     <option Text="" Value=""></option>
                                                                     <option Text="Jr."></option>
                                                                     <option Text="Sr."></option>
@@ -235,7 +235,7 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Sex:</strong></label>
-                                                                <select ID="ddlSex" class="form-control" placeholder="Sex" required="required">
+                                                                <select ID="ddlSex" name="ddlSex"class="form-control" placeholder="Sex" required="required">
                                                                     <option Text="" Value=""></option>
                                                                     <option Text="Female" Value="1"></option>
                                                                     <option Text="Male" Value="2"></option>
@@ -258,7 +258,7 @@
                                                         <div class=" col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Block/Lot/House No./Street:</strong></label>
-                                                                <input ID="txtHouseNo" class="form-control" required="required"></input>
+                                                                <input ID="txtHouseNo" name="txtHouseNo" class="form-control" required="required"></input>
                                                             </div>
                                                         </div>
 
@@ -269,7 +269,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Barangay:</strong></label>
-                                                                <select ID="ddlBarangay" class="form-control" placeholder="Barangay" DataTextField="Barangay" required="required">
+                                                                <select ID="ddlBarangay" name="ddlBarangay" class="form-control" placeholder="Barangay" DataTextField="Barangay" required="required">
                                                                     <option Text="" Value=""></option>
                                                                     <option Text="Balibago" Value="1"></option>
                                                                 </select>
@@ -279,7 +279,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>City:</strong></label>
-                                                                <select ID="ddlCity" class="form-control" placeholder="Barangay" DataTextField="Barangay" required="required">
+                                                                <select ID="ddlCity" name="ddlCity" class="form-control" placeholder="Barangay" DataTextField="Barangay" required="required">
                                                                     <option Text="" Value=""></option>
                                                                     <option Text="Santa Rosa" Value="1"></option>
                                                                 </select>
@@ -293,7 +293,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
-                                                                <input ID="txtEmail" type="email" class="form-control" required="required"></input>
+                                                                <input ID="txtEmail" name ="txtEmail" type="email" class="form-control" required="required"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-mention text-muted"></i>
                                                                 </div>
@@ -303,7 +303,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Cellphone Number:</strong></label>
-                                                                <input ID="txtCellphoneNumber" class="form-control" required="required"></input>
+                                                                <input ID="txtCellphoneNumber" name="txtCellphoneNumber" class="form-control" required="required"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-phone text-muted"></i>
                                                                 </div>
@@ -325,7 +325,7 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Username:</strong></label>
-                                                                <input ID="txtUsername" class="form-control" placeholder="Username" MinLength="6" required="required"></input>
+                                                                <input ID="txtUsername" name="txtUsername" class="form-control" placeholder="Username" MinLength="6" required="required"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-user text-muted"></i>
                                                                 </div>
@@ -338,7 +338,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Password:</strong></label>
-                                                                <input ID="txtPassword" class="form-control" placeholder="Password" type="password" required="required" MinLength="6"></input>
+                                                                <input ID="txtPassword" name="txtPassword" class="form-control" placeholder="Password" type="password" required="required" MinLength="6"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class=" icon-lock text-muted"></i>
                                                                 </div>
@@ -348,7 +348,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Re-enter Password:</strong></label>
-                                                                <input ID="txtRepeatPassword" class="form-control" placeholder="Repeat Password" type="password" MinLength="6" required="required" equalTo="#txtPassword"></input>
+                                                                <input ID="txtRepeatPassword" name="txtRepeatPassword" class="form-control" placeholder="Repeat Password" type="password" MinLength="6" required="required" equalTo="#txtPassword"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class="icon-lock text-muted"></i>
                                                                 </div>
