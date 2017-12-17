@@ -45,204 +45,76 @@
 <body>
     <form id="form1" runat="server">
         <div>
-<!-- Main navbar -->
-            <asp:ScriptManager runat="server"></asp:ScriptManager>
-            <div class="navbar navbar-inverse">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/CCDO Logo.png" alt="" /></a>
+   	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/CCDO Logo.png" alt=""style="background-color:#ffffff"  /></a>
 
-                    <ul class="nav navbar-nav visible-xs-block">
-                        <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-more"></i></a></li>
-                        <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            <ul class="nav navbar-nav visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="">
+                        <i class="icon-cog5"></i>
+                        <span>Username</span>
+                        <i class="caret"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+                        <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
                     </ul>
-                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
 
-                <div class="navbar-collapse collapse" id="navbar-mobile">
-                    <ul class="nav navbar-nav">
-                        <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-                    </ul>
+    <!-- Page container -->
+    <div class="page-container">
 
-                    <div class="navbar-right">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a class="sidebar-control sidebar-opposite-fix hidden-xs" data-popup="tooltip" title="View Notification" data-placement="bottom" data-container="body">
-                                    <asp:UpdatePanel runat="server">
-                                        <ContentTemplate>
-                                            <i class="icon-earth" style="padding-right: 10px;"></i>
-                                            <asp:Label runat="server" ID="lblNotificationCounter" CssClass="badge badge-primary position-left" Visible="false"></asp:Label>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                </a>
-                            </li>
+        <!-- Page content -->
+        <div class="page-content">
 
-                            <li class="dropdown dropdown-user">
-                                <a class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-cog"></i>
-                                    <span>
-                                        <asp:Label runat="server" ID="lblName" Text="Username"></asp:Label></span>
-                                    <i class="caret"></i>
-                                </a>
+            <!-- Main Content -->
+            <div class="content-wrapper">
+                <div class="content">
 
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="EditAccount.aspx"><i class="icon-cog5"></i>Account settings</a></li>
-                                    <li>
-                                        <asp:LinkButton runat="server" ID="btnLogout"><span style="margin-right:5px;">Log Out</span><i class="icon-switch2"></i></asp:LinkButton></li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-            <!-- /main navbar -->
-
-            <!-- Page container -->
-            <div class="page-container">
-
-                <!-- Page content -->
-                <div class="page-content">
-
-                    <!-- Main Content -->
-                    <div class="content-wrapper">
-                        <div class="content">
-
-                            <div class="panel panel-flat">
-                                <div class="panel-heading">
-                                    <div class="panel-title">
-                                        <h3 class="panel-title"><strong>Edit Your Account Profile</strong></h3>
-                                    </div>
-
-                                    <div class="heading-elements">
-                                        <div class="heading-btn-group">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-
-                                    <asp:UpdatePanel runat="server">
-                                        <ContentTemplate>
-                                            <asp:UpdatePanel runat="server" ID="panelAll" Visible="true">
-                                                <ContentTemplate>
-
-                                                    <div class="row" style="padding: 20px">
-                                                        <%--                                                    <div class="col-md-3">
-                                                        <div class="panel panel-flat border-left-xlg border-left-teal">
-                                                            <div class="panel-heading">
-                                                                <h6 class="panel-title"><span class="text-semibold">Username</span></h6>
-                                                                <div class="heading-elements">
-                                                                    <asp:Button runat="server" ID="btnUpdateUsername" class="btn btn-info heading-btn" Text="Update" OnClick="btnUpdateUsername_Click" />
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="panel-body">
-                                                                <asp:Label CssClass="label label-block label-striped" Font-Size="Small" runat="server" ID="lblUsername" Text="Username"></asp:Label>
-                                                            </div>
-                                                        </div>
-                                                    </div>--%>
-
-                                                        <div class="col-md-3">
-                                                            <div class="panel panel-flat border-left-xlg border-left-teal">
-                                                                <div class="panel-heading">
-                                                                    <h6 class="panel-title"><span class="text-semibold">Password</span></h6>
-                                                                    <div class="heading-elements">
-                                                                        <asp:Button runat="server" ID="btnUpdatePassword" class="btn btn-info heading-btn" Text="Update" OnClick="btnUpdatePassword_Click" />
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="panel-body">
-                                                                    <asp:Label CssClass="label label-block label-striped" Font-Size="Small" runat="server" ID="lblPassword" Text="Password"></asp:Label>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-
-                                            <%-- <asp:UpdatePanel runat="server" ID="editUser" Visible="false">
-                                            <ContentTemplate>
-
-                                                <div class="col-md-6"  style="padding: 20px">
-                                                    <div class="panel panel-flat border-left-xlg border-left-teal">
-                                                        <div class="panel-heading">
-                                                            <h6 class="panel-title"><span class="text-semibold">Update Username</span></h6>
-                                                        </div>
-
-                                                        <div class="panel-body">
-                                                            <label><span class="text-danger">* </span><strong>New Username:</strong></label>
-                                                            <asp:TextBox runat="server" ID="txtUsername" CssClass="form-control"></asp:TextBox>
-                                                            <br />
-                                                            <div class="text-right">
-                                                                <asp:Button runat="server" ID="btnCancelUser" class="btn btn-default heading-btn" Text="Cancel" UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancelUser_Click" />
-                                                                <asp:Button runat="server" ID="btnSubmitUser" class="btn btn-info heading-btn" Text="Update" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </ContentTemplate>
-                                        </asp:UpdatePanel>--%>
-
-                                            <asp:UpdatePanel runat="server" ID="editPass" Visible="false">
-                                                <ContentTemplate>
-
-                                                    <div class="col-md-6" style="padding: 20px">
-                                                        <div class="panel panel-flat border-left-xlg border-left-teal">
-                                                            <div class="panel-heading">
-                                                                <h6 class="panel-title"><span class="text-semibold">Update Password</span></h6>
-                                                            </div>
-
-                                                            <div class="panel-body">
-                                                                <label><span class="text-danger">* </span><strong>Old Password:</strong></label>
-                                                                <asp:TextBox runat="server" ID="txtOldPassword" CssClass="form-control" Text="Password" TextMode="Password"></asp:TextBox>
-                                                                <label><span class="text-danger">* </span><strong>New Password:</strong></label>
-                                                                <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control" Text="Password" TextMode="Password"></asp:TextBox>
-                                                                <label><span class="text-danger">* </span><strong>Re-enter New Password:</strong></label>
-                                                                <asp:TextBox runat="server" ID="txtReenterPassword" CssClass="form-control" Text="Password" TextMode="Password"></asp:TextBox>
-                                                                <br />
-                                                                <div class="text-right">
-                                                                    <asp:Button runat="server" ID="btnCancelPass" class="btn btn-default heading-btn" Text="Cancel" UseSubmitBehavior="false" CausesValidation="false" OnClick="btnCancelPass_Click" />
-                                                                    <asp:Button runat="server" ID="btnSubmitPass" class="btn btn-info heading-btn" Text="Update" />
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </ContentTemplate>
-                                            </asp:UpdatePanel>
-
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-
-                                    <%--<div class="col-md-6">
-                                        <div class="panel panel-flat border-left-xlg border-left-teal">
-                                            <div class="panel-heading">
-                                                <h6 class="panel-title"><span class="text-semibold">Address</span></h6>
-                                                <div class="heading-elements">
-                                                     <asp:Button runat="server" ID="Button1" class="btn btn-info heading-btn" Text="Update" />
-									            </div>
-                                            </div>
-
-                                            <div class="panel-body">
-                                                <asp:Label CssClass="label label-block label-striped" Font-Size="Small" runat="server" ID="Label1" Text="Address"></asp:Label>
-                                            </div>
-                                        </div>
-                                    </div>--%>
-                                </div>
-
+                    <div class="panel panel-flat">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h3 class="panel-title"><strong>Edit Your Account Profile</strong></h3>
                             </div>
 
+                            <div class="heading-elements">
+                                <div class="heading-btn-group">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <!-- /Main Content -->
 
+
+
+                    </div>
+
+                </div>
             </div>
-            <!-- /Page content -->
+            <!-- /Main Content -->
+
         </div>
-        <!-- /Page container -->
+        <!-- /Page content -->
+    </div>
+    <!-- /Page container -->
 
         </div>
     </form>

@@ -45,39 +45,41 @@
 <body>
     <form id="form1"  class="form-validate-jquery">
 
-            <!-- Main navbar -->
-            <div class="navbar navbar-inverse">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/CCDO Logo.png" alt="" style="background-color:#ffffff" /></a>
-                </div>
+    <!-- Main navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/CCDO Logo.png" alt=""style="background-color:#ffffff"  /></a>
 
-                <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav visible-xs-block">
+                <li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+                <li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+        </div>
 
-                    <div class="navbar-right">
-                        <ul class="nav navbar-nav">
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav">
+                <li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
 
-                            <li class="dropdown dropdown-user">
-                                <a class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="icon-cog"></i>
-                                    <span>
-                                        <label  ID="lblName" Text="Username"></label></span>
-                                    <i class="caret"></i>
-                                </a>
+                <li class="dropdown dropdown-user">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="">
+                        <i class="icon-cog5"></i>
+                        <span>Username</span>
+                        <i class="caret"></i>
+                    </a>
 
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="EditAccount.aspx"><i class="icon-cog5"></i>Account settings</a></li>
-                                    <li>
-                                        <a  ID="btnLogout"><span style="margin-right:5px;">Log Out</span><i class="icon-switch2"></i></a></li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-            <!-- /main navbar -->
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+                        <li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /main navbar -->
 
         <!-- Page container -->
         <div class="page-container">
