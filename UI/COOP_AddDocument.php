@@ -178,8 +178,8 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="control-label"><span class="text-danger">* </span> <strong>Document Type: </strong></label>
-                                                    <select  class="form-control" required="required" ID="documentType">
-                                                        <option Value="0"></option>
+                                                    <select  class="form-control select" required="required" ID="documentType">
+                                                        <option></option>
                                                         <option Value="1">Answer</option>
                                                         <option Value="2">Post/Board</option>
                                                         <option Value="3">Attend</option>
@@ -195,14 +195,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Administered by:</label>
-                                                    <input type="text"  class="form-control" Enabled="false" ID="Admin"></input>
+                                                    <input type="text"  class="form-control" readonly="true" ID="Admin"></input>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Date Added:</label>
-                                                    <input type="text"  class="form-control" ID="dateTime" type="DateTime" Enabled="false"></input>
+                                                    <input type="text"  class="form-control" ID="dateTime" type="DateTime" readonly="true"></input>
                                                 </div>
                                             </div>
                                         </div>
@@ -217,67 +217,20 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label><span class="text-danger">* </span><strong>Choose Cooperative Recipients:</strong></label>
-
-                                                    <div class="input-group content-group">
-                                                        <div class="has-feedback has-feedback-left">
-                                                            <asp:UpdatePanel >
-                                                                <ContentTemplate>
-                                                                    <input type="text"  class="form-control input-xs" ID="txtboxSearch" AutoPostBack="true"></input>
-
-                                                                </ContentTemplate>
-                                                            </asp:UpdatePanel>
-                                                            <div class="form-control-feedback">
-                                                                <i class="icon-search4 text-muted text-size-base"></i>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="input-group-btn">
-                                                            <asp:Button  ID="btnSearchCooperative" class="btn btn-primary btn-xs" Text="Search" />
-                                                            <asp:Button  ID="btnSelectAllRecipients" class="btn bg-info btn-xs" Text="Select All" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="col-lg-12">
-                                                            <asp:ListBox  ID="lbCooperative" Width="100%" Enabled="false" Height="300px" required="required"></asp:ListBox>
-
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label><span class="text-danger">* </span><strong>Choose Department Recipients:</strong></label>
-
-                                                    <div class="input-group content-group">
-                                                        <div class="has-feedback has-feedback-left">
-                                                            <asp:UpdatePanel >
-                                                                <ContentTemplate>
-                                                                    <input type="text"  class="form-control input-xs" ID="txtSearchDepartment" AutoPostBack="true"></input>
-                                                                </ContentTemplate>
-                                                            </asp:UpdatePanel>
-                                                            <div class="form-control-feedback">
-                                                                <i class="icon-search4 text-muted text-size-base"></i>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="input-group-btn">
-                                                            <asp:Button  ID="btnSearchDepartment" class="btn btn-primary btn-xs" Text="Search" />
-                                                            <asp:Button  ID="btnSelectAll" class="btn bg-info btn-xs" Text="Select All" />
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <div class="col-lg-12">
-                                                            <asp:ListBox  ID="lbDepartment" Width="100%" Enabled="false" Height="300px" required="required"></asp:ListBox>
-                                                        </div>
-                                                    </div>
-
+                                                    <label><span class="text-danger">* </span><strong>Choose Recipients:</strong></label>
+                                                    <table class="table datatable-html" style="font-size: 13px; width: 100%;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 5%;"><i class="icon-check"></i></th>
+                                                                <th style="width: 30%;">Recipient Name</th>
+                                                                <th style="width: 30%;">Category</th>
+                                                                <th style="width: 20%;">Email</th>
+                                                                <th style="width: 20%;">Cellphone Number</th>
+                                                            </tr>
+                                                        </thead>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
