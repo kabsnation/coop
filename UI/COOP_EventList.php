@@ -157,7 +157,7 @@
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <div class="col-lg-12">
-                                                    <table class="table datatable-html" id="tableCoopeartiveAccount" style="font-size: 13px; width: 100%;">
+                                                    <table class="table datatable-html" id="table" style="font-size: 13px; width: 100%;">
                                                         <thead>
                                                             <tr>
                                                                 <th>Event Title</th>
@@ -298,6 +298,16 @@
             x.style.display = "none";
             y.style.display = "block";
         }
-    }   
+    }
+    $('#table').dataTable( {
+              "columnDefs": [ {
+                "targets": 0,
+                "orderable": true
+                } ],
+                "columnDefs": [ {
+                "targets": 3,
+                "orderable": false
+                } ]
+            } );   
 </script>
 </html>
