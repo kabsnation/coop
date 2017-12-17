@@ -112,20 +112,21 @@
 
                             <!-- Main Navigation -->
                             <div class="sidebar-category sidebar-category-visible">
-                                <div class="category-content no-padding">
-                                    <ul class="navigation navigation-main navigation-accordion">
+                            <div class="category-content no-padding">
+                                <ul class="navigation navigation-main navigation-accordion">
 
-                                        <li class="active">
-                                            <a href="#"><i class="icon-calendar"></i><span> Events</span></a>
-                                            <ul>
-                                                <li class="active"><a href="EventManager_EventList.aspx">Events List</a></li>
-                                            </ul>
-                                        </li>
+                                    <li class="active">
+                                        <a href="#"><i class="icon-calendar"></i><span> Events</span></a>
+                                        <ul>
+                                            <li><a href="COOP_AddEvent.php">Add Events</a></li>
+                                            <li class="active"><a href="COOP_EventList.php">Events List</a></li>
+                                        </ul>
+                                    </li>
 
-                                    </ul>
-                                </div>
+                                </ul>
                             </div>
-                            <!-- /Main Navigation -->
+                        </div>
+                        <!-- /Main Navigation -->
 
                         </div>
                     </div>
@@ -143,7 +144,7 @@
 
                                         <div class="panel-heading">
                                             <div class="panel-title">
-                                                <h1 class="panel-title">Event</h1>
+                                                <h1 class="panel-title">Events</h1>
                                             </div>
 
 
@@ -156,7 +157,7 @@
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <div class="col-lg-12">
-                                                    <table class="table datatable-html" id="tableCoopeartiveAccount">
+                                                    <table class="table datatable-html" id="tableCoopeartiveAccount" style="font-size: 13px; width: 100%;">
                                                         <thead>
                                                             <tr>
                                                                 <th>Event Title</th>
@@ -173,15 +174,7 @@
                                                                 <td>January 2, 2018</td>
                                                                 <td class="text-center">
                                                                     <ul class="icons-list">
-                                                                        <li class="dropdown">
-                                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                                                                <i class="icon-menu9"></i>
-                                                                            </a>
-
-                                                                            <ul class="dropdown-menu dropdown-menu-right">
-                                                                                <li><input type"button" class="btn btn-default" onclick="HideEventListPanel(this)"/></li>
-                                                                            </ul>
-                                                                        </li>
+                                                                        <li class="text-teal-600"><a href="#" onclick="HideEventListPanel(this)"><i class="icon-eye" style="margin-right: 10px;"></i>View</a></li>
                                                                     </ul>
                                                                 </td>
                                                             </tr>
@@ -197,7 +190,7 @@
                                     <div class="panel panel-white" id="panelEventDetails" hidden="true">
                                         <div class="panel-heading">
                                             <div class="panel-title">
-                                                <h1 class="panel-title">Event Details</h1>
+                                                <h2><a onclick="HideEventListPanel(this)"><i class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">Event Details</span></h2>
                                             </div>
 
 
@@ -205,7 +198,6 @@
                                                 <div class="heading-btn-group">
                                                     <asp:UpdatePanel  Visible="true">
                                                         <ContentTemplate>
-                                                            <input type"button" class="btn btn-link" value="Back" onclick="HideEventListPanel(this)"/>
                                                             <input type="submit" ID="btnGoing" Text="Going" class="btn btn-info" Style="margin-right: 10px;" value="Going" />
                                                             <input type="submit" ID="btnNotGoing" Text="Not Going" class="btn btn-danger" value="Not Going"/>
                                                         </ContentTemplate>
@@ -263,13 +255,11 @@
 
                                             <div class="col-lg-12" style="padding: 10px">
                                                 <div class="row">
-                                                    <table class="table datatable-html" id="tableInvited" style="width: 100%">
+                                                    <table class="table datatable-html" id="tableInvited" style="font-size: 13px; width: 100%;">
                                                         <thead>
                                                             <tr>
-                                                                <th>Cooperative Name</th>
-                                                                <th>Response</th>
-                                                                <th>Cooperative Name</th>
-                                                                <th>Response</th>
+                                                                <th style="width: 80%;">Cooperative Name</th>
+                                                                <th style="width: 20%;">Response</th>
                                                             </tr>
                                                         </thead>
                                                     </table>

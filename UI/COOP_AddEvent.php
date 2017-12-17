@@ -4,30 +4,32 @@
 
     <link rel="icon" href="../assets/images/CCDO Logo.png" />
 
-    <!-- Global stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
-    <!-- /global stylesheets -->
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
 
-    <!-- Core JS files -->
-    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-    <!-- /core JS files -->
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
 
-    <!-- Theme JS files -->
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
+    <script type="text/javascript" src="assets/js/pages/form_inputs.js"></script>
     <script type="text/javascript" src="assets/js/plugins/uploaders/fileinput.min.js"></script>
-
-    <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/pages/uploader_bootstrap.js"></script>
-    <script type="text/javascript" src="assets/js/pages/form_validation.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/forms/validation/validate.min.js"></script>
-    <!-- /theme JS files -->
+	<!-- /theme JS files -->
 
 </head>
 
@@ -129,7 +131,7 @@
                                             <a href="#"><i class="icon-calendar"></i><span> Events</span></a>
                                             <ul>
                                                 <li class="active"><a href="COOP_AddEvent.php">Add Events</a></li>
-                                                <li><a href="COOP_EventList">Events List</a></li>
+                                                <li><a href="COOP_EventList.php">Events List</a></li>
                                             </ul>
                                         </li>
 
@@ -164,48 +166,35 @@
                                         <div class="col-lg-12">
 
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label><span class="text-danger">* </span><strong>Event Name:</strong></label>
-                                                        <input  ID="txtEventName" class="form-control" type="MultiLine" required="required"></input>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label><span class="text-danger">* </span><strong>Event Details:</strong></label>
-                                                        <input  ID="txtEventDetails" class="form-control" type="MultiLine" required="required"></input>
+                                                        <label><span class="text-danger">* </span><strong>Event Name:</strong></label>
+                                                        <textarea  ID="txtEventName" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Location:</strong></label>
-                                                        <input  ID="txtEventLocation" class="form-control" type="MultiLine" required="required"></input>
+                                                        <textarea  ID="txtEventLocation" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label><span class="text-danger"></span><strong>Other Event Details:</strong></label>
+                                                        <textarea rows="5" cols="5" ID="txtEventDetails" class="form-control" type="MultiLine" required="required"></textarea>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Start Date and Time:</strong></label>
                                                         <input  ID="txtStartDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label><span class="text-danger">* </span><strong>End Date and Time:</strong></label>
-                                                        <input  ID="txtEndDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><strong>Upload File:</strong></label>
                                                         <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
@@ -217,30 +206,44 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Choose Recipients:</strong></label>
-
-                                                        <div class="input-group content-group">
-                                                            <div class="has-feedback has-feedback-left">
-                                                                <input class="form-control input-xs" ID="txtboxSearch" AutoPostBack="true"></input>
-                                                                <div class="form-control-feedback">
-                                                                    <i class="icon-search4 text-muted text-size-base"></i>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="input-group-btn">
-                                                                <input type="button"  ID="btnSearchCooperative" class="btn btn-primary btn-xs" Text="Search" />
-                                                                <input type="button"  ID="btnSelectAllRecipients" class="btn bg-info btn-xs" Text="Select All" />
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="col-lg-12">
-                                                                <telerik:RadListBox ID="lbRecipients"  CheckBoxes="true" ShowCheckAll="true" Width="100%" Height="300px"></telerik:RadListBox>
-
-                                                            </div>
-                                                        </div>
-
                                                     </div>
                                                 </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label><span class="text-danger">* </span><strong>Cooperatives:</strong></label>
+                                                        <table class="table datatable-html" style="font-size: 13px; width: 100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 5%;"><i class="icon-check"></i></th>
+                                                                    <th style="width: 30%;">Cooperative Name</th>
+                                                                    <th style="width: 30%;">Contact Person</th>
+                                                                    <th style="width: 20%;">Email</th>
+                                                                    <th style="width: 20%;">Cellphone Number</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label><span class="text-danger">* </span><strong>Department:</strong></label>
+                                                        <table class="table datatable-html" style="font-size: 13px; width: 100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 5%;"><i class="icon-check"></i></th>
+                                                                    <th style="width: 30%;">Employee Name</th>
+                                                                    <th style="width: 30%;">Position</th>
+                                                                    <th style="width: 20%;">Email</th>
+                                                                    <th style="width: 20%;">Cellphone Number</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                
+                                                
                                             </div>
 
                                         </div>
@@ -251,7 +254,7 @@
                                 <div class="panel-footer">
                                     <div class="heading-elements">
                                         <div class="text-right">
-                                            <input type="button"  ID="btnSend" Text="Send" class="btn bg-info" />
+                                            <input type="submit" ID="btnSend" text="Submit" class="btn bg-info" />
                                         </div>
                                     </div>
                                 </div>
@@ -260,104 +263,6 @@
                         </div>
                     </div>
                     <!-- Main Content -->
-
-                    <!-- Opposite sidebar -->
-                    <div class="sidebar sidebar-opposite sidebar-default">
-                        <div class="sidebar-content">
-                            <!-- Document -->
-                            <div class="sidebar-category">
-                                <div class="category-title">
-                                    <span>Documents</span>
-                                    <ul class="icons-list">
-                                        <li><a href="#" data-action="collapse"></a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="category-content no-padding">
-                                    <telerik:RadListBox  Height="500px" Width="100%" SelectionMode="Single" AllowAutomaticUpdates="true">
-                                        <Items>
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                        </Items>
-                                        <ItemTemplate>
-                                            <ul class="media-list media-list-linked" style="background-color: #ffffff;">
-
-                                                <li class="media">
-                                                    <a href="#" class="media-link">
-                                                        <div class="media-body">
-                                                            <asp:Label  ID="txtDocumentSender" class="media-heading text-semibold" Text="Sender Name"></asp:Label>
-                                                            <asp:Label  ID="txtDocumentTitle" class="text-size-mini text-muted display-block" Text="Document Title"></asp:Label>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </ItemTemplate>
-                                    </telerik:RadListBox>
-
-                                </div>
-                            </div>
-                            <!-- /Document -->
-
-                            <!-- Events -->
-                            <div class="sidebar-category">
-                                <div class="category-title">
-                                    <span>Events</span>
-                                    <ul class="icons-list">
-                                        <li><a href="#" data-action="collapse"></a></li>
-                                    </ul>
-                                </div>
-
-                                <div class="category-content no-padding">
-                                    
-                                    <telerik:RadListBox  Height="500px" Width="100%" SelectionMode="Single" AllowAutomaticUpdates="true">
-                                        <Items>
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="1" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="2" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="3" />
-                                            <telerik:RadListBoxItem Text="Sample" Value="4" />
-                                        </Items>
-                                        <ItemTemplate>
-                                            <ul class="media-list media-list-linked" style="background-color: #ffffff;">
-
-                                                <li class="media">
-                                                    <a href="#" class="media-link">
-                                                        <div class="media-body">
-                                                            <asp:Label  ID="txtEventSender" class="media-heading text-semibold" Text="Sender Name"></asp:Label>
-                                                            <asp:Label  ID="txtEventTitle" class="text-size-mini text-muted display-block" Text="Event Title"></asp:Label>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </ItemTemplate>
-                                    </telerik:RadListBox>
-
-                                </div>
-                            </div>
-                            <!-- /Events -->
-
-                        </div>
-                    </div>
-                    <!-- /opposite sidebar -->
 
                 </div>
                 <!-- /Page content -->

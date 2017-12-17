@@ -17,11 +17,11 @@ $(function() {
 
     // Setting datatable defaults
     $.extend( $.fn.dataTable.defaults, {
-        autoWidth: true,
+        autoWidth: false,
         columnDefs: [{ 
             orderable: false,
             width: '100px',
-            targets: [ 3 ]
+            targets: [ 0 ]
         }],
         dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
         language: {
