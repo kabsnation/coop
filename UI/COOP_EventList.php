@@ -187,7 +187,7 @@
 
                                     </div>
 
-                                    <div class="panel panel-white" id="panelEventDetails" hidden="true">
+                                    <div class="panel panel-flat border-top-lg border-top-info" id="panelEventDetails" hidden="true">
                                         <div class="panel-heading">
                                             <div class="panel-title">
                                                 <h2><a onclick="HideEventListPanel(this)"><i class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">Event Details</span></h2>
