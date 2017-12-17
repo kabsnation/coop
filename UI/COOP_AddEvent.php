@@ -167,7 +167,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Name:</strong></label>
-                                                        <input  ID="txtEventName" CssClass="form-control" type="MultiLine" required="required"></input>
+                                                        <input  ID="txtEventName" class="form-control" type="MultiLine" required="required"></input>
                                                     </div>
                                                 </div>
                                             </div>
@@ -176,14 +176,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Details:</strong></label>
-                                                        <input  ID="txtEventDetails" CssClass="form-control" type="MultiLine" required="required"></input>
+                                                        <input  ID="txtEventDetails" class="form-control" type="MultiLine" required="required"></input>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Location:</strong></label>
-                                                        <input  ID="txtEventLocation" CssClass="form-control" type="MultiLine" required="required"></input>
+                                                        <input  ID="txtEventLocation" class="form-control" type="MultiLine" required="required"></input>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,14 +192,14 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Start Date and Time:</strong></label>
-                                                        <input  ID="txtStartDateTime" CssClass="form-control" type="DateTimeLocal" required="required"></input>
+                                                        <input  ID="txtStartDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>End Date and Time:</strong></label>
-                                                        <input  ID="txtEndDateTime" CssClass="form-control" type="DateTimeLocal" required="required"></input>
+                                                        <input  ID="txtEndDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><strong>Upload File:</strong></label>
-                                                        <asp:FileUpload  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
+                                                        <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,20 +220,15 @@
 
                                                         <div class="input-group content-group">
                                                             <div class="has-feedback has-feedback-left">
-                                                                <asp:UpdatePanel >
-                                                                    <ContentTemplate>
-                                                                        <input  class="form-control input-xs" ID="txtboxSearch" AutoPostBack="true"></input>
-
-                                                                    </ContentTemplate>
-                                                                </asp:UpdatePanel>
+                                                                <input class="form-control input-xs" ID="txtboxSearch" AutoPostBack="true"></input>
                                                                 <div class="form-control-feedback">
                                                                     <i class="icon-search4 text-muted text-size-base"></i>
                                                                 </div>
                                                             </div>
 
                                                             <div class="input-group-btn">
-                                                                <asp:Button  ID="btnSearchCooperative" CssClass="btn btn-primary btn-xs" Text="Search" />
-                                                                <asp:Button  ID="btnSelectAllRecipients" CssClass="btn bg-info btn-xs" Text="Select All" />
+                                                                <input type="button"  ID="btnSearchCooperative" class="btn btn-primary btn-xs" Text="Search" />
+                                                                <input type="button"  ID="btnSelectAllRecipients" class="btn bg-info btn-xs" Text="Select All" />
                                                             </div>
                                                         </div>
 
@@ -256,7 +251,7 @@
                                 <div class="panel-footer">
                                     <div class="heading-elements">
                                         <div class="text-right">
-                                            <asp:Button  ID="btnSend" Text="Send" CssClass="btn bg-info" />
+                                            <input type="button"  ID="btnSend" Text="Send" class="btn bg-info" />
                                         </div>
                                     </div>
                                 </div>
