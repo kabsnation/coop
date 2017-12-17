@@ -155,7 +155,7 @@ $composition = $handler->getMembershipComposition();
                                             <ul>
                                                 <li class="active"><a href="CCDO_AddCooperativeAccount.php">Add Cooperative Account</a></li>
                                                 <li><a href="CCDO_AddDepartmentAccount.php">Add Department Account</a></li>
-                                                <li><a href="">View Accounts</a></li>
+                                                <li><a href="CCDO_ViewAccounts.php">View Accounts</a></li>
                                             </ul>
                                         </li>
 

@@ -1,3 +1,9 @@
+<?php
+require("../Handlers/AccountHandler.php");
+$handler = new AccountHandler();
+$cooperativeProfile = $handler->getCoopAccounts();
+$departmentProfile = $handler-> getDepartmentAccounts();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,16 +188,20 @@
                                                                     <tr>
                                                                         <th>Cooperative Name</th>
                                                                         <th>Chairman</th>
-                                                                        <th>Location</th>
+                                                                        <th>Address</th>
+                                                                        <th>Telephone Number</th>
                                                                         <th class="text-center">Actions</th>
                                                                     </tr>
                                                                 </thead>
 
                                                                 <tbody>
+                                                                    <?php if($cooperativeProfile){
+                                                                        foreach($cooperativeProfile as $coop){?>
                                                                     <tr>
-                                                                        <td>Laguna Bel-Air Transportation</td>
-                                                                        <td>Mark Dherp Cuevas</td>
-                                                                        <td>CCDO</td>
+                                                                        <td><?php echo $coop['Cooperative_Name'];?></td>
+                                                                        <td><?php echo $coop['BOD_Chairman'];?></td>
+                                                                        <td><?php echo $coop['Address']?></td>
+                                                                        <td><?php echo $coop['Telephone_Number']?></td>
                                                                         <td class="text-center">
                                                                             <ul class="icons-list">
                                                                                 <li class="dropdown">
@@ -200,14 +210,15 @@
                                                                                     </a>
 
                                                                                     <ul class="dropdown-menu dropdown-menu-right">
-                                                                                        <li><a href="#" onclick="viewCooperative()"><i class="icon-eye"></i> View</a></li>
-                                                                                        <li><a href="#"><i class="icon-pencil7"></i> Update</a></li>
+                                                                                        <li><a href="CCDO_ViewAndUpdateCooperativeProfile.php?<?php echo $coop['idCooperative_Profile'];?>" onclick="viewCooperative()"><i class="icon-eye"></i> View</a></li>
+                                                                                        <li><a href="CCDO_ViewAndUpdateCooperativeProfile.php?<?php echo $coop['idCooperative_Profile'];?>"><i class="icon-pencil7"></i> Update</a></li>
                                                                                         <li><a href="#"><i class="icon-user-minus"></i> Delete</a></li>
                                                                                     </ul>
                                                                                 </li>
                                                                             </ul>
                                                                         </td>
                                                                     </tr>
+                                                                    <?php }} ?>
                                                                 </tbody>
 
                                                             </table>
@@ -221,17 +232,17 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th>Name</th>
-                                                                            <th>Position</th>
                                                                             <th>Department</th>
                                                                             <th class="text-center">Actions</th>
                                                                         </tr>
                                                                     </thead>
 
                                                                     <tbody>
+                                                                        <?php if($departmentProfile){
+                                                                            foreach($departmentProfile as $dept){?>
                                                                         <tr>
-                                                                            <td>Tiger Nixon</td>
-                                                                            <td>Planning and Production Manager</td>
-                                                                            <td>CCDO</td>
+                                                                            <td><?php echo $dept['Last_Name'].", ".$dept['First_Name']." ".$dept['Middle_Name'];?></td>
+                                                                            <td><?php echo $dept['Department']?></td>
                                                                             <td class="text-center">
                                                                                 <ul class="icons-list">
                                                                                     <li class="dropdown">
@@ -248,6 +259,7 @@
                                                                                 </ul>
                                                                             </td>
                                                                         </tr>
+                                                                        <?php }}?>
                                                                     </tbody>
 
                                                                 </table>
@@ -278,3 +290,26 @@
 </form>
 </body>
 </html>
+
+<script type="text/javascript">
+    $('#tableCoopeartiveAccount').dataTable( {
+              "columnDefs": [ {
+                "targets": 0,
+                "orderable": true
+                } ],
+                "columnDefs":[{
+                    "targets": 4,
+                    "orderable": false
+                }]
+            } );
+    $('#tableDepartmentAccount').dataTable( {
+              "columnDefs": [ {
+                "targets": 0,
+                "orderable": true
+                } ],
+                "columnDefs":[{
+                    "targets": 2,
+                    "orderable": false
+                }]
+            } );
+</script>
