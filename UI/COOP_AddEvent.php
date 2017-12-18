@@ -201,6 +201,13 @@ $departmentProfile = $handler-> getDepartmentAccounts();
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label><span class="text-danger">* </span><strong>End Date and Time:</strong></label>
+                                                        <input  ID="txtEndDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
                                                         <label><strong>Upload File:</strong></label>
                                                         <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
                                                     </div>
