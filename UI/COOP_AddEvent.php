@@ -223,65 +223,38 @@ $departmentProfile = $handler-> getDepartmentAccounts();
 
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
-                                                        <label><span class="text-danger">* </span><strong>Cooperatives:</strong></label>
-                                                        <table class="table datatable-html" id="coopTable" style="font-size: 13px; width: 100%;">
+                                                        <table class="table datatable-html" id="table" style="font-size: 13px; width: 100%;">
                                                             <thead>
                                                                 <tr>
-                                                                    <th style="width: 5%;"><i class="icon-check"></i></th>
-                                                                    <th style="width: 30%;">Cooperative Name</th>
-                                                                    <th style="width: 30%;">Chairman</th>
+                                                                    <th style="width: 5%;"><a></a><i class="icon-check"></i></th>
+                                                                    <th style="width: 30%;">Recipients</th>
                                                                     <th style="width: 20%;">Email</th>
-                                                                    <th style="width: 20%;">Telephone Number</th>
+                                                                    <th style="width: 20%;">Type</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <?php if($cooperativeProfile){
                                                                     foreach($cooperativeProfile as $coop){?>
                                                                 <tr>
-                                                                    <td><input type="checkbox" name="coopCb[]" value="<?php echo $coop['idAccounts'];?>"></td>
-                                                                    <td><?php echo $coop['Cooperative_Name'];?></td>
-                                                                     <td><?php echo $coop['BOD_Chairman'];?></td>
+                                                                    <td><input type="checkbox" name="checkbox[]" value="<?php echo $coop['idAccounts'];?>"></td>
+                                                                     <td><?php echo $coop['Cooperative_Name'];?></td>
                                                                      <td><?php echo $coop['Email_Address'];?></td>
-                                                                     <td><?php echo $coop['Telephone_Number'];?></td>
+                                                                     <td>Cooperative</td>
+                                                                </tr>
+                                                                <?php }}?>
+                                                                <?php if($departmentProfile){
+                                                                    foreach($departmentProfile as $dept){?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" name="checkbox[]" value="<?php echo $dept['idAccounts'];?>"></td>
+                                                                     <td><?php echo $dept['Department'];?></td>
+                                                                     <td><?php echo $dept['Email_Address'];?></td>
+                                                                     <td>Department</td>
                                                                 </tr>
                                                                 <?php }}?>
                                                             </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="col-lg-12">
-                                                    <div class="form-group">
-                                                        <label><span class="text-danger">* </span><strong>Department:</strong></label>
-                                                        <table class="table datatable-html" id="departmentTable" style="font-size: 13px; width: 100%;">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th style="width: 5%;"><i class="icon-check"></i></th>
-                                                                    <th style="width: 30%;">Employee Name</th>
-                                                                    <th style="width: 20%;">Email</th>
-                                                                    <th style="width: 20%;">Cellphone Number</th>
-                                                                    <th style="width: 20%;">Department</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                  <?php if($departmentProfile){
-                                                                    foreach($departmentProfile as $dept){?>
-                                                                <tr>
-                                                                    <td><input type="checkbox" name="coopCb[]" value="<?php echo $dept['idAccounts'];?>"></td>
-                                                                    <td><?php echo $dept['First_Name']." ".$dept['Middle_Name']." ".$dept['Last_Name'];?></td>
-                                                                     <td><?php echo $dept['Email_Address'];?></td>
-                                                                     <td><?php echo $dept['Cellphone_number'];?></td>
-                                                                     <td><?php echo $dept['Department'];?></td>
-                                                                </tr>
-                                                                <?php }}?>
-                                                            </tbody> 
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </div>
-
                                         </div>
                                     </fieldset>
 
@@ -310,16 +283,10 @@ $departmentProfile = $handler-> getDepartmentAccounts();
 </body>
 </html>
 <script type="text/javascript">
-     $('#coopTable').dataTable( {
+     $('#table').dataTable( {
               "columnDefs": [ {
                 "targets": 0,
-                "orderable": false
-                } ]
-            } );
-    $('#departmentTable').dataTable( {
-              "columnDefs": [ {
-                "targets": 0,
-                "orderable": false
+                "orderable": true
                 } ]
             } );
 </script>
