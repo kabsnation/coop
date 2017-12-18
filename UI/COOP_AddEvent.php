@@ -1,35 +1,40 @@
+<?php
+require("../Handlers/AccountHandler.php");
+$handler = new AccountHandler();
+$cooperativeProfile = $handler->getCoopAccounts();
+$departmentProfile = $handler-> getDepartmentAccounts();
+?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head >
+<head>
     <title>CCDO - Add Event</title>
 
     <link rel="icon" href="../assets/images/CCDO Logo.png" />
 
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
+    <!-- Global stylesheets -->
+   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/extras/animate.min.css" rel="stylesheet" type="text/css">
+    <!-- /global stylesheets -->
 
-	<!-- Core JS files -->
-	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
+    <!-- Core JS files -->
+    <script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+    <!-- /core JS files -->
 
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
 
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
-    <script type="text/javascript" src="assets/js/pages/form_inputs.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/uploaders/fileinput.min.js"></script>
-    <script type="text/javascript" src="assets/js/pages/uploader_bootstrap.js"></script>
-	<!-- /theme JS files -->
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
+    <!-- /theme JS files -->
 
 </head>
 
@@ -105,7 +110,7 @@
                                                 <asp:Label  ID="txtUser" Text="Username"></asp:Label></span>
                                             <div class="text-size-mini text-muted">
                                                 <i class="icon-pin text-size-small"></i>&nbsp;Santa Rosa, Laguna
-								
+                                
                                        
                                             </div>
                                         </div>
@@ -212,16 +217,28 @@
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Cooperatives:</strong></label>
-                                                        <table class="table datatable-html" style="font-size: 13px; width: 100%;">
+                                                        <table class="table datatable-html" id="coopTable" style="font-size: 13px; width: 100%;">
                                                             <thead>
                                                                 <tr>
                                                                     <th style="width: 5%;"><i class="icon-check"></i></th>
                                                                     <th style="width: 30%;">Cooperative Name</th>
-                                                                    <th style="width: 30%;">Contact Person</th>
+                                                                    <th style="width: 30%;">Chairman</th>
                                                                     <th style="width: 20%;">Email</th>
-                                                                    <th style="width: 20%;">Cellphone Number</th>
+                                                                    <th style="width: 20%;">Telephone Number</th>
                                                                 </tr>
                                                             </thead>
+                                                            <tbody>
+                                                                <?php if($cooperativeProfile){
+                                                                    foreach($cooperativeProfile as $coop){?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" name="coopCb[]" value="<?php echo $coop['idAccounts'];?>"></td>
+                                                                    <td><?php echo $coop['Cooperative_Name'];?></td>
+                                                                     <td><?php echo $coop['BOD_Chairman'];?></td>
+                                                                     <td><?php echo $coop['Email_Address'];?></td>
+                                                                     <td><?php echo $coop['Telephone_Number'];?></td>
+                                                                </tr>
+                                                                <?php }}?>
+                                                            </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
@@ -229,16 +246,28 @@
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Department:</strong></label>
-                                                        <table class="table datatable-html" style="font-size: 13px; width: 100%;">
+                                                        <table class="table datatable-html" id="departmentTable" style="font-size: 13px; width: 100%;">
                                                             <thead>
                                                                 <tr>
                                                                     <th style="width: 5%;"><i class="icon-check"></i></th>
                                                                     <th style="width: 30%;">Employee Name</th>
-                                                                    <th style="width: 30%;">Position</th>
                                                                     <th style="width: 20%;">Email</th>
                                                                     <th style="width: 20%;">Cellphone Number</th>
+                                                                    <th style="width: 20%;">Department</th>
                                                                 </tr>
                                                             </thead>
+                                                            <tbody>
+                                                                  <?php if($departmentProfile){
+                                                                    foreach($departmentProfile as $dept){?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" name="coopCb[]" value="<?php echo $dept['idAccounts'];?>"></td>
+                                                                    <td><?php echo $dept['First_Name']." ".$dept['Middle_Name']." ".$dept['Last_Name'];?></td>
+                                                                     <td><?php echo $dept['Email_Address'];?></td>
+                                                                     <td><?php echo $dept['Cellphone_number'];?></td>
+                                                                     <td><?php echo $dept['Department'];?></td>
+                                                                </tr>
+                                                                <?php }}?>
+                                                            </tbody> 
                                                         </table>
                                                     </div>
                                                 </div>
@@ -273,3 +302,17 @@
     </form>
 </body>
 </html>
+<script type="text/javascript">
+     $('#coopTable').dataTable( {
+              "columnDefs": [ {
+                "targets": 0,
+                "orderable": false
+                } ]
+            } );
+    $('#departmentTable').dataTable( {
+              "columnDefs": [ {
+                "targets": 0,
+                "orderable": false
+                } ]
+            } );
+</script>

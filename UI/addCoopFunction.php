@@ -98,12 +98,15 @@ $basicTraningsOfMgt= mysqli_real_escape_string($con,stripcslashes(trim($_POST['t
 						if($coopAssetId!=""){
 							$businessOperationId = $handler->addBusinessOperation($businessEngaged,$otherBusiness,$serviceBenefits,$paidUpId,$coopAssetId,$assistingFinancial);
 							if($businessOperationId!=""){
-								$result = $handler->addCooperative($coopName,$address,$telephoneNumber,$emailAddress,$cda,$dateOfRegistration,$cin,$orgAspectId,$respondentId,$businessOperationId,$membership,$membershipId,$affiliation,$regulatoryId,$cooperativeType,$areaOfOperation);
-								if($result){
-									echo "<script>
-										window.location = 'CCDO_AddCooperativeAccount.php';
-										alert('Success');
-										</script>";
+								$cooperativeId = $handler->addCooperative($coopName,$address,$telephoneNumber,$emailAddress,$cda,$dateOfRegistration,$cin,$orgAspectId,$respondentId,$businessOperationId,$membership,$membershipId,$affiliation,$regulatoryId,$cooperativeType,$areaOfOperation);
+								if($cooperativeId!=""){
+									$result = $handler->addCoopAccount($username,$password,$cooperativeId);
+									if($result){
+										echo "<script>
+											window.location = 'CCDO_AddCooperativeAccount.php';
+											alert('Success');
+											</script>";
+									}
 								}
 								else
 									echo "<script>alert(error addCoop);</script>".$result;

@@ -8,11 +8,29 @@ class AccountHandler{
 		$result = $con->select($query);
 		return $result;
 	}
+	public function getDepartmentAccounts(){
+		$query = "SELECT * FROM Accounts JOIN account_info ON account_info.idAccount_Info = accounts.idAccount_Info JOIN department on department.idDepartment = accounts.idDepartment";
+		$con = new Connect();
+		$result = $con->select($query);
+		return $result;
+	}
+	public function getCoopAccounts(){
+		$con = new Connect();
+		$query = "SELECT * FROM Accounts JOIN cooperative_profile as coop ON accounts.idCooperative_Profile = coop.idCooperative_Profile JOIN respondent ON respondent.idRespondent = coop.idRespondent JOIN organizational_aspect as oa ON oa.idOrganizational_Aspect = coop.idOrganizational_Aspect JOIN business_operation as b ON b.idBusiness_Operation = coop.idBusiness_Operation JOIN type_of_cooperative as typec ON typec.idType = coop.idType JOIN commonbond_of_membership as com ON com.idCommonBond_of_Membership = coop.idCommonBond_of_Membership JOIN area_of_operation as area ON area.idarea_of_operation = coop.idarea_of_operation JOIN membership_composition as mem ON mem.idMembership_composition = coop.idMembership_Profile JOIN regulatory_requirements as reg ON reg.idRegulatory_Requirements = coop.idRegulatory_Requirements";
+		$result = $con->select($query);
+		return $result;
+	}
+	public function addCoopAccount($username,$password,$cooperativeId){
+		$con = new Connect();
+		$query = "INSERT INTO accounts (Username, Password, idCooperative_Profile, idaccount_type) VALUES('".$userName."','".$password."','".$cooperativeId."',4)";
+		$result = $con->insert($query);
+		return $result;
+	}
 	public function addCooperative($cooperativeName,$address,$telephoneNumber,$emailAddress,$CDA_Reg_No,$Date_of_Reg,$CIN,$orgAspectId,$respondentId,$businessOperationId,$commonBondOfMembershipId,$memberProfileId,$affiliation,$regulatoryId,$coopertaiveType,$areaId){
 		$con = new Connect();
 		$query = "INSERT INTO Cooperative_Profile(Cooperative_Name,Address,Telephone_Number,Email_Address,CDA_Reg_No,Date_of_Reg,CIN,idRespondent,idOrganizational_Aspect,idBusiness_Operation,Type_of_Cooperative_idType,idCommonBond_of_Membership,idarea_of_operation,idMembership_Profile,Affilation,idRegulatory_Requirements) VALUES('".$cooperativeName."','".$address."','".$telephoneNumber."','".$emailAddress."','".$CDA_Reg_No."','".$Date_of_Reg."','".$CIN."','".$respondentId."','".$orgAspectId."','".$businessOperationId."','".$coopertaiveType."','".$commonBondOfMembershipId."','".$areaId."','".$memberProfileId."','".$affiliation."','".$regulatoryId."')";
-		$result = $con->insert($query);
-		return $result;
+		$cooperativeId = $con->insertReturnLastId($query);
+		return $cooperativeId;
 	}
 	public function addMemberProfile($totalMember,$totalMale,$totalFemale,$numberOfRegular,$numberOfAssociate,$trainingAttendByMember,$trainingAttendByOfficers,$trainingAttendByMgtStaff,$membershipCompositionId){
 		$con = new Connect();
