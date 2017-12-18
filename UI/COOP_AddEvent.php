@@ -213,12 +213,13 @@ $departmentProfile = $handler-> getDepartmentAccounts();
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            <hr/>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Choose Recipients:</strong></label>
                                                     </div>
+                                                    
                                                 </div>
 
                                                 <div class="col-lg-12">
