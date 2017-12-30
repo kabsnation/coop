@@ -205,18 +205,18 @@
 	                        <thead>
 	                            <tr>
 	                            	<th><input type="checkbox" class="styled"></th>
-	                            	<th>Date</th>
 	                            	<th>Subject</th>
 	                                <th>From</th>
+	                                <th>Date</th>
 	                                <th class="text-center">Actions</th>
 	                            </tr>
 	                        </thead>
 	                        <tbody>
 	                        	<tr>
 	                            	<td style="width:5%"><input type="checkbox" class="styled"></td>
-			                        <td>Jun 10, 2015</td>
 			                        <td>Graduation Ceremony</td>
 			                        <td><a href="#">Mark Dherp Cuevas</a></td>
+			                        <td>Jun 10, 2015</td>
 			                        <td class="text-center">
 			                            <ul class="icons-list">
 											<li class="dropdown">

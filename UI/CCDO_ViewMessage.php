@@ -32,10 +32,10 @@
 	<script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
 	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/ui/prism.min.js"></script>
-	<script type="text/javascript" src="assets/js/pages/extra_fab.js"></script>
 	<script type="text/javascript" src="assets/js/pages/components_media.js"></script>
 	<script type="text/javascript" src="assets/js/pages/components_popups.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/editors/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/editor_summernote.js"></script>
 	<!-- /theme JS files -->
 
 </head>
@@ -250,8 +250,16 @@
 											to Kabs Polidan (cpolidan@gmail.com), Daniel Red (dred@gmail.com)
 
 											<a class="btn btn-link btn-sm" data-popup="popover" data-placement="left" title="Message Details" data-html="true" 
-											data-content="from: Mark Dherp Cuevas 
-											<br/> to: Kabs Polidan (cpolidan@gmail.com),
+											data-content="from: 
+											<br/> Mark Dherp Cuevas 
+											<br/> to: 
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com)
+											<br/> Kabs Polidan (cpolidan@gmail.com),
 											<br/> Daniel Red (dred@gmail.com),
 											<br/> Kabs Polidan (cpolidan@gmail.com),
 											<br/> Daniel Red (dred@gmail.com),
@@ -267,13 +275,27 @@
 							</div>
 
 							<div class="col-lg-12">
-								Message Body
+								<?php echo "Message Body"; ?>
 							</div>
+
 							
 						</div>
                     </div>
                     <!-- /media library -->
 
+                    <!-- Summernote editor -->
+					<div class="panel panel-white">
+						<div class="panel-heading">
+							<h5 class="panel-title">Reply</h5>
+						</div>
+
+						<div class="panel-body">
+							<div id="reply" class="summernote">
+								<h6>Click here to reply...</h6>
+							</div>
+						</div>
+					</div>
+					<!-- /summernote editor -->
 				</div>
 				<!-- /content area -->
 
