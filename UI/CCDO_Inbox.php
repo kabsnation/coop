@@ -31,6 +31,9 @@
 	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
 	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/prism.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/extra_fab.js"></script>
 	<!-- /theme JS files -->
 
 </head>

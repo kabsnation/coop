@@ -31,6 +31,11 @@
 	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
 	<script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
 	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/prism.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/extra_fab.js"></script>
+	<script type="text/javascript" src="assets/js/pages/components_media.js"></script>
+	<script type="text/javascript" src="assets/js/pages/components_popups.js"></script>
 	<!-- /theme JS files -->
 
 </head>
@@ -175,7 +180,7 @@
 
 						<div class="heading-elements">
 							<div class="heading-btn-group">
-								<a href="#" class="btn btn-link btn-float has-text"><i class=" icon-mail-read text-info"></i><span>Reply</span></a>
+								<a href="#" class="btn btn-link btn-float has-text"><i class=" icon-reply text-info"></i><span>Reply</span></a>
 								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-trash text-danger"></i> <span>Delete</span></a>
 							</div>
 						</div>
@@ -187,18 +192,83 @@
 				<!-- Content area -->
 				<div class="content">
 
+					<!-- Bottom right menu -->
+					<ul class="fab-menu fab-menu-fixed fab-menu-bottom-right" data-fab-toggle="hover">
+						<li>
+							<a class="fab-menu-btn btn bg-teal-400 btn-float btn-rounded btn-icon">
+								<i class="fab-icon-open icon-grid3"></i>
+								<i class="fab-icon-close icon-cross2"></i>
+							</a>
+
+							<ul class="fab-menu-inner">
+
+								<li>
+									<div data-fab-label="View Inbox">
+										<a href="#" class="btn btn-default btn-rounded btn-icon btn-float">
+											<i class="icon-inbox"></i>
+										</a>
+										<span class="badge bg-info-400">1</span>
+									</div>
+								</li>
+
+								<li>
+									<div data-fab-label="Compose a Message">
+										<a href="#" class="btn btn-default btn-rounded btn-icon btn-float">
+											<i class="icon-pencil"></i>
+										</a>
+									</div>
+								</li>
+
+							</ul>
+						</li>
+					</ul>
+					<!-- /bottom right menu -->
+
 					<!-- Media library -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
-							<h6 class="panel-title text-semibold">Message</h6>
+							<h4 class="panel-title text-semibold"><?php echo'Graduation Ceremony' ?></h6>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									
+									<li><?php echo "June 10, 2015"; ?></li>
 			                	</ul>
 		                	</div>
 						</div>
 
 						<div class="panel-body">
+
+							<div class="col-lg-12">
+								<ul class="media-list media-list-bordered">
+
+									<li class="media">
+										<div class="media-left">
+											<a href="#"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></a>
+										</div>
+
+										<div class="media-body">
+											<h6 class="media-heading text-semibold">Mark Dherp Cuevas (dherp.cuevas@gmail.com)</h6>
+											to Kabs Polidan (cpolidan@gmail.com), Daniel Red (dred@gmail.com)
+
+											<a class="btn btn-link btn-sm" data-popup="popover" data-placement="left" title="Message Details" data-html="true" 
+											data-content="from: Mark Dherp Cuevas 
+											<br/> to: Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com)">
+												<i class=" icon-chevron-down position-right"></i>
+											</a>
+										</div>
+									</li>
+
+									<li class="media-header"></li>
+								</ul>
+							</div>
+
+							<div class="col-lg-12">
+								Message Body
+							</div>
 							
 						</div>
                     </div>
