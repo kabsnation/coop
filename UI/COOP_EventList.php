@@ -176,7 +176,7 @@
                                                                 <td>January 2, 2018</td>
                                                                 <td class="text-center">
                                                                     <ul class="icons-list">
-                                                                        <li class="text-teal-600"><a href="#" onclick="HideEventListPanel(this)"><i class="icon-eye" style="margin-right: 10px;"></i>View</a></li>
+                                                                        <li class="text-teal-600"><a href="#" onclick="HideEventListPanel1(this)"><i class="icon-eye" style="margin-right: 10px;"></i>View</a></li>
                                                                     </ul>
                                                                 </td>
                                                             </tr>
