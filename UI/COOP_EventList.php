@@ -1,3 +1,10 @@
+<?php
+require("../config/config.php");
+require("../Handlers/EventHandler.php");
+$handler = new EventHandler();
+$eventLists = $handler->getEvents();
+?>
+
 <html>
 <head >    
     <title>CCDO - Event List</title>
@@ -170,18 +177,19 @@
                                                         </thead>
 
                                                         <tbody>
+                                                            <?php if($eventLists){
+                                                                foreach($eventLists as $event){?>
                                                             <tr>
-                                                                <td>Cooperative Awarding Ceremony</td>
-                                                                <td>Mark Dherp Cuevas</td>
-                                                                <td>January 2, 2018</td>
+                                                                <td><?php echo $event['eventName'];?></td>
+                                                                <td><?php echo $event['idAccounts'];?></td>
+                                                                <td><?php echo $event['startDateTime']?></td>
                                                                 <td class="text-center">
                                                                     <ul class="icons-list">
                                                                         <li class="text-teal-600"><a href="#" onclick="HideEventListPanel1(this)"><i class="icon-eye" style="margin-right: 10px;"></i>View</a></li>
                                                                     </ul>
                                                                 </td>
                                                             </tr>
-                                                        </tbody>
-
+                                                           <?php }} ?>
                                                     </table>
                                                 </div>
                                             </div>
@@ -264,6 +272,10 @@
                                                                 <th style="width: 20%;">Response</th>
                                                             </tr>
                                                         </thead>
+
+                                                        <tbody>
+                                                            
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                                 

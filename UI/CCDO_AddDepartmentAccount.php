@@ -1,3 +1,14 @@
+<?php
+//session_start();
+//if(!isset($_SESSION['idAccountAdmin'])){
+//    echo "<script>window.location='index.php';</script>";
+//}
+require("../config/config.php");
+require("../Handlers/AccountHandler.php");
+$handler = new AccountHandler();
+$typeDepartment = $handler->getTypeOfDepartment();
+?>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,7 +50,6 @@
 
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/pages/form_validation.js"></script>
-    <script src="assets/jquery.maskedinput.js" type="text/javascript"></script>
     <!-- /theme JS files -->
 </head>
 <body>
@@ -222,12 +232,15 @@
 
                                                         <div class="col-md-3">
                                                             <div class="form-group has-feedback">
-                                                                <label><span class="text-danger">* </span><strong>Sex:</strong></label>
-                                                                <select ID="ddlSex" name="ddlSex"class="form-control" required="required" class="form-control">
-                                                                    <option></option>
-                                                                    <option Text="Female" Value="1">Female</option>
-                                                                    <option Text="Male" Value="2">Male</option>
-                                                                </select>
+                                                                <label><span class="text-danger">* </span><strong>Cellphone Number:</strong></label>
+                                                                <input type="text" id="txtCellphoneNumber" name="txtCellphoneNumber" class="form-control" data-mask="(+639) 99-999-9999" placeholder="(+639) 99-999-9999">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
+                                                                <input type="email" id="txtEmail" name="txtEmail" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -335,6 +348,14 @@
                                                     <div class="row">
                                                         
                                                         <div class="col-md-6">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Department:</strong></label>
+                                                                <select  ID="ddlDepartment" name="ddlDepartment" required="required" class="form-control">
+                                                                   <?php foreach($typeDepartment as $type){?>
+                                                                   <option value="<?php echo $type['idDepartment'];?>"><?php echo $type['Department'];?></option>
+                                                                   <?php }?>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-md-6">

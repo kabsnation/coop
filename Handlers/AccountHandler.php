@@ -1,10 +1,14 @@
 <?php
-require("../config/config.php");
 class AccountHandler{
-
 	public function getAccount($userName,$password){
 		$con = new Connect();
 		$query = "SELECT * FROM Accounts WHERE userName='".$userName."' AND password ='" .$password."'";
+		$result = $con->select($query);
+		return $result;
+	}
+	public function getAccountById($id){
+		$con = new Connect();
+		$query = "SELECT * FROM coop.accounts,account_info where account_info.idAccount_Info = accounts.idAccount_Info and idAccounts =".$id;
 		$result = $con->select($query);
 		return $result;
 	}
@@ -22,13 +26,13 @@ class AccountHandler{
 	}
 	public function addCoopAccount($username,$password,$cooperativeId){
 		$con = new Connect();
-		$query = "INSERT INTO accounts (Username, Password, idCooperative_Profile, idaccount_type) VALUES('".$userName."','".$password."','".$cooperativeId."',4)";
+		$query = "INSERT INTO accounts (Username, Password, idCooperative_Profile, idaccount_type) VALUES('".$username."','".$password."','".$cooperativeId."',4)";
 		$result = $con->insert($query);
 		return $result;
 	}
 	public function addCooperative($cooperativeName,$address,$telephoneNumber,$emailAddress,$CDA_Reg_No,$Date_of_Reg,$CIN,$orgAspectId,$respondentId,$businessOperationId,$commonBondOfMembershipId,$memberProfileId,$affiliation,$regulatoryId,$coopertaiveType,$areaId){
 		$con = new Connect();
-		$query = "INSERT INTO Cooperative_Profile(Cooperative_Name,Address,Telephone_Number,Email_Address,CDA_Reg_No,Date_of_Reg,CIN,idRespondent,idOrganizational_Aspect,idBusiness_Operation,Type_of_Cooperative_idType,idCommonBond_of_Membership,idarea_of_operation,idMembership_Profile,Affilation,idRegulatory_Requirements) VALUES('".$cooperativeName."','".$address."','".$telephoneNumber."','".$emailAddress."','".$CDA_Reg_No."','".$Date_of_Reg."','".$CIN."','".$respondentId."','".$orgAspectId."','".$businessOperationId."','".$coopertaiveType."','".$commonBondOfMembershipId."','".$areaId."','".$memberProfileId."','".$affiliation."','".$regulatoryId."')";
+		$query = "INSERT INTO Cooperative_Profile(Cooperative_Name,Address,Telephone_Number,Email_Address,CDA_Reg_No,Date_of_Reg,CIN,idRespondent,idOrganizational_Aspect,idBusiness_Operation,idType,idCommonBond_of_Membership,idarea_of_operation,idMembership_Profile,Affilation,idRegulatory_Requirements) VALUES('".$cooperativeName."','".$address."','".$telephoneNumber."','".$emailAddress."','".$CDA_Reg_No."','".$Date_of_Reg."','".$CIN."','".$respondentId."','".$orgAspectId."','".$businessOperationId."','".$coopertaiveType."','".$commonBondOfMembershipId."','".$areaId."','".$memberProfileId."','".$affiliation."','".$regulatoryId."')";
 		$cooperativeId = $con->insertReturnLastId($query);
 		return $cooperativeId;
 	}
@@ -101,9 +105,16 @@ class AccountHandler{
 		return $result;
 	}
 
-	public function addDepartmentAccountInfo($fisrtName,$lastName,$middleName,$nameSuffix,$cellnumber,$email,$position){
+	public function getTypeOfDepartment(){
+		$con= new Connect();
+		$query="SELECT * FROM Department";
+		$result=$con->select($query);
+		return $result;
+	}
+
+	public function addDepartmentAccountInfo($fisrtName,$lastName,$middleName,$nameSuffix,$cellnumber,$email){
 		$con = new Connect();
-		$query = "INSERT INTO Account_Info (First_Name, Last_Name, Middle_Name,Name_Suffix,Cellphone_number,Email_Address,Position) VALUES ('" .$fisrtName."','".$lastName."','".$middleName."','".$nameSuffix."','".$cellnumber."','".$email."','".$position."')";
+		$query = "INSERT INTO Account_Info (First_Name, Last_Name, Middle_Name,Name_Suffix,Cellphone_number,Email_Address) VALUES ('" .$fisrtName."','".$lastName."','".$middleName."','".$nameSuffix."','".$cellnumber."','".$email."')";
 		$lastId = $con->insertReturnLastId($query);
 		return $lastId;
 	}
@@ -112,7 +123,6 @@ class AccountHandler{
 		$con = new Connect();
 		$query = "INSERT INTO accounts (Username, Password, idAccount_Info, idDepartment, idaccount_type) VALUES ('" .$userName. "','" .$password. "'," .$accountId. "," .$departmentId. "," .$accountType. ")";
 		$result = $con->insert($query);
-
 	}
 
 	public function checkUsername($userName){

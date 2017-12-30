@@ -1,5 +1,6 @@
 <?php
 require("../Handlers/AccountHandler.php");
+require("../config/config.php");
 $handler = new AccountHandler();
 $connect = new Connect();
 $con = $connect-> connectDB();
@@ -13,6 +14,7 @@ if(isset($_POST['txtUsername'])){
 	$respondentEmailAddress= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
 	$respondentName = $lastName.", ".$firstName." ".$middleName;
 	//cooperative profile
+
 	$coopName= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCoopName'])));
 	$address= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtAddress'])));
 	$telephoneNumber= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtTelephone'])));
@@ -68,7 +70,7 @@ $dateOfgeneralMeeting= mysqli_real_escape_string($con,stripcslashes(trim($_POST[
 	$totalMale= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtMale'])));
 	$totalFemale= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtFemale'])));
 	$numberOfRegularMembers= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtNumberOfRegularMembers'])));
-	$numberOfAssociate= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtDateOfIssueCOC'])));
+	$numberOfAssociate= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtNumberOfAssociateMembers'])));
 	$membershipComposition= mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlMembershipComposition'])));
 	$basicTrainingsOfMembers= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtBasicTrainingsAttendedByMembers'])));
 $basicTrainingsOfOfficers= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtBasicTrainingsAttendedByOfficers'])));
@@ -83,13 +85,16 @@ $basicTraningsOfMgt= mysqli_real_escape_string($con,stripcslashes(trim($_POST['t
 	if($respondentId!=""){
 		//insert org aspect
 		$orgAspectId = $handler->addOrganizationalAspect($numberOfBoardOfDirectors,$numberOfEmployees,$chairman,$viceChairman,$manager,$secretary,$audit,$treasurer,$electionChairman,$med,$otherCommittees,$dateOfgeneralMeeting,$dateOfMonthlyMeeting,$dateOfCommitteeMeeting);
+
 		if($orgAspectId!=""){
 			//regulatory requirements
 			$regulatoryId = $handler-> addRegulatoryRequirements($bir,$tin,$businessPermit,$coc,$dateIssueOfCoc,$certificate);
+
 			if($regulatoryId !=""){
 				//membership profile
 				$membershipId = $handler ->addMemberProfile($numberOfMembership,$totalMale,$totalFemale,$numberOfRegularMembers,$numberOfAssociate,$basicTrainingsOfMembers,$basicTrainingsOfOfficers,$basicTraningsOfMgt,
 					$membershipComposition);
+				
 				if($membershipId!=""){
 					//business financial
 					$paidUpId = $handler -> addPaidUpCapital($totalPaidUp,$beginningPaidUp,$toDatePaidUp);
