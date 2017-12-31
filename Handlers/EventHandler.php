@@ -21,5 +21,12 @@ class EventHandler{
 		$result = $con->insert($query);
 		return $result;
 	}
+
+	public function getEvents(){
+		$query = "SELECT * FROM Events";
+		$con = new Connect();
+		$result = $con->select($query);
+		return $result;
+	}
 }
 ?>
