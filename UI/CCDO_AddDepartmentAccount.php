@@ -335,6 +335,12 @@
                                                     <div class="row">
                                                         
                                                         <div class="col-md-6">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Department:</strong></label>
+                                                                <select ID="ddlDepartment" name="ddlDepartment" class="form-control">
+                                                                    <option></option>
+                                                                </select>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-md-6">

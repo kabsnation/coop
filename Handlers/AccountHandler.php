@@ -1,10 +1,14 @@
 <?php
-require("../config/config.php");
 class AccountHandler{
-
 	public function getAccount($userName,$password){
 		$con = new Connect();
 		$query = "SELECT * FROM Accounts WHERE userName='".$userName."' AND password ='" .$password."'";
+		$result = $con->select($query);
+		return $result;
+	}
+	public function getAccountById($id){
+		$con = new Connect();
+		$query = "SELECT * FROM coop.accounts,account_info where account_info.idAccount_Info = accounts.idAccount_Info and idAccounts =".$id;
 		$result = $con->select($query);
 		return $result;
 	}

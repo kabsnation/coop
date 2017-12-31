@@ -1,3 +1,21 @@
+<?php
+session_start();
+// if(!isset($_SESSION['idTrackingAdmin'])){
+//     echo "<script>window.location='index.php';</script>";
+// }
+require("../config/config.php");
+require("../Handlers/DocumentHandler.php");
+require("../Handlers/AccountHandler.php");
+date_default_timezone_set('Asia/Manila');
+$account = new AccountHandler();
+$doc = new DocumentHandler();
+$trackingNumber = $doc->getTrackingNumber();
+$documentType = $doc->getDocumentType();
+$id = "1";
+$adminAccount = $account->getAccountById($id);
+$cooperativeProfile = $account->getCoopAccounts();
+$departmentProfile = $account->getDepartmentAccounts();
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
     <title>CCDO - Add Document</title>
@@ -33,7 +51,7 @@
 
 </head>
 <body>
-    <form id="form1"  class="form-validate-jquery">
+    <form id="form1" action="documentFunction.php" method="POST" class="form-validate-jquery" enctype="multipart/form-data">
         <div>
         <!-- Main navbar -->
         <div class="navbar navbar-inverse">
@@ -158,7 +176,10 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Tracking Number:</label>
                                                     <div class="col-lg-12">
-                                                        <p class="label" ID="controlNumber1" Text="CCDO-0001" style="color: #000; font-size: 15px;">CCDO-0001</p>
+                                                        <label id="trackingNumber" class="label" style="color: #000; font-size: 15px;">
+                                                            <?php echo $trackingNumber;?>
+                                                            <input type="hidden" name="trackingNumber" value="<?php echo $trackingNumber;?>">
+                                                        </label>
                                                     </div>
                                                     
                                                 </div>
@@ -167,14 +188,12 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="control-label"><span class="text-danger">* </span> <strong>Document Type: </strong></label>
-                                                    <select  class="form-control select" required="required" ID="documentType">
-                                                        <option></option>
-                                                        <option Value="1">Answer</option>
-                                                        <option Value="2">Post/Board</option>
-                                                        <option Value="3">Attend</option>
-                                                        <option Value="4">File</option>
-                                                        <option Value="5">Circulate</option>
-                                                        <option Value="6">Invitation</option>
+                                                    <select  class="form-control select" required="required" name="documentType" ID="documentType">
+                                                        <option>Choose Type</option>
+                                                        <?php if($documentType){
+                                                            foreach($documentType as $type){?>
+                                                            <option value="<?php echo $type['idDocument_Type'];?>"><?php echo $type['Document'];?></option>
+                                                            <?php }}?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -184,14 +203,22 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Administered by:</label>
-                                                    <input type="text"  class="form-control" readonly="true" ID="Admin"></input>
-                                                </div>
+                                                    <?php if($adminAccount){
+                                                        foreach($adminAccount as $admin){?>
+                                                        <br>
+                                                    <label class="label" style="color: #000; font-size: 15px;" ><?php echo $admin['First_Name'].' '.$admin['Last_Name'];?>
+                                                        <!-- echo yung session -->
+                                                        <input type="hidden" name="accountId" value="<?php echo "1";?>">
+                                                    </label>
+                                                    <?php }}?>
+                                              </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label">Date Added:</label>
-                                                    <input type="text"  class="form-control" ID="dateTime" type="DateTime" readonly="true"></input>
+                                                    <input type="text"  class="form-control" ID="dateTime" type="DateTime" readonly="true" value="<?php echo date("m/d/Y") ?>"></input>
+                                                    <input type="hidden" name="datetime" value="date('m/d/Y - h:m:s')">
                                                 </div>
                                             </div>
                                         </div>
@@ -200,7 +227,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label><strong>Upload File:</strong></label>
-                                                    <asp:FileUpload  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
+                                                    <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,17 +236,36 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label><span class="text-danger">* </span><strong>Choose Recipients:</strong></label>
-                                                    <table class="table datatable-html" style="font-size: 13px; width: 100%;">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="width: 5%;"><i class="icon-check"></i></th>
-                                                                <th style="width: 30%;">Recipient Name</th>
-                                                                <th style="width: 30%;">Category</th>
-                                                                <th style="width: 20%;">Email</th>
-                                                                <th style="width: 20%;">Cellphone Number</th>
-                                                            </tr>
-                                                        </thead>
-                                                    </table>
+                                                  <table class="table datatable-html" id="table" style="font-size: 13px; width: 100%;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 5%;"><a></a><i class="icon-check"></i></th>
+                                                                    <th style="width: 30%;">Recipients</th>
+                                                                    <th style="width: 20%;">Email</th>
+                                                                    <th style="width: 20%;">Type</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <?php if($cooperativeProfile){
+                                                                    foreach($cooperativeProfile as $coop){?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" name="checkbox[]" value="<?php echo $coop['idAccounts'];?>"></td>
+                                                                     <td><?php echo $coop['Cooperative_Name'];?></td>
+                                                                     <td><?php echo $coop['Email_Address'];?></td>
+                                                                     <td>Cooperative</td>
+                                                                </tr>
+                                                                <?php }}?>
+                                                                <?php if($departmentProfile){
+                                                                    foreach($departmentProfile as $dept){?>
+                                                                <tr>
+                                                                    <td><input type="checkbox" name="checkbox[]" value="<?php echo $dept['idAccounts'];?>"></td>
+                                                                     <td><?php echo $dept['Department'];?></td>
+                                                                     <td><?php echo $dept['Email_Address'];?></td>
+                                                                     <td>Department</td>
+                                                                </tr>
+                                                                <?php }}?>
+                                                            </tbody>
+                                                        </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -251,3 +297,8 @@
     </form>
 </body>
 </html>
+<script type="text/javascript">
+var table = $('#table').DataTable();
+ 
+table.columns.adjust().draw();
+</script>

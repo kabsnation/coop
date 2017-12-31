@@ -2,7 +2,15 @@
 require("../Handlers/DocumentHandler.php");
 require("../config/config.php");
 $doc = new DocumentHandler();
-$trackingNumber = $doc->getTrackingNumber();
+$connect = new Connect();
+$con = $connect->connectDB();
+if(!isset($_GET['trackingId']))
+    echo "<script>window.location='COOP_DocumentList.php'</script>";
+$trackingId= mysqli_real_escape_string($con,stripcslashes(trim($_GET['trackingId'])));
+$trackInfo = $doc->getTrackingInfo($trackingId);
+$locations = $doc->getLocationByTrackingNumber($trackingId);
+if(empty($trackInfo))
+    echo "<script>window.location='COOP_DocumentList.php'</script>";
 ?>
 <html>
 <head >    
@@ -133,7 +141,7 @@ $trackingNumber = $doc->getTrackingNumber();
                         </div>
                     </div>
                     <!--/ Main sidebar -->
-
+                    <?php if($trackInfo){foreach($trackInfo as $info){?>
                     <!-- Main content -->
                     <div class="content-wrapper">
 
@@ -142,11 +150,11 @@ $trackingNumber = $doc->getTrackingNumber();
                             <div class="row">
 
                                 <div class="col-lg-12">
-                                    <div class="panel panel-white" id="panelEventList">
-
+                                    
+                                    <div class="panel panel-flat border-top-lg border-top-info" id="panelEventDetails">
                                         <div class="panel-heading">
                                             <div class="panel-title">
-                                                <h1 class="panel-title">Documents</h1>
+                                                <h2><a href="COOP_DocumentList.php"><i class="icon-arrow-left52 position-left"></i></a> <span class="text-semibold">Document Details</span></h2>
                                             </div>
 
 
@@ -157,20 +165,74 @@ $trackingNumber = $doc->getTrackingNumber();
                                         </div>
 
                                         <div class="panel-body">
-                                            <div class="form-group">
+                                            <div class="row">
+
+                                                <div class="col-sm-6 content-group">
+                                                    <img src="assets/images/CCDO Logo Transaction.png" class="content-group mt-10" style="height: 65%; width: 80%;">
+                                                </div>
+
+                                                <div class="col-sm-6 content-group">
+                                                    <div class="invoice-details">
+                                                        <h5>Tracking Number: <span class="text-semibold">
+                                                            <p class="text-uppercase text-semibold" ID="lblTrackingNumber"><?php echo $info['trackingNumber'];?></p></span></h5>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-5 col-lg-9 content-group">
+                                                    <span class="text-muted">Sender's Information:</span>
+                                                    <ul class="list-condensed list-unstyled">
+                                                        <li>
+                                                            <h5><span class="text-right text-semibold"></span></h5>
+                                                        </li>
+                                                        <li>Administered By: <span class="text-right text-semibold"></span></li>
+                                                        <li><span class=" text-semibold">
+                                                            <p  ID="lblFullName" style="font-size: 20px;  text-transform: uppercase; "><?php echo $info['name'];?></p></span></li>
+                                                        
+                                                        <li><span class="">
+                                                            <p  ID="lblSenderEmailAddress" style="font-size: 14px; color: darkgrey;"><?php echo $info['Email_Address'];?></p></span></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="col-md-7 col-lg-3 content-group">
+                                                    <span class="text-muted">Transaction Details:</span>
+                                                    <ul class="list-condensed list-unstyled invoice-payment-details">
+                                                        <li>
+                                                            <h5><span class="text-right text-semibold"></span></h5>
+                                                        </li>
+                                                        <li>Date Added: <span class="text-semibold">
+                                                            <p  ID="lblDateAdded"><?php echo $info['DateTime']?></p></span></li>
+                                                        <li>Document Type: <span class="text-semibold">
+                                                            <p  ID="lblDocumentType"><?php echo $info['Document']?></p></span></li>
+                                                        <li style="margin-top:20px;">Attached File: <span class="text-right text-semibold">
+                                                            <a ID="btnDownloadFile" class="btn-link">Download Attached File</a></span></li>
+                                                    </ul>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row">
                                                 <div class="col-lg-12">
-                                                    <table class="table datatable-html" id="tableCoopeartiveAccount" style="font-size: 13px; width: 100%;">
+                                                    <label class="control-label col-sm-3">Recipients:</label>
+                                                    <table class="table datatable-html" id="tableInvited" style="font-size: 13px; width: 100%;">
                                                         <thead>
                                                             <tr>
-                                                                <th>Tracking No.</th>
-                                                                <th>Type</th>
-                                                                <th>Date Added</th>
-                                                                <th class="text-center">Actions</th>
+                                                                <th style="width: 80%;">Recipient</th>
+                                                                <th style="width: 20%;">Response</th>
                                                             </tr>
                                                         </thead>
+                                                        <?php if($locations){foreach($locations as $location){?>
+                                                        <tbody>
+                                                            <td><?php echo $location['name'];?></td>
+                                                            <td><?php echo $location['Location_Status'];?></td>
+                                                        </tbody>
+                                                        <?php }}?>
                                                     </table>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                     </div>
@@ -180,6 +242,7 @@ $trackingNumber = $doc->getTrackingNumber();
                         </div>
                         <!-- /Content area -->
                     </div>
+                    <?php }}?>
                     <!-- /Main content -->
 
                 </div>
@@ -192,47 +255,8 @@ $trackingNumber = $doc->getTrackingNumber();
     </form>
 </body>
 <script>
-    var table = $('#tableCoopeartiveAccount').DataTable({
-        "order": [[ 0, "desc" ]]
-    });
+    var table = $('#tableInvited').DataTable();
     table.columns.adjust().draw();
-    function realTime(){
-        setTimeout(realTime,1000);
-        var tablee = $('#tableCoopeartiveAccount').DataTable();
-        var info = tablee.page.info();
-         $.ajax({
-            type: "POST",
-            url: "checker.php",
-            data: "count="+info.recordsTotal,
-            success: function(data){
-                 if(data == 1){
-                    addRow();
-                }
-            },
-            dataType: "json"
-        });
-    }  
-    function addRow(){
-         $.ajax({
-            type: "POST",
-            url: "realtimeFunction.php",
-            data: {},
-            success: function(data){
-                var tablee = $('#tableCoopeartiveAccount').DataTable();
-                tablee.clear().draw();
-                for (var i = 0; i < data[0].length; i++) {
-                    var table = $('#tableCoopeartiveAccount').DataTable();
-                    var trackingNumber ="<td>"+data[0][i]+"</td>";
-                    var type = "<td>"+data[1][i]+"</td>";
-                    var date = "<td>"+data[2][i]+"</td>";
-                    var action = "<a href='ViewTracking.php?trackingId="+data[0][i]+"'>View</a>";
-                    table.row.add([trackingNumber,type,date, action]).draw(false);
-                }
-                realTime();
-            },
-            dataType: "json"
-        });
-    } 
-    realTime();
+   
 </script>
 </html>
