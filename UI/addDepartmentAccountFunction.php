@@ -29,10 +29,11 @@ if(isset($_POST['txtUsername'])){
 		$accountId=$handler->addDepartmentAccountInfo($firstName,$lastName,$middleName,$nameSuffix,$cellnumber,$email);
 		if($accountId!=""){
 			$result=$handler->addDepartmentAccount($userName,$password,$accountId,$departmentId,$accountType);
+			echo "<script>window.location='CCDO_AddDepartmentAccount.php';alert('Success!');</script>";
 		}
 	}
 
 	else
-		echo "Username Already Exist";	
+		echo "<script>window.location='CCDO_AddDepartmentAccount.php';alert('Username Already Exist!');</script>";
 }
 ?>

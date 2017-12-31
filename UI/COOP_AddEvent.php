@@ -40,7 +40,7 @@ $departmentProfile = $handler-> getDepartmentAccounts();
 </head>
 
 <body>
-    <form id="form1"  class="form-validate-jquery">
+    <form id="form1" class="form-validate-jquery" enctype="multipart/form-data"  method="POST" action="addEventsFunction.php" >
         <div>
         <!-- Main navbar -->
         <div class="navbar navbar-inverse">
@@ -199,7 +199,7 @@ $departmentProfile = $handler-> getDepartmentAccounts();
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label><strong>Upload File:</strong></label>
-                                                        <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file" required="required" />
+                                                        <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="fileUploaded" name="fileUploaded" required="required" />
                                                     </div>
                                                 </div>
                                             </div>
