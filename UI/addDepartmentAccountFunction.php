@@ -16,12 +16,8 @@ if(isset($_POST['txtUsername'])){
 		$firstName = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtFirstName'])));
 		$middleName = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtMiddleName'])));
 		$nameSuffix = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlNameSuffix'])));
-		//$cellnumber = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCellphoneNumber'])));
-		//$email = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
-
-		$email = "asd";
-		$cellnumber = "0123";
-
+		$cellnumber = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCellphoneNumber'])));
+		$email = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
 		$accountType= 5;
 		$departmentId = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlDepartment'])));
 		$password= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtPassword'])));

@@ -50,7 +50,6 @@ $typeDepartment = $handler->getTypeOfDepartment();
 
     <script type="text/javascript" src="assets/js/core/app.js"></script>
     <script type="text/javascript" src="assets/js/pages/form_validation.js"></script>
-    <script src="assets/jquery.maskedinput.js" type="text/javascript"></script>
     <!-- /theme JS files -->
 </head>
 <body>
@@ -228,6 +227,20 @@ $typeDepartment = $handler->getTypeOfDepartment();
                                                                     <option Value="IV">IV</option>
                                                                     <option Value="V">V</option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Cellphone Number:</strong></label>
+                                                                <input type="text" id="txtCellphoneNumber" name="txtCellphoneNumber" class="form-control" data-mask="(+639) 99-999-9999" placeholder="(+639) 99-999-9999">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div class="form-group has-feedback">
+                                                                <label><span class="text-danger">* </span><strong>Email Address:</strong></label>
+                                                                <input type="email" id="txtEmail" name="txtEmail" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
