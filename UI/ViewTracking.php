@@ -8,7 +8,8 @@ if(!isset($_GET['trackingId']))
     echo "<script>window.location='COOP_DocumentList.php'</script>";
 $trackingId= mysqli_real_escape_string($con,stripcslashes(trim($_GET['trackingId'])));
 $trackInfo = $doc->getTrackingInfo($trackingId);
-$locations = $doc->getLocationByTrackingNumber($trackingId);
+$departmentProfile = $doc->getLocationDeptByTrackingNumber($trackingId);
+$cooperativeProfile = $doc->getLocationCoopByTrackingNumber($trackingId);
 if(empty($trackInfo))
     echo "<script>window.location='COOP_DocumentList.php'</script>";
 ?>
@@ -226,10 +227,16 @@ if(empty($trackInfo))
                                                                 <th style="width: 20%;">Response</th>
                                                             </tr>
                                                         </thead>
-                                                        <?php if($locations){foreach($locations as $location){?>
+                                                        <?php if($departmentProfile){foreach($departmentProfile as $dept){?>
                                                         <tbody>
-                                                            <td><?php echo $location['name'];?></td>
-                                                            <td><?php echo $location['Location_Status'];?></td>
+                                                            <td><?php echo $dept['Department'];?></td>
+                                                            <td><?php echo $dept['Location_Status'];?></td>
+                                                        </tbody>
+                                                        <?php }}?>
+                                                        <?php if($cooperativeProfile){foreach($cooperativeProfile as $coop){?>
+                                                        <tbody>
+                                                            <td><?php echo $coop['Cooperative_Name'];?></td>
+                                                            <td><?php echo $coop['Location_Status'];?></td>
                                                         </tbody>
                                                         <?php }}?>
                                                     </table>

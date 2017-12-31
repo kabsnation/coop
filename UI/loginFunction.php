@@ -20,16 +20,8 @@ if(isset($_POST["username"])&&isset($_POST["password"])){
 				echo "<script> window.location='CCDO_AddCooperativeAccount.php'</script>";
 			}
 			else if($result['idaccount_type']==3){
-				$_SESSION["idTrackingAdmin"]= $result["idAccounts"];
-				echo "<script> window.location=''</script>";
-			}
-			else if($result['idaccount_type']==4){
-				$_SESSION["idCoop"]= $result["idAccounts"];
-				echo "<script> window.location=''</script>";
-			}
-			else if($result['idaccount_type']==2){
-				$_SESSION["idDept"]= $result["idAccounts"];
-				echo "<script> window.location=''</script>";
+				$_SESSION["idAccount"]= $result["idAccounts"];
+				echo "<script> window.location='COOP_AddDocument.php'</script>";
 			}
 		}
 	}

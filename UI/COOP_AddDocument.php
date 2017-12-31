@@ -1,6 +1,6 @@
 <?php
 session_start();
-// if(!isset($_SESSION['idTrackingAdmin'])){
+// if(!isset($_SESSION['idAccount'])){
 //     echo "<script>window.location='index.php';</script>";
 // }
 require("../config/config.php");
@@ -239,7 +239,7 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                   <table class="table datatable-html" id="table" style="font-size: 13px; width: 100%;">
                                                             <thead>
                                                                 <tr>
-                                                                    <th style="width: 5%;"><a></a><i class="icon-check"></i></th>
+                                                                    <th style="width: 5%;"><input type="checkbox" id="select-all" class="form-control" name="" ></th>
                                                                     <th style="width: 30%;">Recipients</th>
                                                                     <th style="width: 20%;">Email</th>
                                                                     <th style="width: 20%;">Type</th>
@@ -299,6 +299,23 @@ $departmentProfile = $account->getDepartmentAccounts();
 </html>
 <script type="text/javascript">
 var table = $('#table').DataTable();
- 
+ function selectAll(){
+    alert('asd');
+ }
+ var counter = 0;
+ $('#select-all').click(function(event) {   
+        if(counter ==0){
+            $(':checkbox').each(function() {
+                this.checked = true;                        
+            });
+            counter = 1;
+            }
+        else{
+            $(':checkbox').each(function() {
+                    this.checked = false;                        
+                });
+            counter = 0;
+            }
+});
 table.columns.adjust().draw();
 </script>

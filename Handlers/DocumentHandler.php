@@ -45,10 +45,16 @@ class DocumentHandler{
 		$result = $con->select($query);
 		return $result;
 	}
-	public function getLocationByTrackingNumber($trackingNumber){
+	public function getLocationDeptByTrackingNumber($trackingNumber){
 		$con = new Connect();
-		$query="SELECT Location_Status ,CONCAT(account_info.First_Name, ' ', account_info.Last_Name) as name FROM tracking,tracking_location,accounts,account_info WHERE Status='ONGOING' and tracking.idTracking= tracking_location.idTracking and tracking.idAccounts= accounts.idAccounts and accounts.idAccount_Info = account_info.idAccount_Info and trackingNumber = '".$trackingNumber."'";
+		$query="SELECT Location_Status ,department.Department FROM tracking JOIN tracking_location ON tracking.idTracking = tracking_location.idTracking JOIN accounts ON accounts.idAccounts = tracking_location.idAccounts JOIN department ON department.idDepartment = accounts.idDepartment WHERE Status='ONGOING' and trackingNumber = '".$trackingNumber."'";
 		$result = $con->select($query);
+		return $result;
+	}
+	public function getLocationCoopByTrackingNumber($trackingNumber){
+		$con = new Connect();
+		$query = "SELECT Location_Status ,cooperative_profile.Cooperative_Name FROM tracking,tracking_location,accounts,cooperative_profile WHERE tracking.Status='ONGOING' and tracking.idTracking= tracking_location.idTracking and tracking_location.idAccounts= accounts.idAccounts and accounts.idCooperative_Profile = cooperative_profile.idCooperative_Profile and trackingNumber = '".$trackingNumber."'";
+		$result = $con-> select($query);
 		return $result;
 	}
 	public function getTrackingInfo($trackingNumber){

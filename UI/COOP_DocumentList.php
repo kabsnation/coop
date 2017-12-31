@@ -223,8 +223,8 @@ $trackingNumber = $doc->getTrackingNumber();
                 for (var i = 0; i < data[0].length; i++) {
                     var table = $('#tableCoopeartiveAccount').DataTable();
                     var trackingNumber ="<td>"+data[0][i]+"</td>";
-                    var type = "<td>"+data[1][i]+"</td>";
-                    var date = "<td>"+data[2][i]+"</td>";
+                    var type = "<td>"+data[2][i]+"</td>";
+                    var date = "<td>"+data[1][i]+"</td>";
                     var action = "<a href='ViewTracking.php?trackingId="+data[0][i]+"'>View</a>";
                     table.row.add([trackingNumber,type,date, action]).draw(false);
                 }

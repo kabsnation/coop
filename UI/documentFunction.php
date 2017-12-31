@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Manila');
 require("../Handlers/DocumentHandler.php");
 require("../config/config.php");
 $doc = new DocumentHandler();
@@ -7,14 +8,17 @@ $con = $connect->connectDB();
 $target_dir = "files/";
 $target_file="";
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-if(isset($_POST['checkbox'])){
+if(isset($_POST['checkbox'])&& isset($_POST['documentType'])){
 	$trackingNumber = $_POST['trackingNumber'];
 	$documentType = $_POST['documentType'];
 	$file = "";
 	$uploadOk=0;
 	$doneUpload=0;
-	if(isset($_POST['file'])){
-		$target_file = $target_dir . basename($_FILES["file"]["name"]);
+	if($_FILES['file']['size']!=0){
+		$temp = explode(".", $_FILES["file"]["name"]);
+		$newfilename = round(microtime(true)) . '.' . end($temp);
+		$target_file = $target_dir . $newfilename;
+
 	 	$check = getimagesize($_FILES["file"]["tmp_name"]);
 	    if($check !== false) {
 	        $uploadOk = 1;
@@ -45,5 +49,8 @@ if(isset($_POST['checkbox'])){
 	if($result){
 		echo "<script>window.location='COOP_AddDocument.php';alert('Success!');</script>";
 	}
+}
+else{
+	echo "<script>window.location='COOP_AddDocument.php';alert('Please provide the information for all the required fields!');</script>";
 }
 ?>
