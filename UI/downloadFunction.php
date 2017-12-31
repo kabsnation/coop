@@ -1,8 +1,9 @@
 <?php
-if(isset($_POST['link']))
+if(isset($_POST['link'])&&isset($_POST['trackingId']))
 {
     $var_1 = $_POST['link'];
     $file = $var_1;
+    echo $_POST['link'];
 
 if (file_exists($file))
     {
@@ -19,7 +20,7 @@ if (file_exists($file))
     exit;
     }
 else{
-    echo "No uploaded file";
+    echo "<script>window.location='ViewTracking.php?trackingId=".$_POST['trackingId']."';alert('No uploaded file')</script>";
 }
 } //- the missing closing brace
 ?>

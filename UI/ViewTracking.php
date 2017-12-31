@@ -43,7 +43,7 @@ if(empty($trackInfo))
     <!-- /theme JS files -->
 </head>
 <body>
-    <form id="form1" >
+    <form id="form1" action="downloadFunction.php" method="POST">
         <div>
                  <!-- Main navbar -->
         <div class="navbar navbar-inverse">
@@ -207,7 +207,10 @@ if(empty($trackInfo))
                                                         <li>Document Type: <span class="text-semibold">
                                                             <p  ID="lblDocumentType"><?php echo $info['Document']?></p></span></li>
                                                         <li style="margin-top:20px;">Attached File: <span class="text-right text-semibold">
-                                                            <a ID="btnDownloadFile" class="btn-link">Download Attached File</a></span></li>
+                                                            <input type="hidden" name="link" id="link" value="<?php echo $info['filePath']?>">
+                                                            <input type="hidden" name="trackingId" value="<?php echo $_GET['trackingId']?>">
+                                                            <input type="submit" value="Download Attached File" class="btn-link"></input></span></li>
+                                                            
                                                     </ul>
                                                 </div>
 
@@ -257,6 +260,6 @@ if(empty($trackInfo))
 <script>
     var table = $('#tableInvited').DataTable();
     table.columns.adjust().draw();
-   
+    
 </script>
 </html>

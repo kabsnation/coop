@@ -29,7 +29,7 @@ class DocumentHandler{
 	}
 	public function addDocument($trackingNumber,$documentType,$senderId,$file = ""){
 		$con = new Connect();
-		$query = "INSERT INTO tracking(trackingNumber,DateTime,idDocument_Type,idAccounts,Status) VALUES('".$trackingNumber."','".date("Y/m/d-h:i:sa")."','".$documentType."','".$senderId."','ONGOING')";
+		$query = "INSERT INTO tracking(trackingNumber,DateTime,idDocument_Type,idAccounts,Status,filePath) VALUES('".$trackingNumber."','".date("Y/m/d-h:i:sa")."','".$documentType."','".$senderId."','ONGOING','".$file."')";
 		$result = $con->insertReturnLastId($query);
 		return $result;
 	}
@@ -53,7 +53,7 @@ class DocumentHandler{
 	}
 	public function getTrackingInfo($trackingNumber){
 		$con = new Connect();
-		$query ="SELECT trackingNumber,DateTime,Document,Status,Email_Address, CONCAT(account_info.First_Name, ' ', account_info.Last_Name) as name FROM tracking,document_type,accounts,account_info WHERE Status='ONGOING' and tracking.idDocument_Type= document_type.idDocument_Type and tracking.idAccounts= accounts.idAccounts and accounts.idAccount_Info = account_info.idAccount_Info and trackingNumber ='".$trackingNumber."'";
+		$query ="SELECT trackingNumber,DateTime,Document,Status,Email_Address,filePath, CONCAT(account_info.First_Name, ' ', account_info.Last_Name) as name FROM tracking,document_type,accounts,account_info WHERE Status='ONGOING' and tracking.idDocument_Type= document_type.idDocument_Type and tracking.idAccounts= accounts.idAccounts and accounts.idAccount_Info = account_info.idAccount_Info and trackingNumber ='".$trackingNumber."'";
 		$result = $con->select($query);
 		return $result;
 	}

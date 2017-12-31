@@ -14,6 +14,7 @@ if(isset($_POST['txtUsername'])){
 	$respondentEmailAddress= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
 	$respondentName = $lastName.", ".$firstName." ".$middleName;
 	//cooperative profile
+	
 	$coopName= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCoopName'])));
 	$address= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtAddress'])));
 	$telephoneNumber= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtTelephone'])));
