@@ -1,5 +1,6 @@
 <?php
 require("../Handlers/AccountHandler.php");
+require("../config/config.php");
 $handler = new AccountHandler();
 $conn = new Connect();
 $con=$conn->connectDB();
