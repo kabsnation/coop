@@ -227,7 +227,7 @@ $departmentProfile = $account->getDepartmentAccounts();
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label><strong>Upload File:</strong></label>
-                                                    <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file"/>
+                                                    <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file" required="required" />
                                                 </div>
                                             </div>
                                         </div>

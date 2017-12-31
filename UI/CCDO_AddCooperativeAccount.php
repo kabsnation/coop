@@ -4,6 +4,7 @@ if(!isset($_SESSION['idAccountAdmin'])){
     echo "<script>window.location='index.php';</script>";
 }
 require("../Handlers/AccountHandler.php");
+require("../config/config.php");
 $handler = new AccountHandler();
 $typeCooperative = $handler->getTypeOfCooperative();
 $membership = $handler->getMembership();
