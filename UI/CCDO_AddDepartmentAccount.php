@@ -1,3 +1,14 @@
+<?php
+//session_start();
+//if(!isset($_SESSION['idAccountAdmin'])){
+//    echo "<script>window.location='index.php';</script>";
+//}
+require("../config/config.php");
+require("../Handlers/AccountHandler.php");
+$handler = new AccountHandler();
+$typeDepartment = $handler->getTypeOfDepartment();
+?>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -219,17 +230,6 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-
-                                                        <div class="col-md-3">
-                                                            <div class="form-group has-feedback">
-                                                                <label><span class="text-danger">* </span><strong>Sex:</strong></label>
-                                                                <select ID="ddlSex" name="ddlSex"class="form-control" required="required" class="form-control">
-                                                                    <option></option>
-                                                                    <option Text="Female" Value="1">Female</option>
-                                                                    <option Text="Male" Value="2">Male</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
                                                     </div>
 
                                                 </div>
@@ -337,8 +337,10 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group has-feedback">
                                                                 <label><span class="text-danger">* </span><strong>Department:</strong></label>
-                                                                <select ID="ddlDepartment" name="ddlDepartment" class="form-control">
-                                                                    <option></option>
+                                                                <select  ID="ddlDepartment" name="ddlDepartment" required="required" class="form-control">
+                                                                   <?php foreach($typeDepartment as $type){?>
+                                                                   <option value="<?php echo $type['idDepartment'];?>"><?php echo $type['Department'];?></option>
+                                                                   <?php }?>
                                                                 </select>
                                                             </div>
                                                         </div>

@@ -1,4 +1,5 @@
 <?php
+require("../config/config.php");
 require("../Handlers/AccountHandler.php");
 $handler = new AccountHandler();
 $connect = new Connect();
@@ -15,18 +16,17 @@ if(isset($_POST['txtUsername'])){
 		$firstName = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtFirstName'])));
 		$middleName = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtMiddleName'])));
 		$nameSuffix = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlNameSuffix'])));
-		$sex= mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlSex'])));
+		//$cellnumber = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCellphoneNumber'])));
+		//$email = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
 
-		$cellnumber = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCellphoneNumber'])));
-		$email = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
+		$email = "asd";
+		$cellnumber = "0123";
 
-		$position = "ADMIN";
-		$departmentId = 1;
-		$accountType= 1;
-
+		$accountType= 5;
+		$departmentId = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlDepartment'])));
 		$password= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtPassword'])));
 
-		$accountId=$handler->addDepartmentAccountInfo($firstName,$lastName,$middleName,$nameSuffix,$cellnumber,$email,$position);
+		$accountId=$handler->addDepartmentAccountInfo($firstName,$lastName,$middleName,$nameSuffix,$cellnumber,$email);
 		if($accountId!=""){
 			$result=$handler->addDepartmentAccount($userName,$password,$accountId,$departmentId,$accountType);
 		}

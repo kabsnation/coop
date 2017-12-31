@@ -105,9 +105,16 @@ class AccountHandler{
 		return $result;
 	}
 
+	public function getTypeOfDepartment(){
+		$con= new Connect();
+		$query="SELECT * FROM Department";
+		$result=$con->select($query);
+		return $result;
+	}
+
 	public function addDepartmentAccountInfo($fisrtName,$lastName,$middleName,$nameSuffix,$cellnumber,$email){
 		$con = new Connect();
-		$query = "INSERT INTO Account_Info (First_Name, Last_Name, Middle_Name,Name_Suffix,Cellphone_number,Email_Address,Position) VALUES ('" .$fisrtName."','".$lastName."','".$middleName."','".$nameSuffix."','".$cellnumber."','".$email."')";
+		$query = "INSERT INTO Account_Info (First_Name, Last_Name, Middle_Name,Name_Suffix,Cellphone_number,Email_Address) VALUES ('" .$fisrtName."','".$lastName."','".$middleName."','".$nameSuffix."','".$cellnumber."','".$email."')";
 		$lastId = $con->insertReturnLastId($query);
 		return $lastId;
 	}
@@ -116,7 +123,6 @@ class AccountHandler{
 		$con = new Connect();
 		$query = "INSERT INTO accounts (Username, Password, idAccount_Info, idDepartment, idaccount_type) VALUES ('" .$userName. "','" .$password. "'," .$accountId. "," .$departmentId. "," .$accountType. ")";
 		$result = $con->insert($query);
-
 	}
 
 	public function checkUsername($userName){

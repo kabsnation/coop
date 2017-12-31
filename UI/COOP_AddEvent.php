@@ -1,4 +1,5 @@
 <?php
+require("../config/config.php");
 require("../Handlers/AccountHandler.php");
 $handler = new AccountHandler();
 $cooperativeProfile = $handler->getCoopAccounts();
