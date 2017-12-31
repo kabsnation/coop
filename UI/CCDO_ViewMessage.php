@@ -36,6 +36,9 @@
 	<script type="text/javascript" src="assets/js/pages/components_popups.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/editors/summernote/summernote.min.js"></script>
 	<script type="text/javascript" src="assets/js/pages/editor_summernote.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+		<script type="text/javascript" src="assets/js/pages/form_floating_labels.js"></script>
 	<!-- /theme JS files -->
 
 </head>
@@ -290,6 +293,34 @@
 						</div>
 
 						<div class="panel-body">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<select data-placeholder="Multiple Select2 select" multiple="multiple" class="select">
+											<optgroup label="Mountain Time Zone">
+												<option value="AZ">Arizona</option>
+												<option value="CO">Colorado</option>
+												<option value="ID">Idaho</option>
+												<option value="WY">Wyoming</option>
+											</optgroup>
+											<optgroup label="Central Time Zone">
+												<option value="AL">Alabama</option>
+												<option value="IA">Iowa</option>
+												<option value="KS">Kansas</option>
+												<option value="KY">Kentucky</option>
+											</optgroup>
+											<optgroup label="Eastern Time Zone">
+												<option value="CT">Connecticut</option>
+												<option value="FL">Florida</option>
+												<option value="MA">Massachusetts</option>
+												<option value="WV">West Virginia</option>
+											</optgroup>
+										</select>
+									</div>
+								</div>
+							</div>
+							
+
 							<div id="reply" class="summernote">
 								<h6>Click here to reply...</h6>
 							</div>
