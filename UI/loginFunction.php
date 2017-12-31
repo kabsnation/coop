@@ -34,6 +34,9 @@ if(isset($_POST["username"])&&isset($_POST["password"])){
 		}
 	}
 	else{
+		echo '<script type="text/javascript">';
+		echo 'setTimeout(function () { swal(title: "Failed", text: "Account does not exists.", type: "error");';
+		echo '}, 1000);</script>';
 		echo "<script> window.location='index.php'; alert('Login Failed');</script>";
 		echo $results."asds";
 	}
