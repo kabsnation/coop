@@ -26,7 +26,7 @@ class AccountHandler{
 	}
 	public function addCoopAccount($username,$password,$cooperativeId){
 		$con = new Connect();
-		$query = "INSERT INTO accounts (Username, Password, idCooperative_Profile, idaccount_type) VALUES('".$userName."','".$password."','".$cooperativeId."',4)";
+		$query = "INSERT INTO accounts (Username, Password, idCooperative_Profile, idaccount_type) VALUES('".$username."','".$password."','".$cooperativeId."',4)";
 		$result = $con->insert($query);
 		return $result;
 	}
