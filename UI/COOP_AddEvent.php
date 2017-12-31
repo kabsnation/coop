@@ -164,14 +164,14 @@ $departmentProfile = $handler-> getDepartmentAccounts();
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Name:</strong></label>
-                                                        <textarea  ID="txtEventName" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
+                                                        <textarea  ID="txtEventName" name="txtEventName" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Event Location:</strong></label>
-                                                        <textarea  ID="txtEventLocation" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
+                                                        <textarea  ID="txtEventLocation" name="txtEventLocation" rows="4" cols="5" class="form-control" type="MultiLine" required="required"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,26 +180,26 @@ $departmentProfile = $handler-> getDepartmentAccounts();
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger"></span><strong>Other Event Details:</strong></label>
-                                                        <textarea rows="5" cols="5" ID="txtEventDetails" class="form-control" type="MultiLine" required="required"></textarea>
+                                                        <textarea rows="5" cols="5" ID="txtEventDetails" name="txtEventDetails" class="form-control" type="MultiLine" required="required"></textarea>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>Start Date and Time:</strong></label>
-                                                        <input  ID="txtStartDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
+                                                        <input  ID="txtStartDateTime" name="txtStartDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label><span class="text-danger">* </span><strong>End Date and Time:</strong></label>
-                                                        <input  ID="txtEndDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
+                                                        <input  ID="txtEndDateTime" name="txtEndDateTime" class="form-control" type="DateTimeLocal" required="required"></input>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label><strong>Upload File:</strong></label>
-                                                        <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" />
+                                                        <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file" required="required" />
                                                     </div>
                                                 </div>
                                             </div>
