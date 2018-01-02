@@ -24,6 +24,7 @@
 
 	<!-- Theme JS files -->
 	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
 	<script type="text/javascript" src="assets/js/pages/support_chat_layouts.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/media/fancybox.min.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
@@ -38,7 +39,8 @@
 	<script type="text/javascript" src="assets/js/pages/editor_summernote.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
 	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
-		<script type="text/javascript" src="assets/js/pages/form_floating_labels.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/form_floating_labels.js"></script>
 	<!-- /theme JS files -->
 
 </head>
@@ -140,14 +142,14 @@
 				<div class="sidebar-content">
 
 					<!-- Actions -->
-					<div class="sidebar-category">
+					<!-- <div class="sidebar-category">
 						<div class="category-title">
 							<span>Create a Message</span>
 						</div>
 						<div class="category-content">
 							<a href="#" class="btn bg-teal-400 btn-rounded btn-block btn-xs">Compose a Message</a>
 						</div>
-					</div>
+					</div> -->
 					<!-- /actions -->
 
 					<!-- Sub navigation -->
@@ -160,7 +162,6 @@
 							<ul class="navigation navigation-alt navigation-accordion">
 								<li><a href="#"><i class="icon-mail5"></i> Inbox <span class="badge badge-info">1</span> </a></li>
 								<li><a href="#"><i class="icon-paperplane"></i> Sent Messages</a></li>
-								<li><a href="#"><i class="icon-trash"></i> Trash</a></li>
 							</ul>
 						</div>
 					</div>
@@ -206,7 +207,15 @@
 							<ul class="fab-menu-inner">
 
 								<li>
-									<div data-fab-label="View Inbox">
+									<div data-fab-label="Sent Messages">
+										<a href="#" class="btn btn-default btn-rounded btn-icon btn-float">
+											<i class="icon-paperplane"></i>
+										</a>
+									</div>
+								</li>
+
+								<li>
+									<div data-fab-label="Inbox">
 										<a href="#" class="btn btn-default btn-rounded btn-icon btn-float">
 											<i class="icon-inbox"></i>
 										</a>
@@ -214,14 +223,13 @@
 									</div>
 								</li>
 
-								<li>
+								<!-- <li>
 									<div data-fab-label="Compose a Message">
 										<a href="#" class="btn btn-default btn-rounded btn-icon btn-float">
 											<i class="icon-pencil"></i>
 										</a>
 									</div>
-								</li>
-
+								</li>-->
 							</ul>
 						</li>
 					</ul>
