@@ -300,15 +300,15 @@
 							<h5 class="panel-title">Reply</h5>
 						</div>
 
-						<div class="panel-body">
-							<div id="reply" class="summernote">
-								<h6>Click here to reply...</h6>
+
+							<div class="panel-body">
+								<textarea id="reply" name="reply" class="summernote" ></textarea> 
+								<div class="text-right">
+									<button type="button" class="btn bg-teal" value="Send" name="btnSend" onclick="submit()" />
+								</div>
 							</div>
 
-							<div class="text-right">
-								<input type="button" class="btn bg-teal" value="Send" name="btnSend"/>
-							</div>
-						</div>
+
 					</div>
 					<!-- /summernote editor -->
 				</div>
@@ -325,3 +325,11 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	function submit(){
+		var y = $('textarea[name="reply"]').val()
+		alert(y);
+	}
+	
+</script>
