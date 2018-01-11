@@ -16,6 +16,7 @@ $adminAccount = $account->getAccountById($id);
 $cooperativeProfile = $account->getCoopAccounts();
 $departmentProfile = $account->getDepartmentAccounts();
 ?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
     <title>CCDO - Add Document</title>
@@ -38,16 +39,14 @@ $departmentProfile = $account->getDepartmentAccounts();
 	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
 	<!-- /core JS files -->
 
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
-
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
-    <script type="text/javascript" src="assets/js/pages/form_inputs.js"></script>
-    <script type="text/javascript" src="assets/js/plugins/uploaders/fileinput.min.js"></script>
+    <script type="text/javascript" src="assets/js/core/app.js"></script>
+    <script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/media/fancybox.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+    <script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
+    <script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
     <script type="text/javascript" src="assets/js/pages/uploader_bootstrap.js"></script>
-	<!-- /theme JS files -->
 
 </head>
 <body>
@@ -162,6 +161,13 @@ $departmentProfile = $account->getDepartmentAccounts();
 
                                     <div class="heading-elements">
                                         <div class="heading-btn-group">
+                                            <label class="control-label">Tracking Number:</label>
+                                            <div class="col-lg-12">
+                                                <label id="trackingNumber" class="label" style="color: #26A69A; font-size: 15px;">
+                                                    <?php echo $trackingNumber;?>
+                                                    <input type="hidden" name="trackingNumber" value="<?php echo $trackingNumber;?>">
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -171,19 +177,42 @@ $departmentProfile = $account->getDepartmentAccounts();
                                     <fieldset class="content-group">
                                         <div class="col-lg-12">
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Tracking Number:</label>
-                                                    <div class="col-lg-12">
-                                                        <label id="trackingNumber" class="label" style="color: #000; font-size: 15px;">
-                                                            <?php echo $trackingNumber;?>
-                                                            <input type="hidden" name="trackingNumber" value="<?php echo $trackingNumber;?>">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>From:</strong> </label>
+                                                        <?php if($adminAccount){
+                                                            foreach($adminAccount as $admin){?>
+                                                            <br>
+                                                        <label class="label" style="color: #000; font-size: 15px;" ><?php echo $admin['First_Name'].' '.$admin['Last_Name'];?>
+                                                            <!-- echo yung session -->
+                                                            <input type="hidden" name="accountId" value="<?php echo "1";?>">
                                                         </label>
-                                                    </div>
-                                                    
+                                                        <?php }}?>
+                                                  </div>
                                                 </div>
                                             </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong> Document Title:</strong></label>
+                                                        <input type="text" name="txtDocumentName" id="txtDocumentName" class="form-control" required="required">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label"><strong>Message:</strong></label>
+                                                        <textarea type="text" class="form-control" id="txtMessage"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        <div class="row">
+                                            
 
                                             <div class="col-lg-6">
                                                 <div class="form-group">
@@ -197,22 +226,6 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label class="control-label">Administered by:</label>
-                                                    <?php if($adminAccount){
-                                                        foreach($adminAccount as $admin){?>
-                                                        <br>
-                                                    <label class="label" style="color: #000; font-size: 15px;" ><?php echo $admin['First_Name'].' '.$admin['Last_Name'];?>
-                                                        <!-- echo yung session -->
-                                                        <input type="hidden" name="accountId" value="<?php echo "1";?>">
-                                                    </label>
-                                                    <?php }}?>
-                                              </div>
-                                            </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -221,15 +234,33 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                     <input type="hidden" name="datetime" value="date('m/d/Y - h:m:s')">
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-12">
+
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label><strong>Upload File:</strong></label>
                                                     <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file" />
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="display-block text-semibold">Need a Reply:</label>
+                                                    <label class="radio-inline radio-right">
+                                                        <input type="radio" name="rbYes" class="styled" checked="checked">
+                                                        Yes
+                                                    </label>
+
+                                                    <label class="radio-inline radio-right">
+                                                        <input type="radio" name="rbNo" class="styled">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+
                                         </div>
 
                                         <div class="row">

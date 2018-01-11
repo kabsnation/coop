@@ -5,17 +5,21 @@ class DocumentHandler{
 		$con = new Connect();
 		$query = "SELECT trackingNumber FROM Tracking ORDER BY idTracking DESC LIMIT 1";
 		$trackingNumber = $con->select($query);
-		while($row=$trackingNumber->fetch_assoc()){
-			if($row['trackingNumber']!= NULL){
-				$number = explode("-", $row['trackingNumber']);
-				$tempo = $this->incrementNumber($number[1]);
-				$number = $number[0]."-".$tempo;
+		if($trackingNumber){
+			while($row=$trackingNumber->fetch_assoc()){
+				if($row['trackingNumber']!= NULL){
+					$number = explode("-", $row['trackingNumber']);
+					$tempo = $this->incrementNumber($number[1]);
+					$number = $number[0]."-".$tempo;
+				}
+				else{
+					$number = 'CCDO-00001';
+				}
 			}
-			else{
-				$number = 'CCDO-00001';
-			}
+			return $number;
 		}
-		return $number;
+		return 'CCDO-00001';
+		
 	}
 	public function incrementNumber($trackingNumber){
 		$trackingNumber = str_pad($trackingNumber + 1, 5, 0, STR_PAD_LEFT);
