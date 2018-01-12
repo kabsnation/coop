@@ -16,9 +16,16 @@ class DocumentHandler{
 					$number = 'CCDO-00001';
 				}
 			}
+<<<<<<< HEAD
 			return $number;	
 		}
 		return 'CCDO-00001';
+=======
+			return $number;
+		}
+		return 'CCDO-00001';
+		
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
 	}
 	public function incrementNumber($trackingNumber){
 		$trackingNumber = str_pad($trackingNumber + 1, 5, 0, STR_PAD_LEFT);

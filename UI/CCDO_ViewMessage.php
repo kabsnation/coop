@@ -148,6 +148,7 @@ if(isset($_GET['id'])){
 							<h5 class="panel-title">Reply</h5>
 						</div>
 
+<<<<<<< HEAD
 						<div class="panel-body">
 							<div>
 								<?php if($info['needReply']){?>
@@ -169,8 +170,17 @@ if(isset($_GET['id'])){
 									<input type="hidden" name="idTracking" value="<?php echo $idTracking;?>">
 									<input type="hidden" name="id" value="<?php echo $id;?>">
 									<input type="submit" id="send" class="btn bg-teal" value="Send" name="send" <?php echo $dsbl;?> />
+=======
+
+							<div class="panel-body">
+								<textarea id="reply" name="reply" class="summernote" ></textarea> 
+								<div class="text-right">
+									<button type="button" class="btn bg-teal" value="Send" name="btnSend" onclick="submit()" />
+								</div>
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
 							</div>
-						</div>
+
+
 					</div>
 					<!-- /summernote editor -->
 				</form>
@@ -188,6 +198,7 @@ if(isset($_GET['id'])){
 
 </body>
 </html>
+<<<<<<< HEAD
 <script type="text/javascript">
 	$('#reply').summernote({
   toolbar: [
@@ -223,4 +234,13 @@ if(isset($_GET['id'])){
 			send.prop('class','btn bg-teal');
 			send.prop('disabled',false);
 	}
+=======
+
+<script type="text/javascript">
+	function submit(){
+		var y = $('textarea[name="reply"]').val()
+		alert(y);
+	}
+	
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
 </script>
