@@ -5,12 +5,12 @@ session_start();
 $tableCount = $_POST['count'];
 $id = $_POST['id'];
 $handler = new DocumentHandler();
-$count = $handler->getTrackingCountById($id);
+$count = $handler->getInboxCountById($id);
  if($row = $count->fetch_array()){
  	if($row[0] != $tableCount)
-		$_SESSION['default'] = 1;
+		$_SESSION['defaultInbox'] = 1;
  	else
- 		$_SESSION['default'] = 0;
+ 		$_SESSION['defaultInbox'] = 0;
  }
- echo $_SESSION['default'];
+ echo $_SESSION['defaultInbox'];
 ?>

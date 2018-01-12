@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION['idSuperAdmin']))
+    echo "<script> window.location='';</script>";
+else if(isset($_SESSION['idAccountAdmin']))
+    echo "<script> window.location='CCDO_AddCooperativeAccount.php'</script>";
+else if(isset($_SESSION['idAccount']))
+    echo "<script> window.location='COOP_AddDocument.php'</script>";
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />

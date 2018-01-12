@@ -1,171 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CCDO - Inbox</title>
-
-	<!-- Global stylesheets -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
-	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
-	<!-- /global stylesheets -->
-
-	<!-- Core JS files -->
-	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
-	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
-	<!-- /core JS files -->
-
-	<!-- Theme JS files -->
-	<script type="text/javascript" src="assets/js/core/app.js"></script>
-	<script type="text/javascript" src="assets/js/pages/support_chat_layouts.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/media/fancybox.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
-	<script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
-	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
-	<script type="text/javascript" src="assets/js/plugins/ui/prism.min.js"></script>
-	<script type="text/javascript" src="assets/js/pages/extra_fab.js"></script>
-	<!-- /theme JS files -->
-
-</head>
-
-<body class="sidebar-xs">
-
-	<!-- Main navbar -->
-	<div class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
-
-			<ul class="nav navbar-nav visible-xs-block">
-				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
-				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
-				<li><a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a></li>
-			</ul>
-		</div>
-
-		<div class="navbar-collapse collapse" id="navbar-mobile">
-			<ul class="nav navbar-nav">
-				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
-			</ul>
-
-			<div class="navbar-right">
-				<ul class="nav navbar-nav">
-					<li class="dropdown dropdown-user">
-						<a class="dropdown-toggle" data-toggle="dropdown">
-							<img src="assets/images/placeholder.jpg" alt="">
-							<span>Username</span>
-							<i class="caret"></i>
-						</a>
-
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-							<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /main navbar -->
-
-
-	<!-- Page container -->
-	<div class="page-container">
-
-		<!-- Page content -->
-		<div class="page-content">
-
-			<!-- Main sidebar -->
-			<div class="sidebar sidebar-main">
-				<div class="sidebar-content">
-
-					<!-- User menu -->
-					<div class="sidebar-user">
-						<div class="category-content">
-							<div class="media">
-								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
-								<div class="media-body">
-									<span class="media-heading text-semibold">Victoria Baker</span>
-									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
-									</div>
-								</div>
-
-								<div class="media-right media-middle">
-									<ul class="icons-list">
-										<li>
-											<a href="#"><i class="icon-cog3"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /user menu -->
-
-
-					<!-- Main navigation -->
-					<div class="sidebar-category sidebar-category-visible">
-						<div class="category-content no-padding">
-							<ul class="navigation navigation-main navigation-accordion">
-
-								<!-- Main -->
-								<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
-							</ul>
-						</div>
-					</div>
-					<!-- /main navigation -->
-
-				</div>
-			</div>
-			<!-- /main sidebar -->
-
-
-			<!-- Secondary sidebar -->
-			<div class="sidebar sidebar-secondary sidebar-default">
-				<div class="sidebar-content">
-
-					<!-- Actions -->
-					<div class="sidebar-category">
-						<div class="category-title">
-							<span>Create a Message</span>
-						</div>
-						<div class="category-content">
-							<a href="#" class="btn bg-teal-400 btn-rounded btn-block btn-xs">Compose a Message</a>
-						</div>
-					</div>
-					<!-- /actions -->
-
-					<!-- Sub navigation -->
-					<div class="sidebar-category">
-						<div class="category-title">
-							<span>Mail</span>
-						</div>
-
-						<div class="category-content no-padding">
-							<ul class="navigation navigation-alt navigation-accordion">
-								<li><a href="#"><i class="icon-mail5"></i> Inbox <span class="badge badge-info">1</span> </a></li>
-								<li><a href="#"><i class="icon-paperplane"></i> Sent Messages</a></li>
-								<li><a href="#"><i class="icon-trash"></i> Trash</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- /sub navigation -->
-
-				</div>
-			</div>
-			<!-- /secondary sidebar -->
-
-
+<?php
+session_start();
+require("../Handlers/DocumentHandler.php");
+require("../Handlers/AccountHandler.php");
+require("../config/config.php");
+include('../UI/header/header_user.php');
+$doc = new DocumentHandler();
+$id = $_SESSION['idAccount'];
+?>
 			<!-- Main content -->
 			<div class="content-wrapper">
 
@@ -178,7 +19,6 @@
 
 						<div class="heading-elements">
 							<div class="heading-btn-group">
-								<a href="CCDO_ViewMessage.php" class="btn btn-link btn-float has-text"><i class=" icon-mail-read text-info"></i><span>Open</span></a>
 								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-trash text-danger"></i> <span>Delete</span></a>
 							</div>
 						</div>
@@ -201,7 +41,7 @@
 		                	</div>
 						</div>
 
-						<table class="table datatable-html">
+						<table class="table datatable-html" id="tableInbox">
 	                        <thead>
 	                            <tr>
 	                            	<th><input type="checkbox" class="styled"></th>
@@ -211,28 +51,6 @@
 	                                <th class="text-center">Actions</th>
 	                            </tr>
 	                        </thead>
-	                        <tbody>
-	                        	<tr>
-	                            	<td style="width:5%"><input type="checkbox" class="styled"></td>
-			                        <td>Graduation Ceremony</td>
-			                        <td><a href="#">Mark Dherp Cuevas</a></td>
-			                        <td>Jun 10, 2015</td>
-			                        <td class="text-center">
-			                            <ul class="icons-list">
-											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													<i class="icon-menu9"></i>
-												</a>
-
-												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="CCDO_ViewMessage.php"><i class="icon-mail-read"></i> Open</a></li>
-													<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-												</ul>
-											</li>
-										</ul>
-			                        </td>
-	                            </tr>
-	                        </tbody>
 	                    </table>
                     </div>
                     <!-- /media library -->
@@ -251,3 +69,47 @@
 
 </body>
 </html>
+<script>
+    function realTime(){
+        setTimeout(realTime,1000);
+        var tablee = $('#tableInbox').DataTable();
+        var info = tablee.page.info();
+         $.ajax({
+            type: "POST",
+            url: "checkerInbox.php",
+            data: "count="+info.recordsTotal+"&id="+<?php echo $id;?>,
+            success: function(data){
+                 if(data == 1){
+                    addRow();
+                }
+            },
+            dataType: "json"
+        });
+    }  
+    function addRow(){
+         $.ajax({
+            type: "POST",
+            url: "realtimeInboxFunction.php",
+            data: "id="+<?php echo $id;?>,
+            success: function(data){
+                var tablee = $('#tableInbox').DataTable();
+                tablee.clear().draw();
+                for (var i = 0; i < data[0].length; i++) {
+                    var table = $('#tableInbox').DataTable();
+                    var checkbox = "<td style='width:5%''><input type='checkbox' class='styled'></td>";
+                    var trackingNumber ="<td>"+data[0][i]+"</td>";
+                    var type = "<td>"+data[1][i]+"</td>";
+                    var date = "<td>"+data[2][i]+"</td>";
+                    var action = " <td class='text-center'><a href='CCDO_ViewMessage.php?id="+data[3][i]+"'><i class='icon-mail-read'></i> Open </a></li><a class='text-danger' onclick='deleteFunction("+data[3][i]+");'><i class='icon-trash'></i> Delete </a></li>";
+                    table.row.add([checkbox,trackingNumber,type,date, action]).draw(false);
+                }
+                realTime();
+            },
+            dataType: "json"
+        });
+    } 
+    realTime();
+    function deleteFunction(val){
+    	//put ajax delete
+    }
+</script>
