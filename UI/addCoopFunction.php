@@ -94,7 +94,6 @@ $basicTraningsOfMgt= mysqli_real_escape_string($con,stripcslashes(trim($_POST['t
 				//membership profile
 				$membershipId = $handler ->addMemberProfile($numberOfMembership,$totalMale,$totalFemale,$numberOfRegularMembers,$numberOfAssociate,$basicTrainingsOfMembers,$basicTrainingsOfOfficers,$basicTraningsOfMgt,
 					$membershipComposition);
-				
 				if($membershipId!=""){
 					//business financial
 					$paidUpId = $handler -> addPaidUpCapital($totalPaidUp,$beginningPaidUp,$toDatePaidUp);
@@ -112,29 +111,32 @@ $basicTraningsOfMgt= mysqli_real_escape_string($con,stripcslashes(trim($_POST['t
 											alert('Success');
 											</script>";
 									}
+									else{
+										"<script>alert('error coopaccount');</script>";
+									}
 								}
 								else
-									echo "<script>alert(error addCoop);</script>".$result;
+									echo "<script>alert('error addCoop');</script>";
 							}
 							else
-								echo "<script>alert(error businessOperationId);</script>".$businessOperationId;
+								echo "<script>alert('error businessOperationId');</script>";
 						}
 						else
-							echo "<script>alert(error coopAssetId);</script>".$coopAssetId;
+							echo "<script>alert('error coopAssetId');</script>";
 					}
 					else
-						echo "<script>alert(error paidUpId);</script>".$paidUpId;
+						echo "<script>alert('error paidUpId');</script>";
 				}
 				else
-					echo "<script>alert(error membershipId);</script>".$membershipId;
-			}
+					echo "<script>alert('error membershipId');</script>";
+			 }
 			else
-				echo "<script>alert(error regulatoryId);</script>";
+				echo "<script>alert('error regulatoryId');</script>";
 		}
 		else
-			echo "<script>alert(error orgAspectId);</script> ";
+			echo "<script>alert('error orgAspectId');</script> ";
 	}
 	else
-		echo "<script>alert(error respondent);</script> ";
+		echo "<script>alert('error respondent');</script> ";
 }
 ?>

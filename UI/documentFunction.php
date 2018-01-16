@@ -8,9 +8,12 @@ $con = $connect->connectDB();
 $target_dir = "files/";
 $target_file="";
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-if(isset($_POST['checkbox'])&& isset($_POST['documentType'])){
+if(isset($_POST['checkbox'])&& isset($_POST['documentType'])&& isset($_POST['title'])){
 	$trackingNumber = $_POST['trackingNumber'];
 	$documentType = $_POST['documentType'];
+	$title = mysqli_real_escape_string($con,stripcslashes(trim($_POST['title'])));
+	$message =$_POST['message'];
+	$reply = $_POST['reply'];
 	$file = "";
 	$uploadOk=0;
 	$doneUpload=0;
@@ -40,7 +43,7 @@ if(isset($_POST['checkbox'])&& isset($_POST['documentType'])){
 	//ADD TO TRACKING
 	//upload img
 	
-	$trackingId = $doc->addDocument($trackingNumber,$documentType,$id,$target_file);
+	$trackingId = $doc->addDocument($title,$trackingNumber,$documentType,$id,$reply,$target_file,$message);
 	if($trackingId != ""){
 		foreach($_POST['checkbox'] as $recipient){
 			$result = $doc->addDocumentLocation($recipient,$trackingId);
@@ -51,6 +54,6 @@ if(isset($_POST['checkbox'])&& isset($_POST['documentType'])){
 	}
 }
 else{
-	echo "<script>window.location='COOP_AddDocument.php';alert('Please provide the information for all the required fields!');</script>";
+	//echo "<script>window.location='COOP_AddDocument.php';alert('Please provide the information for all the required fields!');</script>";
 }
 ?>

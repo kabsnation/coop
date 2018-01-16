@@ -1,9 +1,26 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+=======
+<?php
+session_start();
+if(isset($_SESSION['idSuperAdmin']))
+    echo "<script> window.location='';</script>";
+else if(isset($_SESSION['idAccountAdmin']))
+    echo "<script> window.location='CCDO_AddCooperativeAccount.php'</script>";
+else if(isset($_SESSION['idAccount']))
+    echo "<script> window.location='COOP_AddDocument.php'</script>";
+?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+>>>>>>> 67dd9904d93a121543f09b469c3065a7eb4b72a9
     <title>CCDO - Log in</title>
 
     <!-- Global stylesheets -->

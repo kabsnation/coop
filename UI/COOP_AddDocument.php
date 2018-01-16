@@ -1,8 +1,8 @@
 <?php
 session_start();
-// if(!isset($_SESSION['idAccount'])){
-//     echo "<script>window.location='index.php';</script>";
-// }
+if(!isset($_SESSION['idAccount'])){
+    echo "<script>window.location='index.php';</script>";
+}
 require("../config/config.php");
 require("../Handlers/DocumentHandler.php");
 require("../Handlers/AccountHandler.php");
@@ -11,11 +11,17 @@ $account = new AccountHandler();
 $doc = new DocumentHandler();
 $trackingNumber = $doc->getTrackingNumber();
 $documentType = $doc->getDocumentType();
-$id = "1";
+$id = $_SESSION['idAccount'];
 $adminAccount = $account->getAccountById($id);
-$cooperativeProfile = $account->getCoopAccounts();
-$departmentProfile = $account->getDepartmentAccounts();
+$cooperativeProfile = $account->getCoopAccounts($id);
+$departmentProfile = $account->getDepartmentAccounts($id);
+include('../UI/header/header_user.php');
 ?>
+<<<<<<< HEAD
+
+                  <div class="content-wrapper">
+                    <form id="form1" action="documentFunction.php" method="POST" class="form-validate-jquery" enctype="multipart/form-data">
+=======
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
@@ -151,6 +157,7 @@ $departmentProfile = $account->getDepartmentAccounts();
 
                     <!-- Main Content -->
                     <div class="content-wrapper">
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                         <div class="content">
 
                             <div class="panel panel-flat">
@@ -163,10 +170,17 @@ $departmentProfile = $account->getDepartmentAccounts();
                                         <div class="heading-btn-group">
                                             <label class="control-label">Tracking Number:</label>
                                             <div class="col-lg-12">
+<<<<<<< HEAD
+                                                <label class="label" style="color: #000000; font-size: 15px;">TRACKING NUMBER:</label>
+                                                <label id="trackingNumber" class="label" style="color: #26A69A; font-size: 15px;">  <?php echo $trackingNumber;?></label>
+                                                    <input type="hidden" name="trackingNumber" value="<?php echo $trackingNumber;?>">
+                                                
+=======
                                                 <label id="trackingNumber" class="label" style="color: #26A69A; font-size: 15px;">
                                                     <?php echo $trackingNumber;?>
                                                     <input type="hidden" name="trackingNumber" value="<?php echo $trackingNumber;?>">
                                                 </label>
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                                             </div>
                                         </div>
                                     </div>
@@ -184,9 +198,15 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                         <?php if($adminAccount){
                                                             foreach($adminAccount as $admin){?>
                                                             <br>
+<<<<<<< HEAD
+                                                        <label class="label" style="color: #000; font-size: 15px;" ><?php echo $admin['name'];?>
+                                                            <!-- echo yung session -->
+                                                            <input type="hidden" name="accountId" value="<?php echo "$id";?>">
+=======
                                                         <label class="label" style="color: #000; font-size: 15px;" ><?php echo $admin['First_Name'].' '.$admin['Last_Name'];?>
                                                             <!-- echo yung session -->
                                                             <input type="hidden" name="accountId" value="<?php echo "1";?>">
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                                                         </label>
                                                         <?php }}?>
                                                   </div>
@@ -196,8 +216,13 @@ $departmentProfile = $account->getDepartmentAccounts();
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
+<<<<<<< HEAD
+                                                        <label class="control-label"> <span class="text-danger">* </span> <strong> Document Title:</strong></label>
+                                                        <input type="text" name="title" id="txtDocumentName" class="form-control" required="required">
+=======
                                                         <label class="control-label"><strong> Document Title:</strong></label>
                                                         <input type="text" name="txtDocumentName" id="txtDocumentName" class="form-control" required="required">
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,7 +231,11 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                 <div class="col-lg-12">
                                                     <div class="form-group">
                                                         <label class="control-label"><strong>Message:</strong></label>
+<<<<<<< HEAD
+                                                        <textarea type="text" class="summernote" id="message" name="message"></textarea>
+=======
                                                         <textarea type="text" class="form-control" id="txtMessage"></textarea>
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,7 +247,6 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                 <div class="form-group">
                                                     <label class="control-label"><span class="text-danger">* </span> <strong>Document Type: </strong></label>
                                                     <select  class="form-control select" required="required" name="documentType" ID="documentType">
-                                                        <option>Choose Type</option>
                                                         <?php if($documentType){
                                                             foreach($documentType as $type){?>
                                                             <option value="<?php echo $type['idDocument_Type'];?>"><?php echo $type['Document'];?></option>
@@ -242,10 +270,28 @@ $departmentProfile = $account->getDepartmentAccounts();
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label><strong>Upload File:</strong></label>
-                                                    <input  class="file-input-extensions" AllowMultiple="true" multiple="multiple" type="file" id="file" name="file" />
+                                                    <label class="text-danger">Paki-zip/rar kung mahigit sa dalawa ang iuupload.</label>
+                                                    <input type="file" id="file" name="file" required="required" />
                                                 </div>
                                             </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="display-block text-semibold">Need a Reply:</label>
+                                                    <label class="radio-inline radio-right">
+                                                        <input type="radio" name="reply" value="1" class="styled" checked="checked">
+                                                        Yes
+                                                    </label>
+
+                                                    <label class="radio-inline radio-right">
+                                                        <input type="radio" name="reply" value="0" class="styled">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+
+<<<<<<< HEAD
+=======
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="display-block text-semibold">Need a Reply:</label>
@@ -261,6 +307,7 @@ $departmentProfile = $account->getDepartmentAccounts();
                                                 </div>
                                             </div>
 
+>>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
                                         </div>
 
                                         <div class="row">
@@ -333,6 +380,17 @@ var table = $('#table').DataTable();
  function selectAll(){
     alert('asd');
  }
+ $('#message').summernote({
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']]
+  ]
+});
  var counter = 0;
  $('#select-all').click(function(event) {   
         if(counter ==0){

@@ -5,13 +5,14 @@ $id = $_POST['id'];
 	$myArray = array();
 	$handler = new DocumentHandler();
 	$con = new Connect();
-	$trackings = $handler->getTrackingById($id);
+	$trackings = $handler->inboxCoopById($id);
 
 	    while($row = $trackings->fetch_array()) {
-	            $myArray[0][] = $row['trackingNumber'];
-	            $myArray[1][] = $row['DateTime'];
-	            $myArray[2][] = $row ['Document'];
+	            $myArray[0][] = $row['title'];
+	            $myArray[1][] = $row['name'];
+	            $myArray[2][] = $row ['DateTime'];
+	            $myArray[3][] = $row['idTracking'];
 	    }
-	    $_SESSION['default'] = 0;
+	    $_SESSION['defaultInbox'] = 0;
 	    echo json_encode($myArray);
 ?>
