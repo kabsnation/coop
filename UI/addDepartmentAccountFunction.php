@@ -18,7 +18,7 @@ if(isset($_POST['txtUsername'])){
 		$nameSuffix = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlNameSuffix'])));
 		$cellnumber = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtCellphoneNumber'])));
 		$email = mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtEmail'])));
-		$accountType= 3;
+		$accountType= 5;
 		$departmentId = mysqli_real_escape_string($con,stripcslashes(trim($_POST['ddlDepartment'])));
 		$password= mysqli_real_escape_string($con,stripcslashes(trim($_POST['txtPassword'])));
 
@@ -27,8 +27,8 @@ if(isset($_POST['txtUsername'])){
 			$result=$handler->addDepartmentAccount($userName,$password,$accountId,$departmentId,$accountType);
 			echo "<script>window.location='CCDO_AddDepartmentAccount.php';alert('Success!');</script>";
 		}
-
 	}
+
 	else
 		echo "<script>window.location='CCDO_AddDepartmentAccount.php';alert('Username Already Exist!');</script>";
 }

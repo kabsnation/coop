@@ -1,26 +1,177 @@
-<?php
-session_start();
-require("../Handlers/DocumentHandler.php");
-require("../Handlers/AccountHandler.php");
-require("../config/config.php");
-include('../UI/header/header_user.php');
-$doc = new DocumentHandler();
-$id = $_SESSION['idAccount'];
-$connect = new Connect();
-$con = $connect-> connectDB();
-if(isset($_GET['id'])){
-	$idTracking = mysqli_real_escape_string($con,stripcslashes(trim($_GET['id'])));
-	$trackingInfo = $doc->getInboxInfo($idTracking,$id);
-	$firstRowLocation = $doc->getTrackingLocationById($idTracking,$id);
-	$trackingLocation = $doc->getTrackingLocation($idTracking);
-	$locations = '';
-	if($trackingLocation){
-		foreach ($trackingLocation as $location) {
-			$locations.= $location['name']." (".$location['email'].") <br>";
-		}
-	}
-}
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CCDO - View Message</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/core.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script type="text/javascript" src="assets/js/plugins/loaders/pace.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script type="text/javascript" src="assets/js/core/app.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/support_chat_layouts.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/media/fancybox.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/styling/uniform.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/select2.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/tables/datatables/datatables.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/gallery_library.js"></script>
+	<script type="text/javascript" src="assets/js/pages/datatables_data_sources.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/ui/fab.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/components_media.js"></script>
+	<script type="text/javascript" src="assets/js/pages/components_popups.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/editors/summernote/summernote.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/editor_summernote.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_multiselect.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/forms/selects/bootstrap_select.min.js"></script>
+	<script type="text/javascript" src="assets/js/core/libraries/jquery_ui/core.min.js"></script>
+	<script type="text/javascript" src="assets/js/pages/form_floating_labels.js"></script>
+	<!-- /theme JS files -->
+
+</head>
+
+<body class="sidebar-xs">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-inverse">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.html"><img src="assets/images/logo_light.png" alt=""></a>
+
+			<ul class="nav navbar-nav visible-xs-block">
+				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
+				<li><a class="sidebar-mobile-main-toggle"><i class="icon-paragraph-justify3"></i></a></li>
+				<li><a class="sidebar-mobile-secondary-toggle"><i class="icon-more"></i></a></li>
+			</ul>
+		</div>
+
+		<div class="navbar-collapse collapse" id="navbar-mobile">
+			<ul class="nav navbar-nav">
+				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
+			</ul>
+
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					<li class="dropdown dropdown-user">
+						<a class="dropdown-toggle" data-toggle="dropdown">
+							<img src="assets/images/placeholder.jpg" alt="">
+							<span>Username</span>
+							<i class="caret"></i>
+						</a>
+
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
+							<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page container -->
+	<div class="page-container">
+
+		<!-- Page content -->
+		<div class="page-content">
+
+			<!-- Main sidebar -->
+			<div class="sidebar sidebar-main">
+				<div class="sidebar-content">
+
+					<!-- User menu -->
+					<div class="sidebar-user">
+						<div class="category-content">
+							<div class="media">
+								<a href="#" class="media-left"><img src="assets/images/placeholder.jpg" class="img-circle img-sm" alt=""></a>
+								<div class="media-body">
+									<span class="media-heading text-semibold">Victoria Baker</span>
+									<div class="text-size-mini text-muted">
+										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+									</div>
+								</div>
+
+								<div class="media-right media-middle">
+									<ul class="icons-list">
+										<li>
+											<a href="#"><i class="icon-cog3"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /user menu -->
+
+
+					<!-- Main navigation -->
+					<div class="sidebar-category sidebar-category-visible">
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-main navigation-accordion">
+
+								<!-- Main -->
+								<li class="navigation-header"><span>Main</span> <i class="icon-menu" title="Main pages"></i></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /main navigation -->
+
+				</div>
+			</div>
+			<!-- /main sidebar -->
+
+
+			<!-- Secondary sidebar -->
+			<div class="sidebar sidebar-secondary sidebar-default">
+				<div class="sidebar-content">
+
+					<!-- Actions -->
+					<!-- <div class="sidebar-category">
+						<div class="category-title">
+							<span>Create a Message</span>
+						</div>
+						<div class="category-content">
+							<a href="#" class="btn bg-teal-400 btn-rounded btn-block btn-xs">Compose a Message</a>
+						</div>
+					</div> -->
+					<!-- /actions -->
+
+					<!-- Sub navigation -->
+					<div class="sidebar-category">
+						<div class="category-title">
+							<span>Mail</span>
+						</div>
+
+						<div class="category-content no-padding">
+							<ul class="navigation navigation-alt navigation-accordion">
+								<li><a href="#"><i class="icon-mail5"></i> Inbox <span class="badge badge-info">1</span> </a></li>
+								<li><a href="#"><i class="icon-paperplane"></i> Sent Messages</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- /sub navigation -->
+
+				</div>
+			</div>
+			<!-- /secondary sidebar -->
+
+
 			<!-- Main content -->
 			<div class="content-wrapper">
 
@@ -33,6 +184,8 @@ if(isset($_GET['id'])){
 
 						<div class="heading-elements">
 							<div class="heading-btn-group">
+								<a href="#" class="btn btn-link btn-float has-text"><i class=" icon-reply text-info"></i><span>Reply</span></a>
+								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-trash text-danger"></i> <span>Delete</span></a>
 							</div>
 						</div>
 					</div>
@@ -85,17 +238,14 @@ if(isset($_GET['id'])){
 					<!-- Media library -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
-							<?php
-								if($trackingInfo){
-									foreach($trackingInfo as $info){
-							?>
-							<h4 class="panel-title text-semibold"><?php echo $info['title']; ?></h6>
+							<h4 class="panel-title text-semibold"><?php echo'Graduation Ceremony' ?></h6>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									<li><?php echo $info['DateTime'];?></li>
+									<li><?php echo "June 10, 2015"; ?></li>
 			                	</ul>
 		                	</div>
 						</div>
+
 						<div class="panel-body">
 
 							<div class="col-lg-12">
@@ -103,18 +253,29 @@ if(isset($_GET['id'])){
 
 									<li class="media">
 										<div class="media-left">
-											<a href="#"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""><label></label></a>
+											<a href="#"><img src="assets/images/placeholder.jpg" class="img-circle" alt=""></a>
 										</div>
+
 										<div class="media-body">
-											<h6 class="media-heading text-semibold"><?php echo $info['name'];?> (<?php echo $info['email'];?>)</h6>
+											<h6 class="media-heading text-semibold">Mark Dherp Cuevas (dherp.cuevas@gmail.com)</h6>
+											to Kabs Polidan (cpolidan@gmail.com), Daniel Red (dred@gmail.com)
 
-
-											<?php if($firstRowLocation){
-												$counter = 0;
-												foreach ($firstRowLocation as $location) {
-											?>
-											to <?php echo $location['name'].' ('.$location['email'].')'; }}?>
-											<a class="btn btn-link btn-sm" data-popup="popover" data-placement="left" title="Message Details" data-html="true" data-content="from: <br><?php echo $info['name'];?> <br> to:<br> <?php echo $locations;?>">
+											<a class="btn btn-link btn-sm" data-popup="popover" data-placement="left" title="Message Details" data-html="true" 
+											data-content="from: 
+											<br/> Mark Dherp Cuevas 
+											<br/> to: 
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com)
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com),
+											<br/> Kabs Polidan (cpolidan@gmail.com),
+											<br/> Daniel Red (dred@gmail.com)">
 												<i class=" icon-chevron-down position-right"></i>
 											</a>
 										</div>
@@ -125,65 +286,31 @@ if(isset($_GET['id'])){
 							</div>
 
 							<div class="col-lg-12">
-								<?php echo $info['message']; 
-									if(isset($info['filePath']) && $info['filePath']!=NULL){
-								?>
-								<br>
-								<form action="downloadFunction.php" method="POST">
-									<input type="hidden" name="trackingId" value="<?php echo $info['idTracking'];?>">
-									<input type="hidden" name="link" value="<?php echo $info['filePath'];?>">
-									<input type="submit" name="inbox" value="Download Attached File" class="btn-link">
-								</form>
-								<?php }?>
+								<?php echo "Message Body"; ?>
 							</div>
+
 							
 						</div>
                     </div>
                     <!-- /media library -->
 
-				<form action="replyFunction.php" method="POST">
                     <!-- Summernote editor -->
 					<div class="panel panel-white">
 						<div class="panel-heading">
 							<h5 class="panel-title">Reply</h5>
 						</div>
 
-<<<<<<< HEAD
-						<div class="panel-body">
-							<div>
-								<?php if($info['needReply']){?>
-									<textarea type="text" class="summernote" id="reply" name="reply"></textarea>
-								<?php $dsbl ='';}
-								else{ $dsbl ='disabled';?>
-								<div class="text-center">
-									<input id="acknowledge" class="btn bg-info-400" type="button" onclick="disableButton()" value="ACKNOWLEDGE">
-								</div>
-								<?php }?>
-								
-							</div>
-
-<?php }}?>
-
-
-							<div class="text-right">
-									<input type="hidden" name="response" id="response" value="0">
-									<input type="hidden" name="idTracking" value="<?php echo $idTracking;?>">
-									<input type="hidden" name="id" value="<?php echo $id;?>">
-									<input type="submit" id="send" class="btn bg-teal" value="Send" name="send" <?php echo $dsbl;?> />
-=======
 
 							<div class="panel-body">
 								<textarea id="reply" name="reply" class="summernote" ></textarea> 
 								<div class="text-right">
 									<button type="button" class="btn bg-teal" value="Send" name="btnSend" onclick="submit()" />
 								</div>
->>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
 							</div>
 
 
 					</div>
 					<!-- /summernote editor -->
-				</form>
 				</div>
 				<!-- /content area -->
 
@@ -198,43 +325,6 @@ if(isset($_GET['id'])){
 
 </body>
 </html>
-<<<<<<< HEAD
-<script type="text/javascript">
-	$('#reply').summernote({
-  toolbar: [
-    // [groupName, [list of button]]
-    ['style', ['bold', 'italic', 'underline', 'clear']],
-    ['font', ['strikethrough', 'superscript', 'subscript']],
-    ['fontsize', ['fontsize']],
-    ['color', ['color']],
-    ['para', ['ul', 'ol', 'paragraph']],
-    ['height', ['height']]
-  ]
-});
-	function disableButton(){
-		var btn = $('#acknowledge');
-		var send = $('#send');
-		var response = $('#response');
-		if(btn.val() =='UNDO'){
-			btn.val('ACKNOWLEDGE');
-			btn.prop('class','btn bg-info-400');
-			send.prop('disabled',true);
-			response.val('0');
-
-		}
-		else{
-			btn.val('UNDO');
-			btn.prop('class','btn btn-danger');
-			send.prop('disabled',false);
-			response.val('1');
-		}
-	}
-	function enableButton(){
-		var send = $('#send');
-			send.prop('class','btn bg-teal');
-			send.prop('disabled',false);
-	}
-=======
 
 <script type="text/javascript">
 	function submit(){
@@ -242,5 +332,4 @@ if(isset($_GET['id'])){
 		alert(y);
 	}
 	
->>>>>>> a6c20656c9ced646a744475fe5106d0d1f05fefc
 </script>
